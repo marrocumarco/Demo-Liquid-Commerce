@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EB58A9C32ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9C22ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift */; };
+		EB58A9C52ADF333E00E33BF4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9C42ADF333E00E33BF4 /* ContentView.swift */; };
+		EB58A9C72ADF333E00E33BF4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9C62ADF333E00E33BF4 /* Item.swift */; };
+		EB58A9C92ADF333F00E33BF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB58A9C82ADF333F00E33BF4 /* Assets.xcassets */; };
+		EB58A9CD2ADF333F00E33BF4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB58A9CC2ADF333F00E33BF4 /* Preview Assets.xcassets */; };
+		EB58A9D72ADF333F00E33BF4 /* Demo_Liquid_CommerceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9D62ADF333F00E33BF4 /* Demo_Liquid_CommerceTests.swift */; };
+		EB58A9E12ADF333F00E33BF4 /* Demo_Liquid_CommerceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9E02ADF333F00E33BF4 /* Demo_Liquid_CommerceUITests.swift */; };
+		EB58A9E32ADF333F00E33BF4 /* Demo_Liquid_CommerceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9E22ADF333F00E33BF4 /* Demo_Liquid_CommerceUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EB58A9D32ADF333F00E33BF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB58A9B72ADF333E00E33BF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB58A9BE2ADF333E00E33BF4;
+			remoteInfo = "Demo Liquid Commerce";
+		};
+		EB58A9DD2ADF333F00E33BF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB58A9B72ADF333E00E33BF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB58A9BE2ADF333E00E33BF4;
+			remoteInfo = "Demo Liquid Commerce";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EB58A9BF2ADF333E00E33BF4 /* Demo Liquid Commerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo Liquid Commerce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB58A9C22ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo_Liquid_CommerceApp.swift; sourceTree = "<group>"; };
+		EB58A9C42ADF333E00E33BF4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EB58A9C62ADF333E00E33BF4 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		EB58A9C82ADF333F00E33BF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB58A9CA2ADF333F00E33BF4 /* Demo_Liquid_Commerce.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Demo_Liquid_Commerce.entitlements; sourceTree = "<group>"; };
+		EB58A9CC2ADF333F00E33BF4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EB58A9D22ADF333F00E33BF4 /* Demo Liquid CommerceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Demo Liquid CommerceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB58A9D62ADF333F00E33BF4 /* Demo_Liquid_CommerceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo_Liquid_CommerceTests.swift; sourceTree = "<group>"; };
+		EB58A9DC2ADF333F00E33BF4 /* Demo Liquid CommerceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Demo Liquid CommerceUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB58A9E02ADF333F00E33BF4 /* Demo_Liquid_CommerceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo_Liquid_CommerceUITests.swift; sourceTree = "<group>"; };
+		EB58A9E22ADF333F00E33BF4 /* Demo_Liquid_CommerceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo_Liquid_CommerceUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB58A9BC2ADF333E00E33BF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB58A9CF2ADF333F00E33BF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB58A9D92ADF333F00E33BF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EB58A9B62ADF333E00E33BF4 = {
+			isa = PBXGroup;
+			children = (
+				EB58A9C12ADF333E00E33BF4 /* Demo Liquid Commerce */,
+				EB58A9D52ADF333F00E33BF4 /* Demo Liquid CommerceTests */,
+				EB58A9DF2ADF333F00E33BF4 /* Demo Liquid CommerceUITests */,
+				EB58A9C02ADF333E00E33BF4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EB58A9C02ADF333E00E33BF4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB58A9BF2ADF333E00E33BF4 /* Demo Liquid Commerce.app */,
+				EB58A9D22ADF333F00E33BF4 /* Demo Liquid CommerceTests.xctest */,
+				EB58A9DC2ADF333F00E33BF4 /* Demo Liquid CommerceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB58A9C12ADF333E00E33BF4 /* Demo Liquid Commerce */ = {
+			isa = PBXGroup;
+			children = (
+				EB58A9C22ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift */,
+				EB58A9C42ADF333E00E33BF4 /* ContentView.swift */,
+				EB58A9C62ADF333E00E33BF4 /* Item.swift */,
+				EB58A9C82ADF333F00E33BF4 /* Assets.xcassets */,
+				EB58A9CA2ADF333F00E33BF4 /* Demo_Liquid_Commerce.entitlements */,
+				EB58A9CB2ADF333F00E33BF4 /* Preview Content */,
+			);
+			path = "Demo Liquid Commerce";
+			sourceTree = "<group>";
+		};
+		EB58A9CB2ADF333F00E33BF4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EB58A9CC2ADF333F00E33BF4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EB58A9D52ADF333F00E33BF4 /* Demo Liquid CommerceTests */ = {
+			isa = PBXGroup;
+			children = (
+				EB58A9D62ADF333F00E33BF4 /* Demo_Liquid_CommerceTests.swift */,
+			);
+			path = "Demo Liquid CommerceTests";
+			sourceTree = "<group>";
+		};
+		EB58A9DF2ADF333F00E33BF4 /* Demo Liquid CommerceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EB58A9E02ADF333F00E33BF4 /* Demo_Liquid_CommerceUITests.swift */,
+				EB58A9E22ADF333F00E33BF4 /* Demo_Liquid_CommerceUITestsLaunchTests.swift */,
+			);
+			path = "Demo Liquid CommerceUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB58A9BE2ADF333E00E33BF4 /* Demo Liquid Commerce */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB58A9E62ADF333F00E33BF4 /* Build configuration list for PBXNativeTarget "Demo Liquid Commerce" */;
+			buildPhases = (
+				EB58A9BB2ADF333E00E33BF4 /* Sources */,
+				EB58A9BC2ADF333E00E33BF4 /* Frameworks */,
+				EB58A9BD2ADF333E00E33BF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Demo Liquid Commerce";
+			productName = "Demo Liquid Commerce";
+			productReference = EB58A9BF2ADF333E00E33BF4 /* Demo Liquid Commerce.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EB58A9D12ADF333F00E33BF4 /* Demo Liquid CommerceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB58A9E92ADF333F00E33BF4 /* Build configuration list for PBXNativeTarget "Demo Liquid CommerceTests" */;
+			buildPhases = (
+				EB58A9CE2ADF333F00E33BF4 /* Sources */,
+				EB58A9CF2ADF333F00E33BF4 /* Frameworks */,
+				EB58A9D02ADF333F00E33BF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB58A9D42ADF333F00E33BF4 /* PBXTargetDependency */,
+			);
+			name = "Demo Liquid CommerceTests";
+			productName = "Demo Liquid CommerceTests";
+			productReference = EB58A9D22ADF333F00E33BF4 /* Demo Liquid CommerceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EB58A9DB2ADF333F00E33BF4 /* Demo Liquid CommerceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB58A9EC2ADF333F00E33BF4 /* Build configuration list for PBXNativeTarget "Demo Liquid CommerceUITests" */;
+			buildPhases = (
+				EB58A9D82ADF333F00E33BF4 /* Sources */,
+				EB58A9D92ADF333F00E33BF4 /* Frameworks */,
+				EB58A9DA2ADF333F00E33BF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB58A9DE2ADF333F00E33BF4 /* PBXTargetDependency */,
+			);
+			name = "Demo Liquid CommerceUITests";
+			productName = "Demo Liquid CommerceUITests";
+			productReference = EB58A9DC2ADF333F00E33BF4 /* Demo Liquid CommerceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB58A9B72ADF333E00E33BF4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					EB58A9BE2ADF333E00E33BF4 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					EB58A9D12ADF333F00E33BF4 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = EB58A9BE2ADF333E00E33BF4;
+					};
+					EB58A9DB2ADF333F00E33BF4 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = EB58A9BE2ADF333E00E33BF4;
+					};
+				};
+			};
+			buildConfigurationList = EB58A9BA2ADF333E00E33BF4 /* Build configuration list for PBXProject "Demo Liquid Commerce" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EB58A9B62ADF333E00E33BF4;
+			productRefGroup = EB58A9C02ADF333E00E33BF4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB58A9BE2ADF333E00E33BF4 /* Demo Liquid Commerce */,
+				EB58A9D12ADF333F00E33BF4 /* Demo Liquid CommerceTests */,
+				EB58A9DB2ADF333F00E33BF4 /* Demo Liquid CommerceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EB58A9BD2ADF333E00E33BF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB58A9CD2ADF333F00E33BF4 /* Preview Assets.xcassets in Resources */,
+				EB58A9C92ADF333F00E33BF4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB58A9D02ADF333F00E33BF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB58A9DA2ADF333F00E33BF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB58A9BB2ADF333E00E33BF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB58A9C52ADF333E00E33BF4 /* ContentView.swift in Sources */,
+				EB58A9C72ADF333E00E33BF4 /* Item.swift in Sources */,
+				EB58A9C32ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB58A9CE2ADF333F00E33BF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB58A9D72ADF333F00E33BF4 /* Demo_Liquid_CommerceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB58A9D82ADF333F00E33BF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB58A9E32ADF333F00E33BF4 /* Demo_Liquid_CommerceUITestsLaunchTests.swift in Sources */,
+				EB58A9E12ADF333F00E33BF4 /* Demo_Liquid_CommerceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EB58A9D42ADF333F00E33BF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB58A9BE2ADF333E00E33BF4 /* Demo Liquid Commerce */;
+			targetProxy = EB58A9D32ADF333F00E33BF4 /* PBXContainerItemProxy */;
+		};
+		EB58A9DE2ADF333F00E33BF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB58A9BE2ADF333E00E33BF4 /* Demo Liquid Commerce */;
+			targetProxy = EB58A9DD2ADF333F00E33BF4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EB58A9E42ADF333F00E33BF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EB58A9E52ADF333F00E33BF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		EB58A9E72ADF333F00E33BF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Demo Liquid Commerce/Demo_Liquid_Commerce.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Demo Liquid Commerce/Preview Content\"";
+				DEVELOPMENT_TEAM = 2RQMUPJ86Z;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.marrocumarcozaggi.Demo-Liquid-Commerce";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EB58A9E82ADF333F00E33BF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Demo Liquid Commerce/Demo_Liquid_Commerce.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Demo Liquid Commerce/Preview Content\"";
+				DEVELOPMENT_TEAM = 2RQMUPJ86Z;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.marrocumarcozaggi.Demo-Liquid-Commerce";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EB58A9EA2ADF333F00E33BF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2RQMUPJ86Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.marrocumarcozaggi.Demo-Liquid-CommerceTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo Liquid Commerce.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Demo Liquid Commerce";
+			};
+			name = Debug;
+		};
+		EB58A9EB2ADF333F00E33BF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2RQMUPJ86Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.marrocumarcozaggi.Demo-Liquid-CommerceTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo Liquid Commerce.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Demo Liquid Commerce";
+			};
+			name = Release;
+		};
+		EB58A9ED2ADF333F00E33BF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2RQMUPJ86Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.marrocumarcozaggi.Demo-Liquid-CommerceUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Demo Liquid Commerce";
+			};
+			name = Debug;
+		};
+		EB58A9EE2ADF333F00E33BF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2RQMUPJ86Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.marrocumarcozaggi.Demo-Liquid-CommerceUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Demo Liquid Commerce";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB58A9BA2ADF333E00E33BF4 /* Build configuration list for PBXProject "Demo Liquid Commerce" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB58A9E42ADF333F00E33BF4 /* Debug */,
+				EB58A9E52ADF333F00E33BF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB58A9E62ADF333F00E33BF4 /* Build configuration list for PBXNativeTarget "Demo Liquid Commerce" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB58A9E72ADF333F00E33BF4 /* Debug */,
+				EB58A9E82ADF333F00E33BF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB58A9E92ADF333F00E33BF4 /* Build configuration list for PBXNativeTarget "Demo Liquid CommerceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB58A9EA2ADF333F00E33BF4 /* Debug */,
+				EB58A9EB2ADF333F00E33BF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB58A9EC2ADF333F00E33BF4 /* Build configuration list for PBXNativeTarget "Demo Liquid CommerceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB58A9ED2ADF333F00E33BF4 /* Debug */,
+				EB58A9EE2ADF333F00E33BF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EB58A9B72ADF333E00E33BF4 /* Project object */;
+}
