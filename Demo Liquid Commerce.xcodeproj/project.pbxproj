@@ -49,6 +49,8 @@
 		EB58A9E02ADF333F00E33BF4 /* Demo_Liquid_CommerceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo_Liquid_CommerceUITests.swift; sourceTree = "<group>"; };
 		EB58A9E22ADF333F00E33BF4 /* Demo_Liquid_CommerceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo_Liquid_CommerceUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EB58A9F02ADF339A00E33BF4 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		EB58A9F22ADF3C3900E33BF4 /* Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configuration.xcconfig; sourceTree = "<group>"; };
+		EB58A9F32ADF3D8400E33BF4 /* Demo-Liquid-Commerce-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Demo-Liquid-Commerce-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +101,14 @@
 		EB58A9C12ADF333E00E33BF4 /* Demo Liquid Commerce */ = {
 			isa = PBXGroup;
 			children = (
+				EB58A9F32ADF3D8400E33BF4 /* Demo-Liquid-Commerce-Info.plist */,
 				EB58A9EF2ADF338300E33BF4 /* Model */,
 				EB58A9C22ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift */,
 				EB58A9C42ADF333E00E33BF4 /* ContentView.swift */,
 				EB58A9C62ADF333E00E33BF4 /* Item.swift */,
 				EB58A9C82ADF333F00E33BF4 /* Assets.xcassets */,
 				EB58A9CA2ADF333F00E33BF4 /* Demo_Liquid_Commerce.entitlements */,
+				EB58A9F22ADF3C3900E33BF4 /* Configuration.xcconfig */,
 				EB58A9CB2ADF333F00E33BF4 /* Preview Content */,
 			);
 			path = "Demo Liquid Commerce";
@@ -315,6 +319,7 @@
 /* Begin XCBuildConfiguration section */
 		EB58A9E42ADF333F00E33BF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB58A9F22ADF3C3900E33BF4 /* Configuration.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -376,6 +381,7 @@
 		};
 		EB58A9E52ADF333F00E33BF4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB58A9F22ADF3C3900E33BF4 /* Configuration.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -440,6 +446,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Demo-Liquid-Commerce-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -478,6 +485,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Demo-Liquid-Commerce-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
