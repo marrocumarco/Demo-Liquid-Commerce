@@ -16,6 +16,8 @@
 		EB58A9E12ADF333F00E33BF4 /* Demo_Liquid_CommerceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9E02ADF333F00E33BF4 /* Demo_Liquid_CommerceUITests.swift */; };
 		EB58A9E32ADF333F00E33BF4 /* Demo_Liquid_CommerceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9E22ADF333F00E33BF4 /* Demo_Liquid_CommerceUITestsLaunchTests.swift */; };
 		EB58A9F12ADF339A00E33BF4 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9F02ADF339A00E33BF4 /* Product.swift */; };
+		EB58A9F52ADF3ECB00E33BF4 /* ProductImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9F42ADF3ECB00E33BF4 /* ProductImage.swift */; };
+		EB58A9F72ADF3F9700E33BF4 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9F62ADF3F9700E33BF4 /* Client.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		EB58A9F02ADF339A00E33BF4 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		EB58A9F22ADF3C3900E33BF4 /* Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configuration.xcconfig; sourceTree = "<group>"; };
 		EB58A9F32ADF3D8400E33BF4 /* Demo-Liquid-Commerce-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Demo-Liquid-Commerce-Info.plist"; sourceTree = SOURCE_ROOT; };
+		EB58A9F42ADF3ECB00E33BF4 /* ProductImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImage.swift; sourceTree = "<group>"; };
+		EB58A9F62ADF3F9700E33BF4 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				EB58A9F02ADF339A00E33BF4 /* Product.swift */,
+				EB58A9F62ADF3F9700E33BF4 /* Client.swift */,
+				EB58A9F42ADF3ECB00E33BF4 /* ProductImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,6 +285,8 @@
 			files = (
 				EB58A9C52ADF333E00E33BF4 /* ContentView.swift in Sources */,
 				EB58A9F12ADF339A00E33BF4 /* Product.swift in Sources */,
+				EB58A9F72ADF3F9700E33BF4 /* Client.swift in Sources */,
+				EB58A9F52ADF3ECB00E33BF4 /* ProductImage.swift in Sources */,
 				EB58A9C72ADF333E00E33BF4 /* Item.swift in Sources */,
 				EB58A9C32ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift in Sources */,
 			);

@@ -12,6 +12,7 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
 
+    let client = UnsecureTestClient()
     var body: some View {
         NavigationSplitView {
             List {
@@ -41,7 +42,7 @@ struct ContentView: View {
             }
         } detail: {
             Text("Select an item")
-        }
+        }.onAppear{ client.fetchProducts() }
     }
 
     private func addItem() {
