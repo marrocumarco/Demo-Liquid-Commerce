@@ -55,7 +55,7 @@ struct Client: StoreClient
 
 struct UnsecureTestClient: StoreClient
 {
-    func generateHMACSHA1Signature(consumerSecret: String, url: String, parameters: [String: Any]) -> String {
+    func generateHMACSHA1Signature(consumerSecret: String, url: String, parameters: [String: Any]) -> String{
         let method = "GET" // or "POST" based on your request method
         let sortedParams = parameters.sorted { $0.0 < $1.0 }
         
@@ -65,34 +65,44 @@ struct UnsecureTestClient: StoreClient
         }
         parameterString = String(parameterString.dropLast()) // Remove the trailing "&"
         
-        let baseString = "\(method)&\(url.urlEncoded())&\(parameterString.urlEncoded())"
+        let baseString = "\(method)&\(url.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")&\(parameterString.urlEncoded())"
         let key = "\(consumerSecret)&" // OAuth1 uses a & symbol
         
         var digest = [UInt8](repeating: 0, count: Int(CC_SHA1_DIGEST_LENGTH))
         CCHmac(CCHmacAlgorithm(kCCHmacAlgSHA1), key, key.count, baseString, baseString.count, &digest)
         
-        let signatureData = Data(digest)
+        let signatureData = Data(bytes: digest, count: Int(CC_SHA1_DIGEST_LENGTH))
+        
+//        let rt = signatureData.map { String(format: "%02hhx", $0) }.joined()
         return signatureData.base64EncodedString()
     }
 
    
-    func fetchProducts() {
+    func fetchProducts()
+    {
         let baseUrl = "http://localhost/wordpress/wp-json/wc/v3/products"
         let consumerKey = Bundle.main.infoDictionary?["API_KEY"] as? String ?? ""
         let consumerSecret = Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""
         var parameters: [String: Any] = [:] // Add any additional parameters if needed
-        
+        var nonce = ""
+        for _ in 0..<32
+        {
+            nonce += ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".randomElement()!]
+        }
+        let timestamp = "\(Int(Date.now.timeIntervalSince1970))"
+        parameters["oauth_consumer_key"] = "\(consumerKey)"
+        parameters["oauth_timestamp"] = timestamp
+        parameters["oauth_nonce"] = "\(nonce)"
+        parameters["oauth_signature_method"] = "HMAC-SHA1"
         // Generate HMAC-SHA1 Signature
         let signature = generateHMACSHA1Signature(consumerSecret: consumerSecret, url: baseUrl, parameters: parameters)
-        
         // Add the signature to the request header
         let headers: [String: String] = [
-            "Authorization": "OAuth oauth_consumer_key=\"\(consumerKey)\", oauth_signature_method=\"HMAC-SHA1\", oauth_signature=\"\(signature)\", oauth_timestamp=\"(1697662652)\",oauth_nonce=\"NzyDJgtvnnM\",oauth_version=\"1.0\""
+            "Authorization": "OAuth oauth_consumer_key=\"\(consumerKey)\", oauth_signature_method=\"HMAC-SHA1\", oauth_signature=\"\(signature)\", oauth_timestamp=\"\(timestamp)\",oauth_nonce=\"\(nonce)\""
         ]
         
         var request = URLRequest(url: URL(string: baseUrl)!)
         request.allHTTPHeaderFields = headers
-        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error
             {
@@ -114,11 +124,15 @@ struct UnsecureTestClient: StoreClient
         
         task.resume()
     }
-    
 }
 
 extension String {
     func urlEncoded() -> String {
-        return self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        var characterSet = CharacterSet.alphanumerics
+        characterSet.insert("_")
+        characterSet.insert("-")
+        return self.addingPercentEncoding(withAllowedCharacters: characterSet) ?? ""
     }
+    
+    
 }
