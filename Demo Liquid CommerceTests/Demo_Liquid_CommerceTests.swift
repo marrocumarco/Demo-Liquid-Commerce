@@ -18,7 +18,7 @@ final class Demo_Liquid_CommerceTests: XCTestCase {
     }
 
     func testFetchProducts_success() async throws {
-       let client = UnsecureTestClient()
+       let client = OAuthClient()
         // Create an expectation for an asynchronous task.
         let products = try await client.fetchProducts()
         
