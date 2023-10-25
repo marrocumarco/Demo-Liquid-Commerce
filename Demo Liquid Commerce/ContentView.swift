@@ -42,7 +42,7 @@ struct ContentView: View {
             }
         } detail: {
             Text("Select an item")
-        }.onAppear{ client.fetchProducts() }
+        }.onAppear{ Task{ try await client.fetchProducts() } }
     }
 
     private func addItem() {

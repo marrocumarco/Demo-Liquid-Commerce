@@ -10,7 +10,7 @@ import CommonCrypto
 
 protocol StoreClient
 {
-    func fetchProducts()
+    func fetchProducts() async throws -> [Product]
 }
 
 struct Client: StoreClient
@@ -18,7 +18,7 @@ struct Client: StoreClient
     var baseURL = URL(string: "http://localhost/wordpress/wp-json/wc/v3/")
     
     
-    public func fetchProducts()
+    public func fetchProducts() async throws -> [Product]
     {
         if let url = baseURL?.appendingPathComponent("products", conformingTo: .url)
         {
@@ -27,29 +27,11 @@ struct Client: StoreClient
             let credentials = Data("\(Bundle.main.infoDictionary?["API_KEY"] as? String ?? ""):\(Bundle.main.infoDictionary?["API_SECRET"] as? String ?? "")".utf8).base64EncodedString()
             request.setValue(credentials, forHTTPHeaderField: "Authorization")
 
-            let task = URLSession.shared.dataTask(with: request)
-            {
-                data, response, error in
-                
-                if let error
-                {
-                    fatalError("TODO handle error")
-                }
-                
-                guard let data else{ fatalError("TODO handle no data")}
-                
-                do
-                {
-                    let products = try JSONDecoder().decode([Product].self, from: data)
-                    print(products)
-                }
-                catch
-                {
-                    fatalError("TODO handle parse failure")
-                }
-            }
-            task.resume()
+            let (data, response) = try await URLSession.shared.data(for: request)
+                   
+            return try JSONDecoder().decode([Product].self, from: data)
         }
+        return []
     }
 }
 
@@ -78,7 +60,7 @@ struct UnsecureTestClient: StoreClient
     }
 
    
-    func fetchProducts()
+    func fetchProducts() async throws -> [Product]
     {
         let baseUrl = "http://localhost/wordpress/wp-json/wc/v3/products"
         let consumerKey = Bundle.main.infoDictionary?["API_KEY"] as? String ?? ""
@@ -103,26 +85,12 @@ struct UnsecureTestClient: StoreClient
         
         var request = URLRequest(url: URL(string: baseUrl)!)
         request.allHTTPHeaderFields = headers
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error
-            {
-                fatalError("TODO handle error")
-            }
-            
-            guard let data else{ fatalError("TODO handle no data")}
-            
-            do
-            {
-                let products = try JSONDecoder().decode([Product].self, from: data)
-                print(products)
-            }
-            catch
-            {
-                fatalError("TODO handle parse failure")
-            }
-        }
-        
-        task.resume()
+        let (data, response) = try await URLSession.shared.data(for: request)
+               
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return try decoder.decode([Product].self, from: data)
+
     }
 }
 
