@@ -9,7 +9,8 @@ import Foundation
 
 class ProductsListViewModel: ObservableObject
 {
-    internal init(client: StoreClient) {
+    internal init(client: StoreClient) 
+    {
         self.client = client
     }
     

@@ -21,7 +21,7 @@ final class Demo_Liquid_CommerceTests: XCTestCase {
        let client = OAuthClient()
         // Create an expectation for an asynchronous task.
         let products = try await client.fetchProducts()
-        
+        XCTAssert(!products.isEmpty)
         
     }
 

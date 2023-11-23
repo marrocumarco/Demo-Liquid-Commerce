@@ -169,11 +169,11 @@
 		EB58A9EF2ADF338300E33BF4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EB58A9F02ADF339A00E33BF4 /* Product.swift */,
-				EB167BAC2AE9910A003DDB57 /* Protocols */,
 				EB58A9F62ADF3F9700E33BF4 /* Client.swift */,
 				EB167BAF2AE9921A003DDB57 /* OAuthClient.swift */,
+				EB58A9F02ADF339A00E33BF4 /* Product.swift */,
 				EB58A9F42ADF3ECB00E33BF4 /* ProductImage.swift */,
+				EB167BAC2AE9910A003DDB57 /* Protocols */,
 			);
 			path = Model;
 			sourceTree = "<group>";

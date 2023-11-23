@@ -60,6 +60,11 @@ struct OAuthClient: StoreClient
         request.allHTTPHeaderFields = headers
         let (data, response) = try await URLSession.shared.data(for: request)
                
+#if DEBUG
+        try JSONSerialization.jsonObject(with: data)
+        print(try JSONSerialization.jsonObject(with: data))
+#endif
+        
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         return try decoder.decode([Product].self, from: data)
