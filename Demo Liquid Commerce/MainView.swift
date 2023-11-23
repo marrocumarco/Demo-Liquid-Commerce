@@ -58,7 +58,8 @@ struct CardView: View {
             { image in image.resizable() } placeholder: { Color.red } 
                 .frame(width: 128, height: 128)
             Text(product.name)
-            Text("Price: \(String(format: "%1$.2f", product.price)) \(Locale.current.currencySymbol!)")
+            Text("Price: \(String(format: "%1$.2f", product.price)) \(Locale.current.currencySymbol!)").strikethrough()
+            Text("Sale price: \(String(format: "%1$.2f", product.salePrice)) \(Locale.current.currencySymbol!)")
         }).clipShape(RoundedRectangle(cornerRadius: 25)).padding()
     }
 }

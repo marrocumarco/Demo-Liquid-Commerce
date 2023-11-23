@@ -9,6 +9,10 @@ import Foundation
 
 struct Client: StoreClient
 {
+    func fetchCategories() async throws -> [Category] {
+        []
+    }
+    
     var baseURL = URL(string: "http://localhost/wordpress/wp-json/wc/v3/")
     
     

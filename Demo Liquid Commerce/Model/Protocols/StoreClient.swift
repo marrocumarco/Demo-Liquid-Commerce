@@ -10,4 +10,5 @@ import Foundation
 protocol StoreClient
 {
     func fetchProducts() async throws -> [Product]
+    func fetchCategories() async throws -> [Category]
 }

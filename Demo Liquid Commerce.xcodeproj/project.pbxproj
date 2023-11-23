@@ -21,6 +21,7 @@
 		EB58A9F12ADF339A00E33BF4 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9F02ADF339A00E33BF4 /* Product.swift */; };
 		EB58A9F52ADF3ECB00E33BF4 /* ProductImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9F42ADF3ECB00E33BF4 /* ProductImage.swift */; };
 		EB58A9F72ADF3F9700E33BF4 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9F62ADF3F9700E33BF4 /* Client.swift */; };
+		EBA86DD92B100F16009B1D5C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA86DD82B100F16009B1D5C /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		EB58A9F32ADF3D8400E33BF4 /* Demo-Liquid-Commerce-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Demo-Liquid-Commerce-Info.plist"; sourceTree = SOURCE_ROOT; };
 		EB58A9F42ADF3ECB00E33BF4 /* ProductImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImage.swift; sourceTree = "<group>"; };
 		EB58A9F62ADF3F9700E33BF4 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		EBA86DD82B100F16009B1D5C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				EB58A9F62ADF3F9700E33BF4 /* Client.swift */,
 				EB167BAF2AE9921A003DDB57 /* OAuthClient.swift */,
 				EB58A9F02ADF339A00E33BF4 /* Product.swift */,
+				EBA86DD82B100F16009B1D5C /* Category.swift */,
 				EB58A9F42ADF3ECB00E33BF4 /* ProductImage.swift */,
 				EB167BAC2AE9910A003DDB57 /* Protocols */,
 			);
@@ -309,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB58A9C52ADF333E00E33BF4 /* MainView.swift in Sources */,
+				EBA86DD92B100F16009B1D5C /* Category.swift in Sources */,
 				EB58A9F12ADF339A00E33BF4 /* Product.swift in Sources */,
 				EB167BB32AE99778003DDB57 /* MainViewViewModel.swift in Sources */,
 				EB58A9F72ADF3F9700E33BF4 /* Client.swift in Sources */,

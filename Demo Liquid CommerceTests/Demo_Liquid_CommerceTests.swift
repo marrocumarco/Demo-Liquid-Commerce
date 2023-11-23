@@ -24,6 +24,14 @@ final class Demo_Liquid_CommerceTests: XCTestCase {
         XCTAssert(!products.isEmpty)
         
     }
+    
+    func testFetchCategories_success() async throws {
+       let client = OAuthClient()
+        // Create an expectation for an asynchronous task.
+        let categories = try await client.fetchCategories()
+        XCTAssert(!categories.isEmpty)
+        
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

@@ -10,6 +10,31 @@ import CommonCrypto
 
 struct OAuthClient: StoreClient
 {
+    let baseUrl = "http://localhost/wordpress/wp-json/wc/v3/"
+    
+    func getHeaders(_ path: String) -> [String : String]
+    {
+        let consumerKey = Bundle.main.infoDictionary?["API_KEY"] as? String ?? ""
+        let consumerSecret = Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""
+        var parameters: [String: Any] = [:] // Add any additional parameters if needed
+        var nonce = ""
+        for _ in 0..<32
+        {
+            nonce += ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".randomElement()!]
+        }
+        let timestamp = "\(Int(Date.now.timeIntervalSince1970))"
+        parameters["oauth_consumer_key"] = "\(consumerKey)"
+        parameters["oauth_timestamp"] = timestamp
+        parameters["oauth_nonce"] = "\(nonce)"
+        parameters["oauth_signature_method"] = "HMAC-SHA1"
+        // Generate HMAC-SHA1 Signature
+        let signature = generateHMACSHA1Signature(consumerSecret: consumerSecret, url: path, parameters: parameters)
+        // Add the signature to the request header
+        return [
+            "Authorization": "OAuth oauth_consumer_key=\"\(consumerKey)\", oauth_signature_method=\"HMAC-SHA1\", oauth_signature=\"\(signature)\", oauth_timestamp=\"\(timestamp)\",oauth_nonce=\"\(nonce)\""
+        ]
+    }
+    
     func generateHMACSHA1Signature(consumerSecret: String, url: String, parameters: [String: Any]) -> String{
         let method = "GET" // or "POST" based on your request method
         let sortedParams = parameters.sorted { $0.0 < $1.0 }
@@ -35,40 +60,27 @@ struct OAuthClient: StoreClient
    
     func fetchProducts() async throws -> [Product]
     {
-        let baseUrl = "http://localhost/wordpress/wp-json/wc/v3/products"
-        let consumerKey = Bundle.main.infoDictionary?["API_KEY"] as? String ?? ""
-        let consumerSecret = Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""
-        var parameters: [String: Any] = [:] // Add any additional parameters if needed
-        var nonce = ""
-        for _ in 0..<32
-        {
-            nonce += ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".randomElement()!]
-        }
-        let timestamp = "\(Int(Date.now.timeIntervalSince1970))"
-        parameters["oauth_consumer_key"] = "\(consumerKey)"
-        parameters["oauth_timestamp"] = timestamp
-        parameters["oauth_nonce"] = "\(nonce)"
-        parameters["oauth_signature_method"] = "HMAC-SHA1"
-        // Generate HMAC-SHA1 Signature
-        let signature = generateHMACSHA1Signature(consumerSecret: consumerSecret, url: baseUrl, parameters: parameters)
-        // Add the signature to the request header
-        let headers: [String: String] = [
-            "Authorization": "OAuth oauth_consumer_key=\"\(consumerKey)\", oauth_signature_method=\"HMAC-SHA1\", oauth_signature=\"\(signature)\", oauth_timestamp=\"\(timestamp)\",oauth_nonce=\"\(nonce)\""
-        ]
-        
-        var request = URLRequest(url: URL(string: baseUrl)!)
-        request.allHTTPHeaderFields = headers
+        return try await executeCall("products")
+    }
+    
+    func fetchCategories() async throws -> [Category] {
+        return try await executeCall("products/categories")
+    }
+    
+    func executeCall<T: Decodable>(_ pathComponent: String) async throws -> [T]
+    {
+        let path = baseUrl.appending(pathComponent)
+        var request = URLRequest(url: URL(string: path)!)
+        request.allHTTPHeaderFields = getHeaders(path)
         let (data, response) = try await URLSession.shared.data(for: request)
-               
+               //TODO check response
 #if DEBUG
-        try JSONSerialization.jsonObject(with: data)
         print(try JSONSerialization.jsonObject(with: data))
 #endif
         
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        return try decoder.decode([Product].self, from: data)
-
+        return try decoder.decode([T].self, from: data)
     }
 }
 
