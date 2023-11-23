@@ -17,6 +17,7 @@ struct Product: Codable, Identifiable
     let salePrice: Double
     let onSale: Bool
     let images: [ProductImage]
+    let stockStatus: StockStatus
     
     enum CodingKeys: CodingKey {
         case id
@@ -27,6 +28,7 @@ struct Product: Codable, Identifiable
         case salePrice
         case onSale
         case images
+        case stockStatus
     }
     
     init(from decoder: Decoder) throws {
@@ -40,7 +42,7 @@ struct Product: Codable, Identifiable
         self.salePrice = Double(try container.decode(String.self, forKey: Product.CodingKeys.salePrice)) ?? 0
         self.onSale = try container.decode(Bool.self, forKey: Product.CodingKeys.onSale)
         self.images = try container.decode([ProductImage].self, forKey: Product.CodingKeys.images)
-        
+        self.stockStatus =  try container.decode(StockStatus.self, forKey: Product.CodingKeys.stockStatus)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -55,4 +57,11 @@ struct Product: Codable, Identifiable
         try container.encode(self.onSale, forKey: Product.CodingKeys.onSale)
         try container.encode(self.images, forKey: Product.CodingKeys.images)
     }
+}
+
+enum StockStatus: String, Decodable
+{
+    case inStock = "instock"
+    case outOfStock = "outofstock"
+    case oonbackOrder = "onbackorder"
 }
