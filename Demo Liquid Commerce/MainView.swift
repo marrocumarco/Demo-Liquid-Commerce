@@ -14,7 +14,7 @@ struct MainView: View {
     var body: some View {
 //        ProductsListView(productsListViewModel: ProductsListViewModel(client: OAuthClient()))
         TabView {
-            ProductsListView(productsListViewModel: ProductsListViewModel(client: OAuthClient()))
+            ProductsListView(productsListViewModel: ProductsListViewModel(client: Client()))
                 .tabItem {
                     Label("Menu", systemImage: "wineglass")
                 }
@@ -55,7 +55,7 @@ struct CardView: View {
     var body: some View {
         LazyVStack(content: {
             AsyncImage(url: URL(string: product.images.first?.url ?? ""))
-            { image in image.resizable() } placeholder: { Color.red } 
+            { image in image.resizable() } placeholder: { Image("image_placeholder").resizable() }
                 .frame(width: 128, height: 128)
             Text(product.name)
             Text("Price: \(String(format: "%1$.2f", product.price)) \(Locale.current.currencySymbol!)").strikethrough()

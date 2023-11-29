@@ -18,6 +18,7 @@ class ProductsListViewModel: ObservableObject
     
     @Published var products = [Product]()
     
+    @MainActor
     func fetchProducts() async throws
     {
         products = try await client.fetchProducts()

@@ -18,7 +18,7 @@ final class Demo_Liquid_CommerceTests: XCTestCase {
     }
 
     func testFetchProducts_success() async throws {
-       let client = OAuthClient()
+       let client = Client()
         // Create an expectation for an asynchronous task.
         let products = try await client.fetchProducts()
         XCTAssert(!products.isEmpty)
@@ -26,7 +26,7 @@ final class Demo_Liquid_CommerceTests: XCTestCase {
     }
     
     func testFetchCategories_success() async throws {
-       let client = OAuthClient()
+       let client = Client()
         // Create an expectation for an asynchronous task.
         let categories = try await client.fetchCategories()
         XCTAssert(!categories.isEmpty)

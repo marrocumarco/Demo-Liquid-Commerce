@@ -13,7 +13,7 @@ struct Client: StoreClient
         []
     }
     
-    var baseURL = URL(string: "http://localhost/wordpress/wp-json/wc/v3/")
+    var baseURL = URL(string: "https://www.demoliquid.it/wp-json/wc/v3/")
     
     
     public func fetchProducts() async throws -> [Product]
@@ -23,11 +23,13 @@ struct Client: StoreClient
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             let credentials = Data("\(Bundle.main.infoDictionary?["API_KEY"] as? String ?? ""):\(Bundle.main.infoDictionary?["API_SECRET"] as? String ?? "")".utf8).base64EncodedString()
-            request.setValue(credentials, forHTTPHeaderField: "Authorization")
+            request.setValue("Basic \(credentials)", forHTTPHeaderField: "Authorization")
 
             let (data, response) = try await URLSession.shared.data(for: request)
                    
-            return try JSONDecoder().decode([Product].self, from: data)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            return try decoder.decode([Product].self, from: data)
         }
         return []
     }
