@@ -32,12 +32,11 @@ final class Demo_Liquid_CommerceTests: XCTestCase {
         XCTAssert(!categories.isEmpty)
         
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testCachedAsyncImage_success() async throws
+    {
+        let imagePath = try await CachedAsyncImage(url: URL(string: "https:/demoliquid.it/wp-content/uploads/2023/11/laguna-cannonau-demoliquid-commerce-tenuta-monte-edoardo.png")!).imagePath
+        
+        XCTAssert(FileManager.default.fileExists(atPath: imagePath))
     }
-
 }

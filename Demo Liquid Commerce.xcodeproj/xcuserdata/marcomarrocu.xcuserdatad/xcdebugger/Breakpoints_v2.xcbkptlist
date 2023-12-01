@@ -7,77 +7,62 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E0310D31-FCBC-4EDA-A3EB-3C9520423606"
+            uuid = "D114A5A4-E423-4AD9-9289-E5150CEA5A18"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Demo Liquid Commerce/Model/Client.swift"
+            filePath = "Demo Liquid Commerce/MainView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "fetchProducts()"
-            landmarkType = "7">
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "CachedAsyncImage"
+            landmarkType = "14">
             <Locations>
                <Location
-                  uuid = "E0310D31-FCBC-4EDA-A3EB-3C9520423606 - 8b5bd7a0466d59dc"
+                  uuid = "D114A5A4-E423-4AD9-9289-E5150CEA5A18 - 2e6d7cf16f35fed9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.Client.fetchProducts() async throws -&gt; Swift.Array&lt;Demo_Liquid_Commerce.Product&gt;"
+                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.CachedAsyncImage.imagePath.getter : Swift.String"
                   moduleName = "Demo Liquid Commerce"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/Model/Client.swift"
+                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/MainView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "2768">
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "492">
                </Location>
                <Location
-                  uuid = "E0310D31-FCBC-4EDA-A3EB-3C9520423606 - 6f4ebea96c2978d5"
+                  uuid = "D114A5A4-E423-4AD9-9289-E5150CEA5A18 - 2e6d7cf16f35ff36"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for Demo_Liquid_Commerce.Client.fetchProducts() async throws -&gt; Swift.Array&lt;Demo_Liquid_Commerce.Product&gt;"
+                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.CachedAsyncImage.imagePath.getter : Swift.String"
                   moduleName = "Demo Liquid Commerce"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/Model/Client.swift"
+                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/MainView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "40">
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "136">
                </Location>
                <Location
-                  uuid = "E0310D31-FCBC-4EDA-A3EB-3C9520423606 - 32953f0809c455a2"
+                  uuid = "D114A5A4-E423-4AD9-9289-E5150CEA5A18 - e65fc44a9eccfb34"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for Demo_Liquid_Commerce.Client.fetchProducts() async throws -&gt; Swift.Array&lt;Demo_Liquid_Commerce.Product&gt;"
+                  symbolName = "(3) suspend resume partial function for Demo_Liquid_Commerce.CachedAsyncImage.imagePath.getter : Swift.String"
                   moduleName = "Demo Liquid Commerce"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/Model/Client.swift"
+                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/MainView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "72">
-               </Location>
-               <Location
-                  uuid = "E0310D31-FCBC-4EDA-A3EB-3C9520423606 - 9eeff0bc10ebd3a1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for Demo_Liquid_Commerce.Client.fetchProducts() async throws -&gt; Swift.Array&lt;Demo_Liquid_Commerce.Product&gt;"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/Model/Client.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "40">
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "292">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -85,154 +70,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A51BC66C-144D-4B4D-9C0D-92CE704DB437"
+            uuid = "9503BB2B-57DE-41BB-BCE1-583135C03E73"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Demo Liquid Commerce/ViewModels/ProductsListViewModel.swift"
+            filePath = "Demo Liquid Commerce/MainView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "ProductsListViewModel"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "A51BC66C-144D-4B4D-9C0D-92CE704DB437 - faf226aec8f3cf80"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "property wrapper backing initializer of Demo_Liquid_Commerce.ProductsListViewModel.products : Swift.Array&lt;Demo_Liquid_Commerce.Product&gt;"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/ViewModels/ProductsListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  uuid = "A51BC66C-144D-4B4D-9C0D-92CE704DB437 - 101293431e33e13d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Demo_Liquid_Commerce.ProductsListViewModel.products.getter : Swift.Array&lt;Demo_Liquid_Commerce.Product&gt;"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/ViewModels/ProductsListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  uuid = "A51BC66C-144D-4B4D-9C0D-92CE704DB437 - 9ece4bc37023a844"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Demo_Liquid_Commerce.ProductsListViewModel.products.setter : Swift.Array&lt;Demo_Liquid_Commerce.Product&gt;"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/ViewModels/ProductsListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "0">
-               </Location>
-               <Location
-                  uuid = "A51BC66C-144D-4B4D-9C0D-92CE704DB437 - f9b92ba5c80e8675"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Demo_Liquid_Commerce.ProductsListViewModel.products.modify : Swift.Array&lt;Demo_Liquid_Commerce.Product&gt;"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/ViewModels/ProductsListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "0">
-               </Location>
-               <Location
-                  uuid = "A51BC66C-144D-4B4D-9C0D-92CE704DB437 - cf6e95397def473a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Demo_Liquid_Commerce.ProductsListViewModel.products.modify : Swift.Array&lt;Demo_Liquid_Commerce.Product&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/%3Ccompiler-generated%3E"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  uuid = "A51BC66C-144D-4B4D-9C0D-92CE704DB437 - 425ee333f4740c4e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Demo_Liquid_Commerce.ProductsListViewModel.$products.getter : Combine.Published&lt;Swift.Array&lt;Demo_Liquid_Commerce.Product&gt;&gt;.Publisher"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/ViewModels/ProductsListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "0">
-               </Location>
-               <Location
-                  uuid = "A51BC66C-144D-4B4D-9C0D-92CE704DB437 - f470f20cc75775d6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Demo_Liquid_Commerce.ProductsListViewModel.$products.setter : Combine.Published&lt;Swift.Array&lt;Demo_Liquid_Commerce.Product&gt;&gt;.Publisher"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/%3Ccompiler-generated%3E"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "A51BC66C-144D-4B4D-9C0D-92CE704DB437 - 66427c83f0bd02d7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Demo_Liquid_Commerce.ProductsListViewModel.$products.modify : Combine.Published&lt;Swift.Array&lt;Demo_Liquid_Commerce.Product&gt;&gt;.Publisher"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/%3Ccompiler-generated%3E"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "A51BC66C-144D-4B4D-9C0D-92CE704DB437 - a4030d69cee4b70"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Demo_Liquid_Commerce.ProductsListViewModel.$products.modify : Combine.Published&lt;Swift.Array&lt;Demo_Liquid_Commerce.Product&gt;&gt;.Publisher with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/%3Ccompiler-generated%3E"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "init(url:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
