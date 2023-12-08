@@ -11,6 +11,7 @@
 		EB167BB02AE9921A003DDB57 /* OAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB167BAF2AE9921A003DDB57 /* OAuthClient.swift */; };
 		EB167BB32AE99778003DDB57 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB167BB22AE99778003DDB57 /* MainViewViewModel.swift */; };
 		EB167BB52AE9D162003DDB57 /* ProductsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB167BB42AE9D162003DDB57 /* ProductsListViewModel.swift */; };
+		EB37ACAA2B238C7500F1875A /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB37ACA92B238C7500F1875A /* CachedAsyncImage.swift */; };
 		EB389BB72B2313910002BB4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB389BB62B2313910002BB4B /* Constants.swift */; };
 		EB389BB92B231F240002BB4B /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB389BB82B231F240002BB4B /* HTTPStatusCode.swift */; };
 		EB58A9C32ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9C22ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift */; };
@@ -48,6 +49,7 @@
 		EB167BAF2AE9921A003DDB57 /* OAuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthClient.swift; sourceTree = "<group>"; };
 		EB167BB22AE99778003DDB57 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
 		EB167BB42AE9D162003DDB57 /* ProductsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewModel.swift; sourceTree = "<group>"; };
+		EB37ACA92B238C7500F1875A /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
 		EB389BB62B2313910002BB4B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EB389BB82B231F240002BB4B /* HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
 		EB58A9BF2ADF333E00E33BF4 /* Demo Liquid Commerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo Liquid Commerce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +113,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		EB37ACA82B238C5100F1875A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EB37ACA92B238C7500F1875A /* CachedAsyncImage.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		EB58A9B62ADF333E00E33BF4 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +148,7 @@
 				EB58A9EF2ADF338300E33BF4 /* Model */,
 				EB58A9C22ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift */,
 				EB58A9C42ADF333E00E33BF4 /* MainView.swift */,
+				EB37ACA82B238C5100F1875A /* Utilities */,
 				EB167BB12AE99486003DDB57 /* ViewModels */,
 				EB58A9C82ADF333F00E33BF4 /* Assets.xcassets */,
 				EB58A9CA2ADF333F00E33BF4 /* Demo_Liquid_Commerce.entitlements */,
@@ -318,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB58A9C52ADF333E00E33BF4 /* MainView.swift in Sources */,
+				EB37ACAA2B238C7500F1875A /* CachedAsyncImage.swift in Sources */,
 				EB389BB72B2313910002BB4B /* Constants.swift in Sources */,
 				EBA86DD92B100F16009B1D5C /* Category.swift in Sources */,
 				EB58A9F12ADF339A00E33BF4 /* Product.swift in Sources */,
