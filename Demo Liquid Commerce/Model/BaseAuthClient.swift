@@ -22,7 +22,7 @@ struct BaseAuthClient: StoreClient
     }
     
     func fetchCategories() async throws -> [Category] {
-        []
+        try await executeCall("products/categories")
     }
     
     let baseURL: URL
@@ -30,7 +30,12 @@ struct BaseAuthClient: StoreClient
     
     public func fetchProducts() async throws -> [Product]
     {
-        let url = baseURL.appendingPathComponent("products", conformingTo: .url)
+        try await executeCall("products")
+    }
+    
+    public func executeCall<T: Decodable>(_ pathComponent: String) async throws -> [T]
+        {
+        let url = baseURL.appendingPathComponent(pathComponent, conformingTo: .url)
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -41,6 +46,6 @@ struct BaseAuthClient: StoreClient
         //TODO: - error handling
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        return try decoder.decode([Product].self, from: data)
+        return try decoder.decode([T].self, from: data)
     }
 }
