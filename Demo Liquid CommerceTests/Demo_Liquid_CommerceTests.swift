@@ -17,20 +17,34 @@ final class Demo_Liquid_CommerceTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testFetchProducts_success() async throws {
-       let client = Client()
+    func testFetchProductsBaseAuth_success() async throws {
+        let client = try BaseAuthClient(basePath: StringConstants.basePath.rawValue)
         // Create an expectation for an asynchronous task.
         let products = try await client.fetchProducts()
         XCTAssert(!products.isEmpty)
         
     }
     
-    func testFetchCategories_success() async throws {
-       let client = Client()
+    func testFetchCategoriesBaseAuth_success() async throws {
+        let client = try BaseAuthClient(basePath:" https://www.demoliquid.it")
         // Create an expectation for an asynchronous task.
         let categories = try await client.fetchCategories()
         XCTAssert(!categories.isEmpty)
+    }
+    
+    func testFetchProductsOAuth1_success() async throws {
+       let client = OAuthClient()
+        // Create an expectation for an asynchronous task.
+        let products = try await client.fetchProducts()
+        XCTAssert(!products.isEmpty)
         
+    }
+    
+    func testFetchCategoriesBaseOAuth1_success() async throws {
+       let client = OAuthClient()
+        // Create an expectation for an asynchronous task.
+        let categories = try await client.fetchCategories()
+        XCTAssert(!categories.isEmpty)
     }
     
     func testCachedAsyncImage_success() async throws

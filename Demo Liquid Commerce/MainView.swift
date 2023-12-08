@@ -14,7 +14,7 @@ struct MainView: View {
     var body: some View {
 //        ProductsListView(productsListViewModel: ProductsListViewModel(client: OAuthClient()))
         TabView {
-            ProductsListView(productsListViewModel: ProductsListViewModel(client: Client()))
+            ProductsListView(productsListViewModel: ProductsListViewModel(client: try! BaseAuthClient(basePath: StringConstants.basePath.rawValue)))
                 .tabItem {
                     Label("Menu", systemImage: "wineglass")
                 }

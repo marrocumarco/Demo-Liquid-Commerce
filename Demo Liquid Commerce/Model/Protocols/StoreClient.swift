@@ -12,3 +12,8 @@ protocol StoreClient
     func fetchProducts() async throws -> [Product]
     func fetchCategories() async throws -> [Category]
 }
+
+enum StoreClientError: Error
+{
+    case InvalidBasePath
+}
