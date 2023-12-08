@@ -10,4 +10,5 @@ import Foundation
 enum StringConstants: String
 {
     case basePath = "https://www.demoliquid.it"
+    case testBasePath = "http://localhost/wordpress"
 }

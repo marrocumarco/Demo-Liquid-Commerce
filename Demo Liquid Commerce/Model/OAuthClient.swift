@@ -10,12 +10,24 @@ import CommonCrypto
 
 struct OAuthClient: StoreClient
 {
-    let baseUrl = "http://localhost/wordpress/wp-json/wc/v3/"
+    public init(basePath: String) throws
+    {
+        if let url = URL(string: basePath.appending("/wp-json/wc/v3/"))
+        {
+            baseURL = url
+        }
+        else
+        {
+            throw StoreClientError.InvalidBasePath
+        }
+    }
+    
+    let baseURL: URL
     
     func getHeaders(_ path: String) -> [String : String]
     {
-        let consumerKey = Bundle.main.infoDictionary?["API_KEY"] as? String ?? ""
-        let consumerSecret = Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""
+        let consumerKey = Bundle.main.infoDictionary?["TEST_API_KEY"] as? String ?? ""
+        let consumerSecret = Bundle.main.infoDictionary?["TEST_API_SECRET"] as? String ?? ""
         var parameters: [String: Any] = [:] // Add any additional parameters if needed
         var nonce = ""
         for _ in 0..<32
@@ -69,11 +81,25 @@ struct OAuthClient: StoreClient
     
     func executeCall<T: Decodable>(_ pathComponent: String) async throws -> [T]
     {
-        let path = baseUrl.appending(pathComponent)
-        var request = URLRequest(url: URL(string: path)!)
-        request.allHTTPHeaderFields = getHeaders(path)
+        let url = baseURL.appending(path: pathComponent)
+        var request = URLRequest(url: url)
+        request.allHTTPHeaderFields = getHeaders(url.absoluteString)
         let (data, response) = try await URLSession.shared.data(for: request)
-               //TODO check response
+        guard let status = (response as? HTTPURLResponse)?.status else { throw StoreClientError.UndefinedHTTPStatusCode }
+        
+        switch status.responseType {
+        case .informational, .success:
+            break
+        case .redirection:
+            throw StoreClientError.Redirection(statusCode: status.rawValue)
+        case .clientError:
+            throw StoreClientError.ClientError(statusCode: status.rawValue)
+        case .serverError:
+            throw StoreClientError.ServerError(statusCode: status.rawValue)
+        case .undefined:
+            throw StoreClientError.Redirection(statusCode: status.rawValue)
+        }
+        
 #if DEBUG
         print(try JSONSerialization.jsonObject(with: data))
 #endif

@@ -16,4 +16,8 @@ protocol StoreClient
 enum StoreClientError: Error
 {
     case InvalidBasePath
+    case UndefinedHTTPStatusCode
+    case Redirection(statusCode: Int)
+    case ClientError(statusCode: Int)
+    case ServerError(statusCode: Int)
 }

@@ -26,22 +26,22 @@ final class Demo_Liquid_CommerceTests: XCTestCase {
     }
     
     func testFetchCategoriesBaseAuth_success() async throws {
-        let client = try BaseAuthClient(basePath:" https://www.demoliquid.it")
+        let client = try BaseAuthClient(basePath: StringConstants.basePath.rawValue)
         // Create an expectation for an asynchronous task.
         let categories = try await client.fetchCategories()
         XCTAssert(!categories.isEmpty)
     }
     
     func testFetchProductsOAuth1_success() async throws {
-       let client = OAuthClient()
+        let client = try OAuthClient(basePath: StringConstants.testBasePath.rawValue)
         // Create an expectation for an asynchronous task.
         let products = try await client.fetchProducts()
         XCTAssert(!products.isEmpty)
         
     }
     
-    func testFetchCategoriesBaseOAuth1_success() async throws {
-       let client = OAuthClient()
+    func testFetchCategoriesOAuth1_success() async throws {
+        let client = try OAuthClient(basePath: StringConstants.testBasePath.rawValue)
         // Create an expectation for an asynchronous task.
         let categories = try await client.fetchCategories()
         XCTAssert(!categories.isEmpty)
