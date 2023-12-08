@@ -22,7 +22,6 @@ final class Demo_Liquid_CommerceTests: XCTestCase {
         // Create an expectation for an asynchronous task.
         let products = try await client.fetchProducts()
         XCTAssert(!products.isEmpty)
-        
     }
     
     func testFetchCategoriesBaseAuth_success() async throws {

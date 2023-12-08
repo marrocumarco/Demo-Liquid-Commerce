@@ -10,8 +10,6 @@ import Foundation
 protocol StoreClient
 {
     func executeCall<T: Decodable>(_ pathComponent: String) async throws -> [T]
-    func fetchProducts() async throws -> [Product]
-    func fetchCategories() async throws -> [Category]
 }
 
 extension StoreClient
@@ -24,6 +22,21 @@ extension StoreClient
     func fetchCategories() async throws -> [Category] 
     {
         return try await executeCall("products/categories")
+    }
+    
+    func checkHTTPStatus(_ status: HTTPStatusCode) throws {
+        switch status.responseType {
+        case .informational, .success:
+            break
+        case .redirection:
+            throw StoreClientError.Redirection(statusCode: status.rawValue)
+        case .clientError:
+            throw StoreClientError.ClientError(statusCode: status.rawValue)
+        case .serverError:
+            throw StoreClientError.ServerError(statusCode: status.rawValue)
+        case .undefined:
+            throw StoreClientError.Redirection(statusCode: status.rawValue)
+        }
     }
 }
 

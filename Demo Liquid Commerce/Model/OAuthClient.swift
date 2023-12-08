@@ -32,18 +32,7 @@ struct OAuthClient: StoreClient
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let status = (response as? HTTPURLResponse)?.status else { throw StoreClientError.UndefinedHTTPStatusCode }
         
-        switch status.responseType {
-        case .informational, .success:
-            break
-        case .redirection:
-            throw StoreClientError.Redirection(statusCode: status.rawValue)
-        case .clientError:
-            throw StoreClientError.ClientError(statusCode: status.rawValue)
-        case .serverError:
-            throw StoreClientError.ServerError(statusCode: status.rawValue)
-        case .undefined:
-            throw StoreClientError.Redirection(statusCode: status.rawValue)
-        }
+        try checkHTTPStatus(status)
         
 #if DEBUG
         print(try JSONSerialization.jsonObject(with: data))
