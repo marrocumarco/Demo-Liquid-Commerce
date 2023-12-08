@@ -10,6 +10,8 @@ import CommonCrypto
 
 struct OAuthClient: StoreClient
 {
+    let baseURL: URL
+
     public init(basePath: String) throws
     {
         if let url = URL(string: basePath.appending("/wp-json/wc/v3/"))
@@ -22,7 +24,35 @@ struct OAuthClient: StoreClient
         }
     }
     
-    let baseURL: URL
+    func executeCall<T: Decodable>(_ pathComponent: String) async throws -> [T]
+    {
+        let url = baseURL.appending(path: pathComponent)
+        var request = URLRequest(url: url)
+        request.allHTTPHeaderFields = getHeaders(url.absoluteString)
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let status = (response as? HTTPURLResponse)?.status else { throw StoreClientError.UndefinedHTTPStatusCode }
+        
+        switch status.responseType {
+        case .informational, .success:
+            break
+        case .redirection:
+            throw StoreClientError.Redirection(statusCode: status.rawValue)
+        case .clientError:
+            throw StoreClientError.ClientError(statusCode: status.rawValue)
+        case .serverError:
+            throw StoreClientError.ServerError(statusCode: status.rawValue)
+        case .undefined:
+            throw StoreClientError.Redirection(statusCode: status.rawValue)
+        }
+        
+#if DEBUG
+        print(try JSONSerialization.jsonObject(with: data))
+#endif
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return try decoder.decode([T].self, from: data)
+    }
     
     func getHeaders(_ path: String) -> [String : String]
     {
@@ -67,46 +97,6 @@ struct OAuthClient: StoreClient
         
 //        let rt = signatureData.map { String(format: "%02hhx", $0) }.joined()
         return signatureData.base64EncodedString()
-    }
-
-   
-    func fetchProducts() async throws -> [Product]
-    {
-        return try await executeCall("products")
-    }
-    
-    func fetchCategories() async throws -> [Category] {
-        return try await executeCall("products/categories")
-    }
-    
-    func executeCall<T: Decodable>(_ pathComponent: String) async throws -> [T]
-    {
-        let url = baseURL.appending(path: pathComponent)
-        var request = URLRequest(url: url)
-        request.allHTTPHeaderFields = getHeaders(url.absoluteString)
-        let (data, response) = try await URLSession.shared.data(for: request)
-        guard let status = (response as? HTTPURLResponse)?.status else { throw StoreClientError.UndefinedHTTPStatusCode }
-        
-        switch status.responseType {
-        case .informational, .success:
-            break
-        case .redirection:
-            throw StoreClientError.Redirection(statusCode: status.rawValue)
-        case .clientError:
-            throw StoreClientError.ClientError(statusCode: status.rawValue)
-        case .serverError:
-            throw StoreClientError.ServerError(statusCode: status.rawValue)
-        case .undefined:
-            throw StoreClientError.Redirection(statusCode: status.rawValue)
-        }
-        
-#if DEBUG
-        print(try JSONSerialization.jsonObject(with: data))
-#endif
-        
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        return try decoder.decode([T].self, from: data)
     }
 }
 

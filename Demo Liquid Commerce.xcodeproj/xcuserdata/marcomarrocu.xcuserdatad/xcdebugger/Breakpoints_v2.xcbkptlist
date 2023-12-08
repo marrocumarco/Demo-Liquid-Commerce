@@ -116,54 +116,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CE8087A9-F27E-41BB-954A-F45E208E59EF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo Liquid Commerce/Model/OAuthClient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "executeCall(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CE8087A9-F27E-41BB-954A-F45E208E59EF - a1614a1446efc03f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.OAuthClient.executeCall&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(Swift.String) async throws -&gt; Swift.Array&lt;&#x3c4;_0_0&gt;"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/Model/OAuthClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "224">
-               </Location>
-               <Location
-                  uuid = "CE8087A9-F27E-41BB-954A-F45E208E59EF - 6f20973dee888031"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for Demo_Liquid_Commerce.OAuthClient.executeCall&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(Swift.String) async throws -&gt; Swift.Array&lt;&#x3c4;_0_0&gt;"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/Model/OAuthClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "748">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "B20E00E3-3F2C-49CD-96F6-AB4091879D9C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -171,8 +123,8 @@
             filePath = "Demo Liquid Commerce/Model/OAuthClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "getHeaders(_:)"
             landmarkType = "7">
          </BreakpointContent>

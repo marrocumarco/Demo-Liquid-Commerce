@@ -9,6 +9,8 @@ import Foundation
 
 struct BaseAuthClient: StoreClient
 {
+    let baseURL: URL
+
     public init(basePath: String) throws
     {
         if let url = URL(string: basePath.appending("/wp-json/wc/v3/"))
@@ -21,17 +23,6 @@ struct BaseAuthClient: StoreClient
         }
     }
     
-    func fetchCategories() async throws -> [Category] {
-        try await executeCall("products/categories")
-    }
-    
-    let baseURL: URL
-    
-    
-    public func fetchProducts() async throws -> [Product]
-    {
-        try await executeCall("products")
-    }
     
     public func executeCall<T: Decodable>(_ pathComponent: String) async throws -> [T]
         {
