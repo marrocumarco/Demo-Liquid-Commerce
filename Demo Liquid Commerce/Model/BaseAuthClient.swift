@@ -23,14 +23,10 @@ struct BaseAuthClient: StoreClient
         }
     }
     
-    public func executeCall<T: Decodable>(_ pathComponent: String) async throws -> [T]
-    {
-        var numberOfPages = 1
-        var pagesDownloaded = 0
-        var result = [T]()
-        while pagesDownloaded < numberOfPages
-        {
-            let url = baseURL.appendingPathComponent(pathComponent, conformingTo: .url)
+    func executeCall<T>(_ pathComponent: String, pageNumber: Int) async throws -> [T] where T : Decodable {
+        let url = baseURL.appendingPathComponent(pathComponent, conformingTo: .url).appending(queryItems: [
+            URLQueryItem(name: "page", value: pageNumber.description),
+            URLQueryItem(name: "orderby", value: "popularity")])
             
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
@@ -40,17 +36,13 @@ struct BaseAuthClient: StoreClient
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let status = (response as? HTTPURLResponse)?.status else { throw StoreClientError.UndefinedHTTPStatusCode }
             try checkHTTPStatus(status)
-            numberOfPages = Int((response as? HTTPURLResponse)?.allHeaderFields["x-wp-totalpages"] as? String ?? "") ?? 1
+            let numberOfPages = Int((response as? HTTPURLResponse)?.allHeaderFields["x-wp-totalpages"] as? String ?? "") ?? 1
     #if DEBUG
             print(try JSONSerialization.jsonObject(with: data))
     #endif
             
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            result.append(contentsOf: try decoder.decode([T].self, from: data))
-            
-            pagesDownloaded += 1
-        }
-        return result
+            return try decoder.decode([T].self, from: data)
     }
 }

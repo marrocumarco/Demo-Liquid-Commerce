@@ -20,5 +20,161 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "69498B7B-695A-42C6-A464-AE6E3C8C0A69"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Demo Liquid Commerce/Model/BaseAuthClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "executeCall(_:pageNumber:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "69498B7B-695A-42C6-A464-AE6E3C8C0A69 - 97c4b3c0e5b0e2c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.BaseAuthClient.executeCall&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(_: Swift.String, pageNumber: Swift.Int) async throws -&gt; Swift.Array&lt;&#x3c4;_0_0&gt;"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/Model/BaseAuthClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  uuid = "69498B7B-695A-42C6-A464-AE6E3C8C0A69 - dc4caefad9dea55b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Demo_Liquid_Commerce.BaseAuthClient.executeCall&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(_: Swift.String, pageNumber: Swift.Int) async throws -&gt; Swift.Array&lt;&#x3c4;_0_0&gt;"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/Model/BaseAuthClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "2676">
+               </Location>
+               <Location
+                  uuid = "69498B7B-695A-42C6-A464-AE6E3C8C0A69 - 97c4b3c0e5b0e2c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.BaseAuthClient.executeCall&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(_: Swift.String, pageNumber: Swift.Int) async throws -&gt; Swift.Array&lt;&#x3c4;_0_0&gt;"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/Model/BaseAuthClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "400">
+               </Location>
+               <Location
+                  uuid = "69498B7B-695A-42C6-A464-AE6E3C8C0A69 - 97c4b3c0e5b0e2c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.BaseAuthClient.executeCall&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(_: Swift.String, pageNumber: Swift.Int) async throws -&gt; Swift.Array&lt;&#x3c4;_0_0&gt;"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/Model/BaseAuthClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "396">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "13ED222D-5310-47C4-A22C-71F054D9DD7A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Demo Liquid Commerce/ViewModels/ProductsListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "fetchProducts(currentProduct:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "13ED222D-5310-47C4-A22C-71F054D9DD7A - 2539c432600ff3d0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.ProductsListViewModel.fetchProducts(currentProduct: Swift.Optional&lt;Demo_Liquid_Commerce.Product&gt;) async throws -&gt; ()"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/ViewModels/ProductsListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "576">
+               </Location>
+               <Location
+                  uuid = "13ED222D-5310-47C4-A22C-71F054D9DD7A - af039425d8d7bce9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for Demo_Liquid_Commerce.ProductsListViewModel.fetchProducts(currentProduct: Swift.Optional&lt;Demo_Liquid_Commerce.Product&gt;) async throws -&gt; ()"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/ViewModels/ProductsListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "13ED222D-5310-47C4-A22C-71F054D9DD7A - 5a975a352592fd6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Demo_Liquid_Commerce.ProductsListViewModel.fetchProducts(currentProduct: Swift.Optional&lt;Demo_Liquid_Commerce.Product&gt;) async throws -&gt; ()"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/ViewModels/ProductsListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "13ED222D-5310-47C4-A22C-71F054D9DD7A - ea18a55384b46bd4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for Demo_Liquid_Commerce.ProductsListViewModel.fetchProducts(currentProduct: Swift.Optional&lt;Demo_Liquid_Commerce.Product&gt;) async throws -&gt; ()"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Projects/Demo%20Liquid%20Commerce/Demo%20Liquid%20Commerce/ViewModels/ProductsListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

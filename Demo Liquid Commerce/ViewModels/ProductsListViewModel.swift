@@ -15,12 +15,27 @@ class ProductsListViewModel: ObservableObject
     }
     
     let client: StoreClient
-    
+    let itemsPerPage = 10
+    var numberOfPages = 0
     @Published var products = [Product]()
     
-    @MainActor
-    func fetchProducts() async throws
+    func fetchProducts(currentProduct: Product?) async throws
     {
-        products = try await client.fetchProducts()
+        if let currentProduct, let index = products.firstIndex(of: currentProduct), index == itemsPerPage * numberOfPages - 1
+        {
+            try await fetchNextProductsPage()
+        }
+        else if numberOfPages == 0
+        {
+            try await fetchNextProductsPage()
+        }
+    }
+    
+    @MainActor
+    private func fetchNextProductsPage() async throws
+    {
+        numberOfPages += 1
+        let newProducts = try await client.fetchProducts(numberOfPages)
+        products.append(contentsOf: newProducts)
     }
 }

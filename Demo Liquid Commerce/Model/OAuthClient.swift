@@ -24,8 +24,8 @@ struct OAuthClient: StoreClient
         }
     }
     
-    func executeCall<T: Decodable>(_ pathComponent: String) async throws -> [T]
-    {
+    func executeCall<T>(_ pathComponent: String, pageNumber: Int) async throws -> [T] where T : Decodable {
+        //TODO pagenumber
         let url = baseURL.appending(path: pathComponent)
         var request = URLRequest(url: url)
         request.allHTTPHeaderFields = getHeaders(url.absoluteString)

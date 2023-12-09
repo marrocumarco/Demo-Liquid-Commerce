@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product: Codable, Identifiable
+struct Product: Codable, Identifiable, Equatable
 {
     let id: Int
     let name: String
@@ -56,6 +56,10 @@ struct Product: Codable, Identifiable
         try container.encode(self.salePrice.description, forKey: Product.CodingKeys.salePrice)
         try container.encode(self.onSale, forKey: Product.CodingKeys.onSale)
         try container.encode(self.images, forKey: Product.CodingKeys.images)
+    }
+    
+    static func == (lhs: Product, rhs: Product) -> Bool {
+        lhs.id == rhs.id
     }
 }
 

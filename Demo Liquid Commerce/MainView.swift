@@ -47,13 +47,14 @@ struct ProductsListView: View {
                     
                     NavigationLink(destination: DetailView(string: product.name)){
                         CardView(productsListViewModel: productsListViewModel, product: product).frame(width: 128, height: 256)
+                            .onAppear{ Task{ try await productsListViewModel.fetchProducts(currentProduct: product) } }
                     }
                 }
                 .navigationDestination(for: String.self, destination: DetailView.init)
                 .navigationTitle("Scheda prodotto")
             })
         })
-        .onAppear{ Task{ try await productsListViewModel.fetchProducts() } }
+        .onAppear{ Task{ try await productsListViewModel.fetchProducts(currentProduct: nil) } }
     }
 }
 
@@ -79,7 +80,6 @@ struct CardView: View {
                 }
             }
         }
-        
     }
 }
 
