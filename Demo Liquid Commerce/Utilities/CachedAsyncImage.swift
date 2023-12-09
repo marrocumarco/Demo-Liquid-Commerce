@@ -7,20 +7,10 @@
 
 import Foundation
 
-public struct CachedAsyncImage
+public class CachedAsyncImage
 {
-    internal init(url: URL) throws {
-        self.url = url
-        self.directoryURL = FileManager.default.temporaryDirectory.appendingPathComponent("images", conformingTo: .directory)
-        self.fileURL = self.directoryURL.appendingPathComponent(url.lastPathComponent, conformingTo: .fileURL)
-        if !FileManager.default.fileExists(atPath: self.directoryURL.path)
-        {
-            try FileManager.default.createDirectory(atPath: self.directoryURL.path, withIntermediateDirectories: true)
-        }
-    }
-    
     private let url: URL
-    private let fileURL: URL
+    internal let fileURL: URL
     private let directoryURL: URL
     public var imagePath: String
     {
@@ -31,6 +21,16 @@ public struct CachedAsyncImage
                 try data.write(to: fileURL)
             }
             return fileURL.path
+        }
+    }
+    
+    internal init(url: URL) throws {
+        self.url = url
+        self.directoryURL = FileManager.default.temporaryDirectory.appendingPathComponent("images", conformingTo: .directory)
+        self.fileURL = self.directoryURL.appendingPathComponent(url.lastPathComponent, conformingTo: .fileURL)
+        if !FileManager.default.fileExists(atPath: self.directoryURL.path)
+        {
+            try FileManager.default.createDirectory(atPath: self.directoryURL.path, withIntermediateDirectories: true)
         }
     }
 }
