@@ -9,6 +9,12 @@ import Foundation
 
 struct ProductImage: Codable
 {
+    internal init(id: Int, url: String, name: String) {
+        self.id = id
+        self.url = url
+        self.name = name
+    }
+    
     let id: Int
     let url: String
     let name: String

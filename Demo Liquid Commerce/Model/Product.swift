@@ -9,6 +9,18 @@ import Foundation
 
 struct Product: Codable, Identifiable, Equatable
 {
+    internal init(id: Int, name: String, description: String, shortDescription: String, price: Double, salePrice: Double, onSale: Bool, images: [ProductImage], stockStatus: StockStatus) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.shortDescription = shortDescription
+        self.price = price
+        self.salePrice = salePrice
+        self.onSale = onSale
+        self.images = images
+        self.stockStatus = stockStatus
+    }
+    
     let id: Int
     let name: String
     let description: String
