@@ -24,9 +24,8 @@ struct OAuthClient: StoreClient
         }
     }
     
-    func executeCall<T>(_ pathComponent: String, pageNumber: Int) async throws -> [T] where T : Decodable {
-        //TODO pagenumber
-        let url = baseURL.appending(path: pathComponent)
+    func executeCall<T>(_ endPoint: String, queryItems: [URLQueryItem]) async throws -> [T] where T : Decodable {
+        let url = baseURL.appending(path: endPoint).appending(queryItems: queryItems)
         var request = URLRequest(url: url)
         request.allHTTPHeaderFields = getHeaders(url.absoluteString)
         let (data, response) = try await URLSession.shared.data(for: request)

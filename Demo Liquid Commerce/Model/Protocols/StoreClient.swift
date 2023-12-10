@@ -9,19 +9,21 @@ import Foundation
 
 protocol StoreClient
 {
-    func executeCall<T: Decodable>(_ pathComponent: String, pageNumber: Int) async throws -> [T]
+    func executeCall<T: Decodable>(_ endPoint: String, queryItems: [URLQueryItem]) async throws -> [T]
 }
 
 extension StoreClient
 {
     func fetchProducts(_ pageNumber: Int) async throws -> [Product]
     {
-        return try await executeCall("products", pageNumber: pageNumber)
+        return try await executeCall("products", queryItems: [
+            URLQueryItem(name: "page", value: pageNumber.description),
+            URLQueryItem(name: "orderby", value: "popularity")])
     }
     
     func fetchCategories() async throws -> [Category] 
     {
-        return try await executeCall("products/categories", pageNumber: 1)
+        return try await executeCall("products/categories", queryItems: [])
     }
     
     func checkHTTPStatus(_ status: HTTPStatusCode) throws {

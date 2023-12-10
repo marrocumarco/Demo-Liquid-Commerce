@@ -23,10 +23,8 @@ struct BaseAuthClient: StoreClient
         }
     }
     
-    func executeCall<T>(_ pathComponent: String, pageNumber: Int) async throws -> [T] where T : Decodable {
-        let url = baseURL.appendingPathComponent(pathComponent, conformingTo: .url).appending(queryItems: [
-            URLQueryItem(name: "page", value: pageNumber.description),
-            URLQueryItem(name: "orderby", value: "popularity")])
+    func executeCall<T>(_ pathComponent: String, queryItems: [URLQueryItem]) async throws -> [T] where T : Decodable {
+        let url = baseURL.appendingPathComponent(pathComponent, conformingTo: .url).appending(queryItems: queryItems)
             
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
