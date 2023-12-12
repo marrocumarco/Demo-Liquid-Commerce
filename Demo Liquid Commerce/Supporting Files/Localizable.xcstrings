@@ -1,0 +1,101 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "app_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demo Liquid"
+          }
+        }
+      }
+    },
+    "Demo Liquid" : {
+
+    },
+    "description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "descrizione"
+          }
+        }
+      }
+    },
+    "Descrizione" : {
+
+    },
+    "menu" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu"
+          }
+        }
+      }
+    },
+    "Menu" : {
+
+    },
+    "on_sale" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "on sale"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "in offerta"
+          }
+        }
+      }
+    },
+    "Order" : {
+
+    },
+    "price" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "prezzo"
+          }
+        }
+      }
+    },
+    "price: %lf %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "price: %1$.2f %2$@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "prezzo: %1$.2f %2$@"
+          }
+        }
+      }
+    },
+    "prova2" : {
+
+    },
+    "Testing..." : {
+
+    }
+  },
+  "version" : "1.0"
+}

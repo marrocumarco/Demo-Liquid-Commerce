@@ -21,7 +21,7 @@ struct ProductCardView: View {
                     { image in image.resizable() } placeholder: { Image("image_placeholder").resizable() }.aspectRatio(contentMode: .fit).frame(height: proxy.size.height / 2)
                 }
                 Text(product.name)
-                Text("Price: \(String(format: "%1$.2f", product.price)) \(Locale.current.currencySymbol!)")//.strikethrough()
+                Text(LocalizedStringKey("price: \(product.price) \(Locale.current.currencySymbol!)"))
     //            Text("Sale price: \(String(format: "%1$.2f", product.salePrice)) \(Locale.current.currencySymbol!)")
             })
                 .onAppear()
