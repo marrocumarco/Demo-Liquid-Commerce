@@ -24,7 +24,7 @@ struct ProductDetailView: View {
                 }
                 Group{
                     Text(product.price.description + " €").font(.largeTitle)
-                    Text("Descrizione").font(.title)
+                    Text(LocalizedStringKey("Description")).font(.title)
                     Text(description ?? "")
                 }.padding(.horizontal)
             }

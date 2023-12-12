@@ -7,30 +7,44 @@
 
 import SwiftUI
 
-struct ProductsListView: View {
+struct ProductsListView: View 
+{
     @ObservedObject var productsListViewModel: ProductsListViewModel
+    
     
     var body: some View {
         NavigationStack{
             
             ScrollView(.vertical, content: {
-                LazyVGrid(columns: [GridItem(.fixed(UIScreen.main.bounds.width / 2), spacing: 20), GridItem(.flexible())], content: {
+                LazyVGrid(columns: [GridItem(.flexible(minimum: 0, maximum: .infinity), spacing: 20), GridItem(.flexible())], content: {
                     ForEach(productsListViewModel.products)
                     {
                         product in
                         
                         NavigationLink(destination: ProductDetailView(product: product)){
-                            ProductCardView(productsListViewModel: productsListViewModel, product: product).frame(width: (UIScreen.main.bounds.width / 2) - 10, height: 256)
+                            ProductCardView(product: product)
+                                .frame(width: (UIScreen.main.bounds.width / 2 - 42) , height: 300)
                                 .onAppear{ Task{ try await productsListViewModel.fetchProducts(currentProduct: product) } }
-                                .border(.gray)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                        }.foregroundColor(.black)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.purple, lineWidth: 0.5)
+                                )
+                        }//.foregroundColor(.black)
+                        
                     }
                 })
+                .padding(16)
             })
             .onAppear{ Task{ try await productsListViewModel.fetchProducts(currentProduct: nil) }
-            }.navigationTitle("Demo Liquid")
+            }.navigationTitle(LocalizedStringKey("app_name"))
+//                .toolbarBackground(Color.accentColor, for: .navigationBar)
+//                .toolbarBackground(.visible, for: .navigationBar)
+                
         }
-        
     }
+}
+
+#Preview {
+    ProductsListView(productsListViewModel: ProductsListViewModel(client: try! BaseAuthClient(basePath: StringConstants.basePath.rawValue)))
 }

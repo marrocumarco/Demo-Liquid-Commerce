@@ -12,30 +12,22 @@
         }
       }
     },
-    "Demo Liquid" : {
-
-    },
-    "description" : {
-      "extractionState" : "manual",
+    "Basket" : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "descrizione"
+            "value" : "Carrello"
           }
         }
       }
     },
-    "Descrizione" : {
-
-    },
-    "menu" : {
-      "extractionState" : "manual",
+    "Description" : {
       "localizations" : {
-        "en" : {
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Menu"
+            "value" : "Descrizione"
           }
         }
       }
@@ -43,7 +35,7 @@
     "Menu" : {
 
     },
-    "on_sale" : {
+    "On sale" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -55,37 +47,23 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "in offerta"
+            "value" : "In offerta"
           }
         }
       }
     },
-    "Order" : {
-
-    },
-    "price" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "prezzo"
-          }
-        }
-      }
-    },
-    "price: %lf %@" : {
+    "Price: %lf %@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "price: %1$.2f %2$@"
+            "value" : "Price: %1$.2f %2$@"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "prezzo: %1$.2f %2$@"
+            "value" : "Prezzo: %1$.2f %2$@"
           }
         }
       }
