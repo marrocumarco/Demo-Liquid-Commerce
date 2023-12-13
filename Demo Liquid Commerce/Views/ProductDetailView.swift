@@ -16,7 +16,9 @@ struct ProductDetailView: View {
         ScrollView
         {
             VStack(alignment: .leading, spacing: 20){
-                Text(product.name.lowercased().capitalized).font(.largeTitle).padding(.horizontal)
+                Text(product.name.lowercased().capitalized).font(.largeTitle)
+                    .padding(.horizontal)
+                    .foregroundStyle(.accent)
                 if let imagePath
                 {
                     AsyncImage(url: URL(fileURLWithPath: imagePath))
@@ -25,6 +27,7 @@ struct ProductDetailView: View {
                 Group{
                     Text(product.price.description + " €").font(.largeTitle)
                     Text(LocalizedStringKey("Description")).font(.title)
+                        .foregroundStyle(.accent)
                     Text(description ?? "")
                 }.padding(.horizontal)
             }

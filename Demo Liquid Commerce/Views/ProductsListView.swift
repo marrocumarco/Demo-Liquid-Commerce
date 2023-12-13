@@ -15,25 +15,23 @@ struct ProductsListView: View
     var body: some View {
         NavigationStack{
             ScrollView(.vertical, content: {
-                LazyVGrid(columns: [GridItem(.flexible(minimum: 0, maximum: .infinity), spacing: 20), GridItem(.flexible())], content: {
+                let minimumWidth = UIScreen.main.bounds.width / 2 - 8
+                LazyVGrid(columns: [GridItem(.flexible(minimum: minimumWidth, maximum: .infinity), spacing: 0), GridItem(.flexible(minimum: minimumWidth, maximum: .infinity), spacing: 0)], content: {
                     ForEach(productsListViewModel.products)
                     {
                         product in
                         
                         NavigationLink(destination: ProductDetailView(product: product)){
                             ProductCardView(product: product)
-                                .frame(width: (UIScreen.main.bounds.width / 2 - 42) , height: 300)
+                                .frame(height: 300)
                                 .onAppear{ Task{ try await productsListViewModel.fetchProducts(currentProduct: product) } }
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.purple, lineWidth: 0.5)
-                                )
-                        }//.foregroundColor(.black)
-                        
+                                .shadow(color: .accent.opacity(0.33), radius: 10, x: 2, y: 2)
+                                .padding( 16)
+                        }
                     }
                 })
-                .padding(16)
+                
             })
             .onAppear{ Task{ try await productsListViewModel.fetchProducts(currentProduct: nil) }
             }.navigationTitle(LocalizedStringKey("Demo Liquid"))

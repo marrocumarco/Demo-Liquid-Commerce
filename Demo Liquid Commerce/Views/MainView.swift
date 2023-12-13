@@ -22,7 +22,7 @@ struct MainView: View {
                     .tabItem {
                         Label("Basket", systemImage: "square.and.pencil")
                     }
-            }.tint(Color.accentColor)
+            }
     }
 }
 
