@@ -9,6 +9,12 @@
             "state" : "translated",
             "value" : "Demo Liquid"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
         }
       }
     },
@@ -21,6 +27,9 @@
           }
         }
       }
+    },
+    "Demo Liquid" : {
+
     },
     "Description" : {
       "localizations" : {

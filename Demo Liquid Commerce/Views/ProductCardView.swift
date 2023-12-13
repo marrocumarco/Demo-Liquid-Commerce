@@ -14,12 +14,12 @@ struct ProductCardView: View {
 
     var body: some View {
         GeometryReader{proxy in
-            LazyVStack(alignment: .leading, content: {
+            LazyVStack(alignment: .center, content: {
                 if let imagePath
                 {
                     AsyncImage(url: URL(fileURLWithPath: imagePath))
                     { image in image.resizable() } placeholder: { Image("image_placeholder").resizable() }
-                        .aspectRatio(contentMode: .fit)
+                        .scaledToFit()
                         .frame(idealHeight: proxy.size.height * 0.75)
                         //.frame(height: proxy.size.height)
                 }

@@ -14,7 +14,6 @@ struct ProductsListView: View
     
     var body: some View {
         NavigationStack{
-            
             ScrollView(.vertical, content: {
                 LazyVGrid(columns: [GridItem(.flexible(minimum: 0, maximum: .infinity), spacing: 20), GridItem(.flexible())], content: {
                     ForEach(productsListViewModel.products)
@@ -37,7 +36,7 @@ struct ProductsListView: View
                 .padding(16)
             })
             .onAppear{ Task{ try await productsListViewModel.fetchProducts(currentProduct: nil) }
-            }.navigationTitle(LocalizedStringKey("app_name"))
+            }.navigationTitle(LocalizedStringKey("Demo Liquid"))
 //                .toolbarBackground(Color.accentColor, for: .navigationBar)
 //                .toolbarBackground(.visible, for: .navigationBar)
                 
