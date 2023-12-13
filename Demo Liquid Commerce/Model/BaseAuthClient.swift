@@ -34,7 +34,7 @@ struct BaseAuthClient: StoreClient
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let status = (response as? HTTPURLResponse)?.status else { throw StoreClientError.UndefinedHTTPStatusCode }
             try checkHTTPStatus(status)
-//            let numberOfPages = Int((response as? HTTPURLResponse)?.allHeaderFields["x-wp-totalpages"] as? String ?? "") ?? 1
+//            let _ = Int((response as? HTTPURLResponse)?.allHeaderFields["x-wp-totalpages"] as? String ?? "") ?? 1
     #if DEBUG
             print(try JSONSerialization.jsonObject(with: data))
     #endif
