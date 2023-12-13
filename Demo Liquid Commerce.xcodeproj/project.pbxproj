@@ -155,20 +155,17 @@
 		EB58A9C12ADF333E00E33BF4 /* Demo Liquid Commerce */ = {
 			isa = PBXGroup;
 			children = (
+				EB58A9CA2ADF333F00E33BF4 /* Demo_Liquid_Commerce.entitlements */,
 				EB58A9F32ADF3D8400E33BF4 /* Demo-Liquid-Commerce-Info.plist */,
-				EBFEDA552B28FAF20056B026 /* Supporting Files */,
-				EB58A9EF2ADF338300E33BF4 /* Model */,
 				EB58A9C22ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift */,
-				EB58A9C42ADF333E00E33BF4 /* MainView.swift */,
-				EB6DCAF62B25C4E500215639 /* ProductsListView.swift */,
-				EB6DCAF82B25C52700215639 /* ProductCardView.swift */,
-				EB6DCAFA2B25C56F00215639 /* ProductDetailView.swift */,
+				EB58A9C82ADF333F00E33BF4 /* Assets.xcassets */,
+				EB58A9F22ADF3C3900E33BF4 /* Configuration.xcconfig */,
+				EB58A9EF2ADF338300E33BF4 /* Model */,
+				EB58A9CB2ADF333F00E33BF4 /* Preview Content */,
+				EBFEDA552B28FAF20056B026 /* Supporting Files */,
 				EB37ACA82B238C5100F1875A /* Utilities */,
 				EB167BB12AE99486003DDB57 /* ViewModels */,
-				EB58A9C82ADF333F00E33BF4 /* Assets.xcassets */,
-				EB58A9CA2ADF333F00E33BF4 /* Demo_Liquid_Commerce.entitlements */,
-				EB58A9F22ADF3C3900E33BF4 /* Configuration.xcconfig */,
-				EB58A9CB2ADF333F00E33BF4 /* Preview Content */,
+				EB7BB18B2B29DC4000B50AA1 /* Views */,
 			);
 			path = "Demo Liquid Commerce";
 			sourceTree = "<group>";
@@ -201,16 +198,27 @@
 		EB58A9EF2ADF338300E33BF4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EB389BB82B231F240002BB4B /* HTTPStatusCode.swift */,
 				EB58A9F62ADF3F9700E33BF4 /* BaseAuthClient.swift */,
 				EBA86DD82B100F16009B1D5C /* Category.swift */,
 				EB389BB62B2313910002BB4B /* Constants.swift */,
+				EB389BB82B231F240002BB4B /* HTTPStatusCode.swift */,
 				EB167BAF2AE9921A003DDB57 /* OAuthClient.swift */,
 				EB58A9F02ADF339A00E33BF4 /* Product.swift */,
 				EB58A9F42ADF3ECB00E33BF4 /* ProductImage.swift */,
 				EB167BAC2AE9910A003DDB57 /* Protocols */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EB7BB18B2B29DC4000B50AA1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EB58A9C42ADF333E00E33BF4 /* MainView.swift */,
+				EB6DCAF82B25C52700215639 /* ProductCardView.swift */,
+				EB6DCAFA2B25C56F00215639 /* ProductDetailView.swift */,
+				EB6DCAF62B25C4E500215639 /* ProductsListView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		EBFEDA552B28FAF20056B026 /* Supporting Files */ = {
