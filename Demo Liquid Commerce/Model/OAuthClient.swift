@@ -46,17 +46,17 @@ struct OAuthClient: StoreClient
     {
         let consumerKey = Bundle.main.infoDictionary?["TEST_API_KEY"] as? String ?? ""
         let consumerSecret = Bundle.main.infoDictionary?["TEST_API_SECRET"] as? String ?? ""
-        var parameters: [String : String] = parameters.compactMap{ guard let value = $0.value else { return nil } ; return [$0.name : value]}.first ?? [:]
+        var parameters = parameters
         var nonce = ""
         for _ in 0..<32
         {
             nonce += ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".randomElement()!]
         }
         let timestamp = "\(Int(Date.now.timeIntervalSince1970))"
-        parameters["oauth_consumer_key"] = "\(consumerKey)"
-        parameters["oauth_timestamp"] = timestamp
-        parameters["oauth_nonce"] = "\(nonce)"
-        parameters["oauth_signature_method"] = "HMAC-SHA1"
+        parameters.append(URLQueryItem(name: "oauth_consumer_key", value: "\(consumerKey)"))
+        parameters.append(URLQueryItem(name: "oauth_timestamp", value: "\(timestamp)"))
+        parameters.append(URLQueryItem(name: "oauth_nonce", value: "\(nonce)"))
+        parameters.append(URLQueryItem(name: "oauth_signature_method", value: "HMAC-SHA1"))
         // Generate HMAC-SHA1 Signature
         let signature = generateHMACSHA1Signature(consumerSecret: consumerSecret, url: path, parameters: parameters)
         // Add the signature to the request header
@@ -65,13 +65,13 @@ struct OAuthClient: StoreClient
         ]
     }
     
-    func generateHMACSHA1Signature(consumerSecret: String, url: String, parameters: [String: Any]) -> String{
+    func generateHMACSHA1Signature(consumerSecret: String, url: String, parameters: [URLQueryItem]) -> String{
         let method = "GET" // or "POST" based on your request method
-        let sortedParams = parameters.sorted { $0.0 < $1.0 }
+        let sortedParams = parameters.sorted(by: { $0.name < $1.name })
         
         var parameterString = ""
-        for (key, value) in sortedParams {
-            parameterString += "\(key)=\(value)&"
+        for param in sortedParams {
+            parameterString += "\(param.name)=\(param.value ?? "")&"
         }
         parameterString = String(parameterString.dropLast()) // Remove the trailing "&"
         
