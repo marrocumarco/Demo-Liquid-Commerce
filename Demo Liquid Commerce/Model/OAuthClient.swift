@@ -25,9 +25,9 @@ struct OAuthClient: StoreClient
     }
     
     func executeCall<T>(_ endPoint: String, queryItems: [URLQueryItem]) async throws -> [T] where T : Decodable {
-        let url = baseURL.appending(path: endPoint).appending(queryItems: queryItems)
-        var request = URLRequest(url: url)
-        request.allHTTPHeaderFields = getHeaders(url.absoluteString)
+        let url = baseURL.appending(path: endPoint)
+        var request = URLRequest(url: url.appending(queryItems: queryItems))
+        request.allHTTPHeaderFields = getHeaders(url.absoluteString, parameters: queryItems)
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let status = (response as? HTTPURLResponse)?.status else { throw StoreClientError.UndefinedHTTPStatusCode }
         
@@ -42,11 +42,11 @@ struct OAuthClient: StoreClient
         return try decoder.decode([T].self, from: data)
     }
     
-    func getHeaders(_ path: String) -> [String : String]
+    func getHeaders(_ path: String, parameters: [URLQueryItem]) -> [String : String]
     {
         let consumerKey = Bundle.main.infoDictionary?["TEST_API_KEY"] as? String ?? ""
         let consumerSecret = Bundle.main.infoDictionary?["TEST_API_SECRET"] as? String ?? ""
-        var parameters: [String: Any] = [:] // Add any additional parameters if needed
+        var parameters: [String : String] = parameters.compactMap{ guard let value = $0.value else { return nil } ; return [$0.name : value]}.first ?? [:]
         var nonce = ""
         for _ in 0..<32
         {

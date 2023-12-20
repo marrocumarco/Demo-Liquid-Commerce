@@ -23,7 +23,9 @@ extension StoreClient
     
     func fetchCategories() async throws -> [Category] 
     {
-        return try await executeCall("products/categories", queryItems: [])
+        return try await executeCall("products/categories", queryItems: [
+            URLQueryItem(name: "display", value: "subcategories")
+        ])
     }
     
     func checkHTTPStatus(_ status: HTTPStatusCode) throws {

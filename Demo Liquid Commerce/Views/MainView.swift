@@ -13,7 +13,7 @@ struct MainView: View {
 
     var body: some View {
             TabView {
-                ProductsListView(productsListViewModel: ProductsListViewModel(client: try! BaseAuthClient(basePath: StringConstants.basePath.rawValue)))
+                ProductsListView(productsListViewModel: ProductsListViewModel(client: try! OAuthClient(basePath: StringConstants.testBasePath.rawValue)))
                     .tabItem {
                         Label(LocalizedStringKey("Menu"), systemImage: "wineglass")
                     }
