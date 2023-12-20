@@ -23,6 +23,10 @@ struct ProductCardView: View {
                         { image in image.resizable().aspectRatio(contentMode: .fit)
                             .frame(height: proxy.size.height * 0.666)} placeholder: { Image("image_placeholder").resizable() }
                     }
+                    else
+                    {
+                        Image("image_placeholder").resizable()
+                    }
 //                    Spacer()
                     Text(product.name.capitalized)
                         .lineLimit(2)
@@ -44,7 +48,8 @@ struct ProductCardView: View {
                 .onAppear()
                 {
                     Task{
-                        imagePath = try! await CachedAsyncThumbnail(url: URL(string: product.images.first?.url ?? "")!, size: CGSize(width: 100, height: 100), scale: UIScreen.main.scale).imagePath
+                        guard let url = URL(string: product.images.first?.url ?? "") else { return }
+                        imagePath = try? await CachedAsyncThumbnail(url: url, size: CGSize(width: 100, height: 100), scale: UIScreen.main.scale).imagePath
                     }
                 }
             }
