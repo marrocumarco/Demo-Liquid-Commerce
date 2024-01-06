@@ -35,7 +35,7 @@ struct ProductDetailView: View {
         .onAppear()
         {
             Task{
-                imagePath = try! await CachedAsyncImage(url: URL(string: product.images.first?.url ?? "")!).imagePath
+                imagePath = try? await CachedAsyncImage(url: URL(string: product.images.first?.url ?? "") ?? URL(fileURLWithPath: "")).imagePath
             }
             description = try! NSAttributedString(data: product.description.data(using: .unicode) ?? Data(),options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil).string
         }
