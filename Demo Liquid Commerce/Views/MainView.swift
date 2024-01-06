@@ -13,7 +13,7 @@ struct MainView: View {
 
     var body: some View {
             TabView {
-                ProductsListView(productsListViewModel: ProductsListViewModel(client: try! OAuthClient(basePath: StringConstants.testBasePath.rawValue)))
+                ProductsListView(productsListViewModel: ProductsListViewModel(client: viewModel.client))
                     .tabItem {
                         Label(LocalizedStringKey("Menu"), systemImage: "wineglass")
                     }
@@ -27,5 +27,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(viewModel: MainViewViewModel())
+    MainView(viewModel: MainViewViewModel(client: try! OAuthClient(basePath: StringConstants.testBasePath.rawValue)))
 }
