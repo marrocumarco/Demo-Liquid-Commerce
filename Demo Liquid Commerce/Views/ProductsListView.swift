@@ -43,5 +43,5 @@ struct ProductsListView: View
 }
 
 #Preview {
-    ProductsListView(productsListViewModel: ProductsListViewModel(client: try! BaseAuthClient(basePath: StringConstants.basePath.rawValue)))
+    ProductsListView(productsListViewModel: ProductsListViewModel(client: try! BaseAuthClient()))
 }

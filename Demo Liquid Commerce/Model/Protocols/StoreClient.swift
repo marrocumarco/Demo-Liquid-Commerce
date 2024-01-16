@@ -9,23 +9,33 @@ import Foundation
 
 protocol StoreClient
 {
-    func executeCall<T: Decodable>(_ endPoint: String, queryItems: [URLQueryItem]) async throws -> [T]
+    func executeCall<T: Decodable>(_ endPoint: URL, queryItems: [URLQueryItem], credentials: Credentials) async throws -> [T]
 }
 
 extension StoreClient
 {
     func fetchProducts(_ pageNumber: Int) async throws -> [Product]
     {
-        return try await executeCall("products", queryItems: [
+        guard let url = URL(string: StringConstants.basePathStore.rawValue.appending("products")) else { throw StoreClientError.InvalidBasePath }
+        return try await executeCall(url, queryItems: [
             URLQueryItem(name: "page", value: pageNumber.description),
-            URLQueryItem(name: "orderby", value: "popularity")])
+            URLQueryItem(name: "orderby", value: "popularity")], credentials: Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "", secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
     }
     
     func fetchCategories() async throws -> [Category] 
     {
-        return try await executeCall("products/categories", queryItems: [
+        guard let url = URL(string: StringConstants.basePathStore.rawValue.appending("products/categories")) else { throw StoreClientError.InvalidBasePath }
+        return try await executeCall(url, queryItems: [
             URLQueryItem(name: "display", value: "subcategories")
-        ])
+        ], credentials: Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "", secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
+    }
+    
+    func login(_ username: String, password: String) async throws -> [User]
+    {
+        guard let url = URL(string: StringConstants.testBasePatSite.rawValue.appending("users/me")) else { throw StoreClientError.InvalidBasePath }
+        return try await executeCall(url, queryItems: [
+            URLQueryItem(name: "display", value: "subcategories")
+        ], credentials: Credentials(key: username, secret: password))
     }
     
     func checkHTTPStatus(_ status: HTTPStatusCode) throws {

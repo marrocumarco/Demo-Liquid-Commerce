@@ -10,24 +10,9 @@ import CommonCrypto
 
 struct OAuthClient: StoreClient
 {
-    let baseURL: URL
-
-    public init(basePath: String) throws
-    {
-        if let url = URL(string: basePath.appending("/wp-json/wc/v3/"))
-        {
-            baseURL = url
-        }
-        else
-        {
-            throw StoreClientError.InvalidBasePath
-        }
-    }
-    
-    func executeCall<T>(_ endPoint: String, queryItems: [URLQueryItem]) async throws -> [T] where T : Decodable {
-        let url = baseURL.appending(path: endPoint)
-        var request = URLRequest(url: url.appending(queryItems: queryItems))
-        request.allHTTPHeaderFields = getHeaders(url.absoluteString, parameters: queryItems)
+    func executeCall<T>(_ baseURL: URL, queryItems: [URLQueryItem], credentials: Credentials) async throws -> [T] where T : Decodable {
+        var request = URLRequest(url: baseURL.appending(queryItems: queryItems))
+        request.allHTTPHeaderFields = getHeaders(baseURL.absoluteString, parameters: queryItems)
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let status = (response as? HTTPURLResponse)?.status else { throw StoreClientError.UndefinedHTTPStatusCode }
         

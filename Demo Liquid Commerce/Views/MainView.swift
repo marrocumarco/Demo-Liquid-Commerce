@@ -27,5 +27,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(viewModel: MainViewViewModel(client: try! OAuthClient(basePath: StringConstants.testBasePath.rawValue)))
+    MainView(viewModel: MainViewViewModel(client: try! OAuthClient()))
 }

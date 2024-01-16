@@ -28,6 +28,7 @@
 		EB6DCAF92B25C52700215639 /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DCAF82B25C52700215639 /* ProductCardView.swift */; };
 		EB6DCAFB2B25C56F00215639 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DCAFA2B25C56F00215639 /* ProductDetailView.swift */; };
 		EB75DBF02B24D0EB0062A1B5 /* CachedAsyncThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75DBEF2B24D0EB0062A1B5 /* CachedAsyncThumbnail.swift */; };
+		EB9993312B55E36900ED0BF9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9993302B55E36900ED0BF9 /* User.swift */; };
 		EBA86DD92B100F16009B1D5C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA86DD82B100F16009B1D5C /* Category.swift */; };
 		EBFEDA572B28FB2F0056B026 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBFEDA562B28FB2F0056B026 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		EB6DCAF82B25C52700215639 /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
 		EB6DCAFA2B25C56F00215639 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		EB75DBEF2B24D0EB0062A1B5 /* CachedAsyncThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncThumbnail.swift; sourceTree = "<group>"; };
+		EB9993302B55E36900ED0BF9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EBA86DD82B100F16009B1D5C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		EBFEDA562B28FB2F0056B026 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,6 +202,7 @@
 			children = (
 				EB58A9F62ADF3F9700E33BF4 /* BaseAuthClient.swift */,
 				EBA86DD82B100F16009B1D5C /* Category.swift */,
+				EB9993302B55E36900ED0BF9 /* User.swift */,
 				EB389BB62B2313910002BB4B /* Constants.swift */,
 				EB389BB82B231F240002BB4B /* HTTPStatusCode.swift */,
 				EB167BAF2AE9921A003DDB57 /* OAuthClient.swift */,
@@ -376,6 +379,7 @@
 				EB389BB92B231F240002BB4B /* HTTPStatusCode.swift in Sources */,
 				EB167BB52AE9D162003DDB57 /* ProductsListViewModel.swift in Sources */,
 				EB58A9F52ADF3ECB00E33BF4 /* ProductImage.swift in Sources */,
+				EB9993312B55E36900ED0BF9 /* User.swift in Sources */,
 				EB167BB02AE9921A003DDB57 /* OAuthClient.swift in Sources */,
 				EB167BAE2AE99127003DDB57 /* StoreClient.swift in Sources */,
 				EB58A9C32ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift in Sources */,

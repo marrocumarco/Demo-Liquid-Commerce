@@ -18,21 +18,21 @@ final class StoreClientTests: XCTestCase {
     }
 
     func testFetchProductsBaseAuth_success() async throws {
-        let client = try BaseAuthClient(basePath: StringConstants.basePath.rawValue)
+        let client = BaseAuthClient()
         // Create an expectation for an asynchronous task.
         let products = try await client.fetchProducts(1)
         XCTAssert(!products.isEmpty)
     }
     
     func testFetchCategoriesBaseAuth_success() async throws {
-        let client = try BaseAuthClient(basePath: StringConstants.basePath.rawValue)
+        let client = BaseAuthClient()
         // Create an expectation for an asynchronous task.
         let categories = try await client.fetchCategories()
         XCTAssert(!categories.isEmpty)
     }
     
     func testFetchProductsOAuth1_success() async throws {
-        let client = try OAuthClient(basePath: StringConstants.testBasePath.rawValue)
+        let client = OAuthClient()
         // Create an expectation for an asynchronous task.
         let products = try await client.fetchProducts(1)
         XCTAssert(!products.isEmpty)
@@ -40,7 +40,7 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testFetchCategoriesOAuth1_success() async throws {
-        let client = try OAuthClient(basePath: StringConstants.testBasePath.rawValue)
+        let client = OAuthClient()
         // Create an expectation for an asynchronous task.
         let categories = try await client.fetchCategories()
         XCTAssert(!categories.isEmpty)
