@@ -46,6 +46,12 @@ final class StoreClientTests: XCTestCase {
         XCTAssert(!categories.isEmpty)
     }
     
+    func testLogin_success() async throws {
+        let client = BaseAuthClient()
+        // Create an expectation for an asynchronous task.
+        let user = try await client.login("pinco pallino", password: "pinco.pallino")
+    }
+    
     func testCachedAsyncImage_success() async throws
     {
         let imagePath = try await CachedAsyncImage(url: URL(string: "https:/demoliquid.it/wp-content/uploads/2023/11/laguna-cannonau-demoliquid-commerce-tenuta-monte-edoardo.png")!).imagePath
