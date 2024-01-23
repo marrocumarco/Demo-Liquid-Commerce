@@ -21,7 +21,7 @@ struct BaseAuthClient: StoreClient
         let encodedCredentials = Data("\(credentials.key):\(credentials.secret)".utf8).base64EncodedString()
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
-            request.setValue("Basic \(credentials)", forHTTPHeaderField: "Authorization")
+            request.setValue("Basic \(encodedCredentials)", forHTTPHeaderField: "Authorization")
             
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let status = (response as? HTTPURLResponse)?.status else { throw StoreClientError.UndefinedHTTPStatusCode }
