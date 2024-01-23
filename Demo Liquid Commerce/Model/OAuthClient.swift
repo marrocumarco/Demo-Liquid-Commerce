@@ -10,7 +10,7 @@ import CommonCrypto
 
 struct OAuthClient: StoreClient
 {
-    func executeCall<T>(_ baseURL: URL, queryItems: [URLQueryItem], credentials: Credentials) async throws -> [T] where T : Decodable {
+    func executeCall<T>(_ baseURL: URL, queryItems: [URLQueryItem], credentials: Credentials) async throws -> T where T : Decodable {
         var request = URLRequest(url: baseURL.appending(queryItems: queryItems))
         request.allHTTPHeaderFields = getHeaders(baseURL.absoluteString, parameters: queryItems)
         let (data, response) = try await URLSession.shared.data(for: request)
@@ -24,7 +24,7 @@ struct OAuthClient: StoreClient
         
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        return try decoder.decode([T].self, from: data)
+        return try decoder.decode(T.self, from: data)
     }
     
     func getHeaders(_ path: String, parameters: [URLQueryItem]) -> [String : String]

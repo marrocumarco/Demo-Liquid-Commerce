@@ -9,7 +9,7 @@ import Foundation
 
 protocol StoreClient
 {
-    func executeCall<T: Decodable>(_ endPoint: URL, queryItems: [URLQueryItem], credentials: Credentials) async throws -> [T]
+    func executeCall<T: Decodable>(_ endPoint: URL, queryItems: [URLQueryItem], credentials: Credentials) async throws -> T
 }
 
 extension StoreClient

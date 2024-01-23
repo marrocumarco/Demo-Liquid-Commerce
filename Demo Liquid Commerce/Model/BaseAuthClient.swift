@@ -14,9 +14,7 @@ struct Credentials
 
 struct BaseAuthClient: StoreClient
 {
-    
-    
-    func executeCall<T>(_ baseURL: URL, queryItems: [URLQueryItem], credentials: Credentials) async throws -> [T] where T : Decodable {
+    func executeCall<T>(_ baseURL: URL, queryItems: [URLQueryItem], credentials: Credentials) async throws -> T where T : Decodable {
         let url = baseURL.appending(queryItems: queryItems)
         let encodedCredentials = Data("\(credentials.key):\(credentials.secret)".utf8).base64EncodedString()
             var request = URLRequest(url: url)
@@ -33,6 +31,6 @@ struct BaseAuthClient: StoreClient
             
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            return try decoder.decode([T].self, from: data)
+            return try decoder.decode(T.self, from: data)
     }
 }
