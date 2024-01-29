@@ -49,7 +49,7 @@ final class StoreClientTests: XCTestCase {
     func testLogin_success() async throws {
         let client = BaseAuthClient()
         // Create an expectation for an asynchronous task.
-        let user = try await client.login("pinco pallino", password: "pinco.pallino")
+        let userId = try await client.login("pinco pallino", password: "pinco.pallino")
     }
     
     func testCachedAsyncImage_success() async throws
