@@ -14,11 +14,11 @@ struct Credentials
 
 struct BaseAuthClient: StoreClient
 {
-    func executeCall<T>(_ baseURL: URL, queryItems: [URLQueryItem], credentials: Credentials) async throws -> T where T : Decodable {
-        let url = baseURL.appending(queryItems: queryItems)
+    func executeCall<T>(_ endPoint: URL, httpMethod: String, queryItems: [URLQueryItem], credentials: Credentials) async throws -> T where T : Decodable {
+        let url = endPoint.appending(queryItems: queryItems)
         let encodedCredentials = Data("\(credentials.key):\(credentials.secret)".utf8).base64EncodedString()
             var request = URLRequest(url: url)
-            request.httpMethod = "GET"
+            request.httpMethod = httpMethod
             request.setValue("Basic \(encodedCredentials)", forHTTPHeaderField: "Authorization")
             
             let (data, response) = try await URLSession.shared.data(for: request)
