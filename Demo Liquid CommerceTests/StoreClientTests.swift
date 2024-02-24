@@ -16,21 +16,8 @@ final class StoreClientTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testFetchProductsBaseAuth_success() async throws {
-        let client = BaseAuthClient()
-        // Create an expectation for an asynchronous task.
-        let products = try await client.fetchProducts(1)
-        XCTAssert(!products.isEmpty)
-    }
     
-    func testFetchCategoriesBaseAuth_success() async throws {
-        let client = BaseAuthClient()
-        // Create an expectation for an asynchronous task.
-        let categories = try await client.fetchCategories()
-        XCTAssert(!categories.isEmpty)
-    }
-    
+#if DEBUG
     func testFetchProductsOAuth1_success() async throws {
         let client = OAuthClient()
         // Create an expectation for an asynchronous task.
@@ -45,11 +32,28 @@ final class StoreClientTests: XCTestCase {
         let categories = try await client.fetchCategories()
         XCTAssert(!categories.isEmpty)
     }
+#else
+    func testFetchProductsBaseAuth_success() async throws {
+        let client = BaseAuthClient()
+        // Create an expectation for an asynchronous task.
+        let products = try await client.fetchProducts(1)
+        XCTAssert(!products.isEmpty)
+    }
+    
+    func testFetchCategoriesBaseAuth_success() async throws {
+        let client = BaseAuthClient()
+        // Create an expectation for an asynchronous task.
+        let categories = try await client.fetchCategories()
+        XCTAssert(!categories.isEmpty)
+    }
+#endif
     
     func testLogin_success() async throws {
         let client = BaseAuthClient()
         // Create an expectation for an asynchronous task.
         let userId = try await client.login("pinco pallino", password: "pinco.pallino")
+        
+        XCTAssert(userId.name == "pinco pallino")
     }
     
     func testCachedAsyncImage_success() async throws

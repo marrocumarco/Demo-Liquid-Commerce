@@ -30,11 +30,10 @@ extension StoreClient
         ], credentials: Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "", secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
     }
     
-    func login(_ username: String, password: String) async throws -> Int
+    func login(_ username: String, password: String) async throws -> LoggedUser
     {
         guard let url = URL(string: StringConstants.basePathSite.rawValue.appending("users/me")) else { throw StoreClientError.InvalidBasePath }
-        let user: LoggedUser = try await executeCall(url, queryItems: [], credentials: Credentials(key: username, secret: password))
-        return user.id
+        return try await executeCall(url, queryItems: [], credentials: Credentials(key: username, secret: password))
     }
     
     func checkHTTPStatus(_ status: HTTPStatusCode) throws {
