@@ -24,7 +24,7 @@ struct Demo_Liquid_CommerceApp: App
 {
     var body: some Scene {
         WindowGroup {
-            MainView(viewModel: MainViewViewModel(client: OAuthClient()))
+            MainView(viewModel: MainViewViewModel(client: OAuthClient(), parser: StoreParser()))
         }
     }
 }

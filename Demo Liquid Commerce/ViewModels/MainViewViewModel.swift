@@ -16,11 +16,13 @@ enum AuthenticationType
 class MainViewViewModel: ObservableObject
 {
     let client: StoreClient
+    let parser: Parser
     let productListViewModel: ProductsListViewModel
     
-    internal init(client: StoreClient) 
+    internal init(client: StoreClient, parser: Parser)
     {
         self.client = client
-        productListViewModel = ProductsListViewModel(client: client)
+        self.parser = parser
+        productListViewModel = ProductsListViewModel(client: client, parser: parser)
     }
 }

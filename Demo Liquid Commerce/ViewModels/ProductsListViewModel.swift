@@ -9,12 +9,14 @@ import Foundation
 
 class ProductsListViewModel: ObservableObject
 {
-    internal init(client: StoreClient) 
+    internal init(client: StoreClient, parser: Parser)
     {
         self.client = client
+        self.parser = parser
     }
     
     let client: StoreClient
+    let parser: Parser
     let itemsPerPage = 10
     var numberOfPages = 0
     @Published var products = [Product]()
@@ -35,7 +37,8 @@ class ProductsListViewModel: ObservableObject
     private func fetchNextProductsPage() async throws
     {
         numberOfPages += 1
-        let newProducts = try await client.fetchProducts(numberOfPages)
+        let newProductsData = try await client.fetchProducts(numberOfPages)
+        let newProducts: [Product] = try parser.parse(newProductsData)
         products.append(contentsOf: newProducts)
     }
 }

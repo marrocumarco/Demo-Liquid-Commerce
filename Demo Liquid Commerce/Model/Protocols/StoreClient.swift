@@ -9,12 +9,12 @@ import Foundation
 
 protocol StoreClient
 {
-    func executeCall<T: Decodable>(_ endPoint: URL, httpMethod: String, queryItems: [URLQueryItem], credentials: Credentials) async throws -> T
+    func executeCall(_ endPoint: URL, httpMethod: String, queryItems: [URLQueryItem], credentials: Credentials) async throws -> Data
 }
 
 extension StoreClient
 {
-    func fetchProducts(_ pageNumber: Int) async throws -> [Product]
+    func fetchProducts(_ pageNumber: Int) async throws -> Data
     {
         guard let url = URL(string: StringConstants.basePathStore.rawValue.appending("products")) else { throw StoreClientError.InvalidBasePath }
         return try await executeCall(url, httpMethod: HTTPMethod.GET.rawValue, queryItems: [
@@ -22,7 +22,7 @@ extension StoreClient
             URLQueryItem(name: "orderby", value: "popularity")], credentials: Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "", secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
     }
     
-    func fetchCategories() async throws -> [Category] 
+    func fetchCategories() async throws -> Data
     {
         guard let url = URL(string: StringConstants.basePathStore.rawValue.appending("products/categories")) else { throw StoreClientError.InvalidBasePath }
         return try await executeCall(url, httpMethod: HTTPMethod.GET.rawValue, queryItems: [
@@ -30,13 +30,15 @@ extension StoreClient
         ], credentials: Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "", secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
     }
     
-//    func createNewCustomer(_ customer: Customer) async throws -> Bool
-//    {
-//        guard let url = URL(string: StringConstants.basePathSite.rawValue.appending("users/me")) else { throw StoreClientError.InvalidBasePath }
-//        return try await executeCall(url, httpMethod: HTTPMethod.POST.rawValue, queryItems: [], credentials: Credentials(key: username, secret: password))
-//    }
+    func createNewCustomer(_ customer: Customer, credentials: Credentials) async throws -> Data
+    {
+        guard let url = URL(string: StringConstants.basePathSite.rawValue.appending("users")) else { throw StoreClientError.InvalidBasePath }
+        return try await executeCall(url, httpMethod: HTTPMethod.POST.rawValue, queryItems: [URLQueryItem(name: "username", value: customer.username),
+                                                                                             URLQueryItem(name: "email", value: customer.email),
+                                                                                             URLQueryItem(name: "password", value: customer.password)], credentials: credentials)
+    } 
     
-    func login(_ username: String, password: String) async throws -> LoggedUser
+    func login(_ username: String, password: String) async throws -> Data
     {
         guard let url = URL(string: StringConstants.basePathSite.rawValue.appending("users/me")) else { throw StoreClientError.InvalidBasePath }
         return try await executeCall(url, httpMethod: HTTPMethod.GET.rawValue, queryItems: [], credentials: Credentials(key: username, secret: password))

@@ -13,7 +13,7 @@ struct MainView: View {
 
     var body: some View {
             TabView {
-                ProductsListView(productsListViewModel: ProductsListViewModel(client: viewModel.client))
+                ProductsListView(productsListViewModel: ProductsListViewModel(client: viewModel.client, parser: viewModel.parser))
                     .tabItem {
                         Label(LocalizedStringKey("Menu"), systemImage: "wineglass")
                     }
@@ -27,5 +27,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(viewModel: MainViewViewModel(client: try! OAuthClient()))
+    MainView(viewModel: MainViewViewModel(client: try! OAuthClient(), parser: StoreParser()))
 }

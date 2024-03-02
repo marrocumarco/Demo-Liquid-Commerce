@@ -43,5 +43,5 @@ struct ProductsListView: View
 }
 
 #Preview {
-    ProductsListView(productsListViewModel: ProductsListViewModel(client: try! BaseAuthClient()))
+    ProductsListView(productsListViewModel: ProductsListViewModel(client: try! BaseAuthClient(), parser: StoreParser()))
 }

@@ -21,38 +21,49 @@ final class StoreClientTests: XCTestCase {
     func testFetchProductsOAuth1_success() async throws {
         let client = OAuthClient()
         // Create an expectation for an asynchronous task.
-        let products = try await client.fetchProducts(1)
-        XCTAssert(!products.isEmpty)
-        
+        let productsData = try await client.fetchProducts(1)
+        XCTAssert(!productsData.isEmpty)
+        var products = [Product]()
+        XCTAssertNoThrow(products = try StoreParser().parse(productsData))
+        XCTAssertFalse(products.isEmpty)
     }
     
     func testFetchCategoriesOAuth1_success() async throws {
         let client = OAuthClient()
         // Create an expectation for an asynchronous task.
-        let categories = try await client.fetchCategories()
-        XCTAssert(!categories.isEmpty)
+        let categoriesData = try await client.fetchCategories()
+        XCTAssert(!categoriesData.isEmpty)
+        var categories = [ProductCategory]()
+        XCTAssertNoThrow(categories = try StoreParser().parse(categoriesData))
+        XCTAssertFalse(categories.isEmpty)
     }
 #else
     func testFetchProductsBaseAuth_success() async throws {
         let client = BaseAuthClient()
         // Create an expectation for an asynchronous task.
-        let products = try await client.fetchProducts(1)
-        XCTAssert(!products.isEmpty)
+        let productsData = try await client.fetchProducts(1)
+        XCTAssert(!productsData.isEmpty)
+        var products = [Product]()
+        XCTAssertNoThrow(products = try StoreParser().parse(productsData))
+        XCTAssertFalse(products.isEmpty)
     }
     
     func testFetchCategoriesBaseAuth_success() async throws {
         let client = BaseAuthClient()
         // Create an expectation for an asynchronous task.
-        let categories = try await client.fetchCategories()
-        XCTAssert(!categories.isEmpty)
+        let categoriesData = try await client.fetchCategories()
+        XCTAssert(!categoriesData.isEmpty)
+        var categories = [Category]()
+        XCTAssertNoThrow(categories = try StoreParser().parse(categoriesData))
+        XCTAssertFalse(categories.isEmpty)
     }
 #endif
     
     func testLogin_success() async throws {
         let client = BaseAuthClient()
         // Create an expectation for an asynchronous task.
-        let userId = try await client.login("pinco pallino", password: "pinco.pallino")
-        
+        let data = try await client.login("pinco pallino", password: "pinco.pallino")
+        let userId: LoggedUser = try StoreParser().parse(data)
         XCTAssert(userId.name == "pinco pallino")
     }
     
