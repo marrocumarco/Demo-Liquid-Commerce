@@ -37,6 +37,28 @@ final class StoreClientTests: XCTestCase {
         XCTAssertNoThrow(categories = try StoreParser().parse(categoriesData))
         XCTAssertFalse(categories.isEmpty)
     }
+    
+    func testCreateNewCustomer_success() async throws {
+        let client = OAuthClient()
+        // Create an expectation for an asynchronous task.
+        let newCustomer = Customer(id: nil, username: "asdff", firstName: "asdfasdf", lastName: "wwerwqer", email: "werqewrq@gmail.com", password: "qwerty", billing: Address(firstName: "asdfasdf", lastName: "wwerwqer", company: "testcompany", address1: "via dotto", address2: "34", city: "nora", state: "IT", postcode: "09090", country: "OR", phone: "9498565231", email: "werqewrq@gmail.com"), shipping: Address(firstName: "asdfasdf", lastName: "wwerwqer", company: "", address1: "via dotto", address2: "34", city: "nora", state: "IT", postcode: "09090", country: "OR", phone: "9498565231", email: "werqewrq@gmail.com"))
+        let data = try await client.createNewCustomer(newCustomer)
+        let createdCustomer: Customer = try StoreParser().parse(data)
+        XCTAssert(createdCustomer == newCustomer)
+    }
+    
+    func testUpdateCustomer_success() async throws {
+        let client = OAuthClient()
+
+        var customerData = try await client.getCustomer(25)
+        var existentCustomer: Customer = try StoreParser().parse(customerData)
+        existentCustomer.email = "email.modificata@gmail.com"
+        let data = try await client.updateCustomer(existentCustomer)
+        let modifiedCustomer: Customer = try StoreParser().parse(data)
+        XCTAssert(modifiedCustomer == existentCustomer)
+    }
+    
+    
 #else
     func testFetchProductsBaseAuth_success() async throws {
         let client = BaseAuthClient()
@@ -57,6 +79,14 @@ final class StoreClientTests: XCTestCase {
         XCTAssertNoThrow(categories = try StoreParser().parse(categoriesData))
         XCTAssertFalse(categories.isEmpty)
     }
+    
+    func testCreateNewCustomer_success() async throws {
+        let client = BaseAuthClient()
+        // Create an expectation for an asynchronous task.
+        let data = try await client.createNewCustomer(Customer(id: nil, username: "asdff", firstName: "asdfasdf", lastName: "wwerwqer", email: "werqewrq@gmail.com", password: "qwerty", billing: Address(firstName: "asdfasdf", lastName: "wwerwqer", company: nil, address1: "via dotto", address2: "34", city: "nora", state: "IT", postcode: "09090", country: "OR", phone: "9498565231", email: "werqewrq@gmail.com"), shipping: Address(firstName: "asdfasdf", lastName: "wwerwqer", company: nil, address1: "via dotto", address2: "34", city: "nora", state: "IT", postcode: "09090", country: "OR", phone: "9498565231", email: "werqewrq@gmail.com")))
+        let customer: Customer = try StoreParser().parse(data)
+        XCTAssert(customer.username == "asdff")
+    }
 #endif
     
     func testLogin_success() async throws {
@@ -66,6 +96,8 @@ final class StoreClientTests: XCTestCase {
         let userId: LoggedUser = try StoreParser().parse(data)
         XCTAssert(userId.name == "pinco pallino")
     }
+    
+    
     
     func testCachedAsyncImage_success() async throws
     {

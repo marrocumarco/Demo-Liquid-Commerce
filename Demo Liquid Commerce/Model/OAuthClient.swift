@@ -10,9 +10,12 @@ import CommonCrypto
 
 struct OAuthClient: StoreClient
 {
-    func executeCall(_ endPoint: URL, httpMethod: String, queryItems: [URLQueryItem], credentials: Credentials) async throws -> Data {
+    func executeCall(_ endPoint: URL, httpMethod: String, queryItems: [URLQueryItem], httpBody: Data? = nil, credentials: Credentials) async throws -> Data {
         var request = URLRequest(url: endPoint.appending(queryItems: queryItems))
-        request.allHTTPHeaderFields = getHeaders(endPoint.absoluteString, httpMethod: httpMethod, parameters: queryItems)
+        request.httpMethod = httpMethod
+        request.setValue(getAuthorizationHeader(endPoint.absoluteString, httpMethod: httpMethod, parameters: queryItems), forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = httpBody
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let status = (response as? HTTPURLResponse)?.status else { throw StoreClientError.UndefinedHTTPStatusCode }
         
@@ -24,7 +27,7 @@ struct OAuthClient: StoreClient
         return data
     }
     
-    func getHeaders(_ path: String, httpMethod: String, parameters: [URLQueryItem]) -> [String : String]
+    func getAuthorizationHeader(_ path: String, httpMethod: String, parameters: [URLQueryItem]) -> String
     {
         let consumerKey = Bundle.main.infoDictionary?["TEST_API_KEY"] as? String ?? ""
         let consumerSecret = Bundle.main.infoDictionary?["TEST_API_SECRET"] as? String ?? ""
@@ -42,9 +45,7 @@ struct OAuthClient: StoreClient
         // Generate HMAC-SHA1 Signature
         let signature = generateHMACSHA1Signature(consumerSecret: consumerSecret, url: path, httpMethod: httpMethod, parameters: parameters)
         // Add the signature to the request header
-        return [
-            "Authorization": "OAuth oauth_consumer_key=\"\(consumerKey)\", oauth_signature_method=\"HMAC-SHA1\", oauth_signature=\"\(signature)\", oauth_timestamp=\"\(timestamp)\",oauth_nonce=\"\(nonce)\""
-        ]
+        return "OAuth oauth_consumer_key=\"\(consumerKey)\", oauth_signature_method=\"HMAC-SHA1\", oauth_signature=\"\(signature)\", oauth_timestamp=\"\(timestamp)\",oauth_nonce=\"\(nonce)\""
     }
     
     func generateHMACSHA1Signature(consumerSecret: String, url: String, httpMethod: String, parameters: [URLQueryItem]) -> String{

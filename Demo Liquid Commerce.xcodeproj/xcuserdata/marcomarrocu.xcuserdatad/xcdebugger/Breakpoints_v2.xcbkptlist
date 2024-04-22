@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "51AD7E3E-21DE-4EBA-8F39-C90B4B6E56B9"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo Liquid Commerce/Utilities/CachedAsyncImage.swift"
@@ -21,7 +21,7 @@
             <Locations>
                <Location
                   uuid = "51AD7E3E-21DE-4EBA-8F39-C90B4B6E56B9 - afc7da9a5558c8ac"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.CachedAsyncImage.imagePath.getter : Swift.String"
@@ -36,7 +36,7 @@
                </Location>
                <Location
                   uuid = "51AD7E3E-21DE-4EBA-8F39-C90B4B6E56B9 - 4b3cd27c3751a595"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(2) await resume partial function for Demo_Liquid_Commerce.CachedAsyncImage.imagePath.getter : Swift.String"
@@ -51,7 +51,7 @@
                </Location>
                <Location
                   uuid = "51AD7E3E-21DE-4EBA-8F39-C90B4B6E56B9 - 67f56221a4a1ccae"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(3) suspend resume partial function for Demo_Liquid_Commerce.CachedAsyncImage.imagePath.getter : Swift.String"
@@ -66,7 +66,7 @@
                </Location>
                <Location
                   uuid = "51AD7E3E-21DE-4EBA-8F39-C90B4B6E56B9 - c21bbe7583dd4eb1"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(4) suspend resume partial function for Demo_Liquid_Commerce.CachedAsyncImage.imagePath.getter : Swift.String"
@@ -86,7 +86,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "AF6AD722-1C4F-4093-86F7-001F5717EEC3"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo Liquid Commerce/Utilities/CachedAsyncThumbnail.swift"
@@ -101,32 +101,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7DA75410-CB0D-446B-8EF7-916F576C34AC"
+            uuid = "18776ACE-F16B-41FB-8FF3-2D8DD7096388"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Demo Liquid Commerce/Model/OAuthClient.swift"
+            filePath = "Demo Liquid CommerceTests/StoreClientTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "executeCall(_:httpMethod:queryItems:credentials:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F3A9F630-001A-4AD0-80BD-9836EC58757C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo Liquid Commerce/Model/Protocols/StoreClient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "createNewCustomer(_:credentials:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "testCreateNewCustomer_success()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

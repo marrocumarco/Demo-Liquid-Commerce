@@ -14,13 +14,13 @@ struct Credentials
 
 struct BaseAuthClient: StoreClient
 {
-    func executeCall(_ endPoint: URL, httpMethod: String, queryItems: [URLQueryItem], credentials: Credentials) async throws -> Data {
+    func executeCall(_ endPoint: URL, httpMethod: String, queryItems: [URLQueryItem], httpBody: Data? = nil, credentials: Credentials) async throws -> Data {
         let url = endPoint.appending(queryItems: queryItems)
         let encodedCredentials = Data("\(credentials.key):\(credentials.secret)".utf8).base64EncodedString()
             var request = URLRequest(url: url)
             request.httpMethod = httpMethod
             request.setValue("Basic \(encodedCredentials)", forHTTPHeaderField: "Authorization")
-            
+            request.httpBody = httpBody
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let status = (response as? HTTPURLResponse)?.status else { throw StoreClientError.UndefinedHTTPStatusCode }
             try checkHTTPStatus(status)

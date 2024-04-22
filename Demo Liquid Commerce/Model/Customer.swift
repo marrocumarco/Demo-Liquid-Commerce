@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Customer: Codable
+struct Customer: Codable, Equatable
 {
     let id: Int?
-    let username: String
-    let firstName: String
-    let lastName: String
-    let email: String
-    let password: String?
-    let billing: Address?
-    let shipping: Address?
+    var username: String
+    var firstName: String
+    var lastName: String
+    var email: String
+    var password: String?
+    var billing: Address?
+    var shipping: Address?
 }
