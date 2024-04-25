@@ -22,7 +22,7 @@ struct OAuthClient: StoreClient
         try checkHTTPStatus(status)
         
 #if DEBUG
-        print(try JSONSerialization.jsonObject(with: data))
+        print(response)
 #endif
         return data
     }

@@ -38,6 +38,26 @@ final class StoreClientTests: XCTestCase {
         XCTAssertFalse(categories.isEmpty)
     }
     
+    func testFetchPaymentGatewaysOAuth1_success() async throws {
+        let client = OAuthClient()
+        // Create an expectation for an asynchronous task.
+        let paymentData = try await client.fetchPaymentGateways()
+        XCTAssert(!paymentData.isEmpty)
+        var paymentGateways = [PaymentGateway]()
+        XCTAssertNoThrow(paymentGateways = try StoreParser().parse(paymentData))
+        XCTAssertFalse(paymentGateways.isEmpty)
+    }
+    
+    func testFetchShippingMethodsOAuth1_success() async throws {
+        let client = OAuthClient()
+        // Create an expectation for an asynchronous task.
+        let shippingData = try await client.fetchShippingMethods()
+        XCTAssert(!shippingData.isEmpty)
+        var shippingMethods = [ShippingMethod]()
+        XCTAssertNoThrow(shippingMethods = try StoreParser().parse(shippingData))
+        XCTAssertFalse(shippingMethods.isEmpty)
+    }
+    
     func testCreateNewCustomer_success() async throws {
         let client = OAuthClient()
         // Create an expectation for an asynchronous task.
@@ -56,6 +76,27 @@ final class StoreClientTests: XCTestCase {
         let data = try await client.updateCustomer(existentCustomer)
         let modifiedCustomer: Customer = try StoreParser().parse(data)
         XCTAssert(modifiedCustomer == existentCustomer)
+    }
+    
+    func testCreateNewOrder_success() async throws {
+        let client = OAuthClient()
+        let customersData = try await client.getCustomers()
+        let fetchedCustomers: [Customer] = try StoreParser().parse(customersData)
+        let shippingData = try await client.fetchShippingMethods()
+        let fetchedShippingMethods: [ShippingMethod] = try StoreParser().parse(shippingData)
+        let fetchedProductsData = try await client.fetchProducts(1)
+        let fetchedProducts: [Product] = try StoreParser().parse(fetchedProductsData)
+        let fetchedPaymentMethodsData = try await client.fetchPaymentGateways()
+        let fetchedPaymentMethods: [PaymentGateway] = try StoreParser().parse(fetchedPaymentMethodsData)
+        
+        // Create an expectation for an asynchronous task.
+        let newOrder = Order(id: nil, number: nil, customerId: nil, status: nil, paymentMethod: fetchedPaymentMethods.first?.id ?? "", paymentMethodTitle: fetchedPaymentMethods.first!.title, setPaid: true, billing: fetchedCustomers.first!.billing!, shipping: fetchedCustomers.first!.shipping!, lineItems: [LineItem(id: fetchedProducts.first!.id, quantity: 2)], shippingLines: [ShippingLine(id: nil, methodTitle: fetchedShippingMethods.first!.title, methodId: fetchedShippingMethods.first!.id, total: "10.00", totalTax: nil)])
+        
+        
+        let data = try await client.createOrder(newOrder)
+        
+        let createdOrder: Order = try StoreParser().parse(data)
+        XCTAssert(createdOrder == newOrder)
     }
     
     
@@ -96,8 +137,6 @@ final class StoreClientTests: XCTestCase {
         let userId: LoggedUser = try StoreParser().parse(data)
         XCTAssert(userId.name == "pinco pallino")
     }
-    
-    
     
     func testCachedAsyncImage_success() async throws
     {
