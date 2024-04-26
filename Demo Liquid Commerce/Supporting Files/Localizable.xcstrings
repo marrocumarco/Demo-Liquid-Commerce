@@ -44,6 +44,9 @@
         }
       }
     },
+    "Buy" : {
+
+    },
     "Demo Liquid" : {
       "localizations" : {
         "it" : {
@@ -63,6 +66,9 @@
           }
         }
       }
+    },
+    "Loading…" : {
+
     },
     "Menu" : {
       "localizations" : {
@@ -90,6 +96,15 @@
           }
         }
       }
+    },
+    "Payment canceled." : {
+
+    },
+    "Payment complete" : {
+
+    },
+    "Payment failed: %@" : {
+
     },
     "Price:" : {
       "localizations" : {
