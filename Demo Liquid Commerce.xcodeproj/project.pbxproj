@@ -15,6 +15,8 @@
 		EB167BB52AE9D162003DDB57 /* ProductsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB167BB42AE9D162003DDB57 /* ProductsListViewModel.swift */; };
 		EB1CEBF22BDBAC0900178B41 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = EB1CEBF12BDBAC0900178B41 /* Stripe */; };
 		EB1CEBF42BDBAC0900178B41 /* StripeApplePay in Frameworks */ = {isa = PBXBuildFile; productRef = EB1CEBF32BDBAC0900178B41 /* StripeApplePay */; };
+		EB1CEBF62BDBB66700178B41 /* PaymentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1CEBF52BDBB66700178B41 /* PaymentClient.swift */; };
+		EB1CEBF92BDBDCC700178B41 /* StripeCheckoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1CEBF82BDBDCC700178B41 /* StripeCheckoutResponse.swift */; };
 		EB37ACAA2B238C7500F1875A /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB37ACA92B238C7500F1875A /* CachedAsyncImage.swift */; };
 		EB389BB72B2313910002BB4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB389BB62B2313910002BB4B /* Constants.swift */; };
 		EB389BB92B231F240002BB4B /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB389BB82B231F240002BB4B /* HTTPStatusCode.swift */; };
@@ -63,6 +65,8 @@
 		EB167BAF2AE9921A003DDB57 /* OAuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthClient.swift; sourceTree = "<group>"; };
 		EB167BB22AE99778003DDB57 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
 		EB167BB42AE9D162003DDB57 /* ProductsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewModel.swift; sourceTree = "<group>"; };
+		EB1CEBF52BDBB66700178B41 /* PaymentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentClient.swift; sourceTree = "<group>"; };
+		EB1CEBF82BDBDCC700178B41 /* StripeCheckoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCheckoutResponse.swift; sourceTree = "<group>"; };
 		EB37ACA92B238C7500F1875A /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
 		EB389BB62B2313910002BB4B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EB389BB82B231F240002BB4B /* HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				EB167BAD2AE99127003DDB57 /* StoreClient.swift */,
+				EB1CEBF52BDBB66700178B41 /* PaymentClient.swift */,
 				EBF6C0D62B93D10900ED1555 /* Parser.swift */,
 			);
 			path = Protocols;
@@ -220,6 +225,7 @@
 				EB1471BA2B62DC1B007EB6BA /* Address.swift */,
 				EB389BB62B2313910002BB4B /* Constants.swift */,
 				EB389BB82B231F240002BB4B /* HTTPStatusCode.swift */,
+				EB1CEBF82BDBDCC700178B41 /* StripeCheckoutResponse.swift */,
 				EB167BAF2AE9921A003DDB57 /* OAuthClient.swift */,
 				EB58A9F02ADF339A00E33BF4 /* Product.swift */,
 				EB58A9F42ADF3ECB00E33BF4 /* ProductImage.swift */,
@@ -398,6 +404,8 @@
 				EB58A9F12ADF339A00E33BF4 /* Product.swift in Sources */,
 				EB6DCAF72B25C4E500215639 /* ProductsListView.swift in Sources */,
 				EB6DCAF92B25C52700215639 /* ProductCardView.swift in Sources */,
+				EB1CEBF62BDBB66700178B41 /* PaymentClient.swift in Sources */,
+				EB1CEBF92BDBDCC700178B41 /* StripeCheckoutResponse.swift in Sources */,
 				EB75DBF02B24D0EB0062A1B5 /* CachedAsyncThumbnail.swift in Sources */,
 				EB167BB32AE99778003DDB57 /* MainViewViewModel.swift in Sources */,
 				EB119E502B6857AB0079E223 /* Customer.swift in Sources */,

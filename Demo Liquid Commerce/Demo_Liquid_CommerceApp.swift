@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import Stripe
 
 @main
 struct AppLauncher {
@@ -22,6 +23,10 @@ struct AppLauncher {
 
 struct Demo_Liquid_CommerceApp: App
 {
+    init()
+    {
+        StripeAPI.defaultPublishableKey = Bundle.main.infoDictionary?["TEST_STRIPE_API_KEY"] as? String ?? ""
+    }
     var body: some Scene {
         WindowGroup {
             MainView(viewModel: MainViewViewModel(client: OAuthClient(), parser: StoreParser()))
@@ -31,6 +36,10 @@ struct Demo_Liquid_CommerceApp: App
 
 struct TestApp: App
 {
+    init()
+    {
+        StripeAPI.defaultPublishableKey = Bundle.main.infoDictionary?["TEST_STRIPE_API_KEY"] as? String ?? ""
+    }
     var body: some Scene {
         WindowGroup {
             Text("Testing...")

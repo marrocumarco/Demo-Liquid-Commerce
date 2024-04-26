@@ -58,7 +58,15 @@ final class StoreClientTests: XCTestCase {
         XCTAssert(modifiedCustomer == existentCustomer)
     }
     
-    
+    func testCheckout_success() async throws 
+    {
+        let client = StripeClient()
+
+        let product = Product(id: 1, name: "wine1", description: "wine1Desc", shortDescription: "w1desc", price: 12.0, salePrice: 10.0, onSale: false, images: [], stockStatus: .inStock)
+        let response = try await client.startCheckout([product, product])
+        XCTAssert(response.paymentIntent != nil)
+        
+    }
 #else
     func testFetchProductsBaseAuth_success() async throws {
         let client = BaseAuthClient()
