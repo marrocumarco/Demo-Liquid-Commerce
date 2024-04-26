@@ -12,11 +12,12 @@ public class PaymentViewModel: ObservableObject
     
     @Published var paymentSheet: PaymentSheet?
     @Published var paymentResult: PaymentSheetResult?
-    var products = [Product]()
+    let products: [Product]
     let paymentClient: PaymentClient
     
-    init(paymentClient: PaymentClient)
+    init(products: [Product], paymentClient: PaymentClient)
     {
+        self.products = products
         self.paymentClient = paymentClient
     }
     

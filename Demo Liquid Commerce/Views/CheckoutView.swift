@@ -9,8 +9,8 @@ import SwiftUI
 import StripePaymentSheet
 
 struct CheckoutView: View {
-    @ObservedObject var model = PaymentViewModel(paymentClient: StripeClient())
-
+    @ObservedObject var model: PaymentViewModel
+    
   var body: some View {
     VStack {
       if let paymentSheet = model.paymentSheet {

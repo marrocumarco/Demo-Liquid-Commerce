@@ -10,7 +10,7 @@ import SwiftUI
 struct ProductsListView: View 
 {
     @ObservedObject var productsListViewModel: ProductsListViewModel
-    
+    var cartViewModel: CartViewModel
     
     var body: some View {
         NavigationStack{
@@ -21,7 +21,7 @@ struct ProductsListView: View
                     {
                         product in
                         
-                        NavigationLink(destination: ProductDetailView(product: product)){
+                        NavigationLink(destination: ProductDetailView(product: product, cartViewModel: cartViewModel)){
                             ProductCardView(product: product)
                                 .frame(height: 300)
                                 .onAppear{ Task{ try await productsListViewModel.fetchProducts(currentProduct: product) } }
@@ -43,5 +43,5 @@ struct ProductsListView: View
 }
 
 #Preview {
-    ProductsListView(productsListViewModel: ProductsListViewModel(client: try! BaseAuthClient(), parser: StoreParser()))
+    ProductsListView(productsListViewModel: ProductsListViewModel(client: try! BaseAuthClient(), parser: StoreParser()), cartViewModel: CartViewModel())
 }

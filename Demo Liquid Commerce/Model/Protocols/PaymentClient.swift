@@ -17,7 +17,7 @@ public struct StripeClient: PaymentClient
     public func startCheckout(_ products: [Product]) async throws -> StripeCheckoutResponse
     {
         let url = URL(string:
-        "https://star-pleasant-muse.glitch.me/checkout")!
+        "https://sudden-radial-stygimoloch.glitch.me/checkout")!
         var request = URLRequest (url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

@@ -17,6 +17,9 @@
         }
       }
     },
+    "Add to cart" : {
+
+    },
     "app_name" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -45,6 +48,9 @@
       }
     },
     "Buy" : {
+
+    },
+    "Checkout" : {
 
     },
     "Demo Liquid" : {
@@ -79,6 +85,9 @@
           }
         }
       }
+    },
+    "number of products: %lld" : {
+
     },
     "On sale" : {
       "extractionState" : "manual",
@@ -116,10 +125,10 @@
         }
       }
     },
-    "prova2" : {
+    "Testing..." : {
 
     },
-    "Testing..." : {
+    "This is the Cart" : {
 
     }
   },

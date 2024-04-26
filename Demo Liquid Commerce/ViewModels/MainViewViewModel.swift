@@ -18,7 +18,6 @@ class MainViewViewModel: ObservableObject
     let client: StoreClient
     let parser: Parser
     let productListViewModel: ProductsListViewModel
-    
     internal init(client: StoreClient, parser: Parser)
     {
         self.client = client

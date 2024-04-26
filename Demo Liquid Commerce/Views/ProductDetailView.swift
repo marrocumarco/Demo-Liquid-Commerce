@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductDetailView: View {
     let product: Product
+    let cartViewModel: CartViewModel
     @State var imagePath: String?
     @State var description: String?
     var body: some View {
@@ -26,6 +27,9 @@ struct ProductDetailView: View {
                 }
                 Group{
                     Text(product.price.description + " €").font(.largeTitle)
+                    Button("Add to cart", action: {
+                        cartViewModel.addProductToCart(product)
+                    })
                     Text(LocalizedStringKey("Description")).font(.title)
                         .foregroundStyle(.accent)
                     Text(description ?? "")
@@ -43,5 +47,5 @@ struct ProductDetailView: View {
 }
 
 #Preview {
-    ProductDetailView(product: Product(id: 1, name: "Bellu binu spuntu", description: "Su binu est bellu!\n Ma chi est totu acua...\n Tastaddu!", shortDescription: "", price: 1548.26, salePrice: 0, onSale: false, images: [ProductImage(id: 1, url: "https:/demoliquid.it/wp-content/uploads/2023/11/laguna-cannonau-demoliquid-commerce-tenuta-monte-edoardo.png", name: "binuBellu")], stockStatus: .inStock), imagePath: "", description: "")
+    ProductDetailView(product: Product(id: 1, name: "Bellu binu spuntu", description: "Su binu est bellu!\n Ma chi est totu acua...\n Tastaddu!", shortDescription: "", price: 1548.26, salePrice: 0, onSale: false, images: [ProductImage(id: 1, url: "https:/demoliquid.it/wp-content/uploads/2023/11/laguna-cannonau-demoliquid-commerce-tenuta-monte-edoardo.png", name: "binuBellu")], stockStatus: .inStock), cartViewModel: CartViewModel(), imagePath: "", description: "")
 }
