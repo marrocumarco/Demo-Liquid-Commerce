@@ -7,9 +7,9 @@
 import StripePaymentSheet
 import SwiftUI
 
+@MainActor
 public class PaymentViewModel: ObservableObject
 {
-    
     @Published var paymentSheet: PaymentSheet?
     @Published var paymentResult: PaymentSheetResult?
     let products: [Product]
@@ -29,7 +29,7 @@ public class PaymentViewModel: ObservableObject
         STPAPIClient.shared.publishableKey = response.publishableKey
         // MARK: Create a PaymentSheet instance
         var configuration = PaymentSheet.Configuration()
-        configuration.merchantDisplayName = "Example, Inc."
+        configuration.merchantDisplayName = "Demo Liquid Commerce"
         configuration.customer = .init(id: response.customer, ephemeralKeySecret: response.ephemeralKey)
         // Set `allowsDelayedPaymentMethods` to true if your business can handle payment methods
         // that complete payment after a delay, like SEPA Debit and Sofort.

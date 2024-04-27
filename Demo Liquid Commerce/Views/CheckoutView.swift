@@ -13,7 +13,8 @@ struct CheckoutView: View {
     
   var body: some View {
     VStack {
-      if let paymentSheet = model.paymentSheet {
+      if let paymentSheet = model.paymentSheet
+        {
         PaymentSheet.PaymentButton(
           paymentSheet: paymentSheet,
           onCompletion: model.onPaymentCompletion
