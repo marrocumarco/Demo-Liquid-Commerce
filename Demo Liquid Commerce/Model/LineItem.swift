@@ -9,6 +9,6 @@ import Foundation
 
 struct LineItem: Codable, Equatable
 {
-    let id: Int
+    let productId: Int
     let quantity: Int
 }

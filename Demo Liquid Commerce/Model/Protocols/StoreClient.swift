@@ -91,17 +91,21 @@ extension StoreClient
         return try await executeCall(url, httpMethod: HTTPMethod.POST.rawValue, queryItems: [], httpBody: body, credentials: Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "", secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
     }
     
-    func checkHTTPStatus(_ status: HTTPStatusCode) throws {
+    func checkHTTPStatus(_ status: HTTPStatusCode, data: Data) throws {
         switch status.responseType {
         case .informational, .success:
             break
         case .redirection:
+            print(try JSONDecoder().decode(StoreClientErrorResponse.self, from: data))
             throw StoreClientError.Redirection(statusCode: status.rawValue)
         case .clientError:
+            print(try JSONDecoder().decode(StoreClientErrorResponse.self, from: data))
             throw StoreClientError.ClientError(statusCode: status.rawValue)
         case .serverError:
+            print(try JSONDecoder().decode(StoreClientErrorResponse.self, from: data))
             throw StoreClientError.ServerError(statusCode: status.rawValue)
         case .undefined:
+            print(try JSONDecoder().decode(StoreClientErrorResponse.self, from: data))
             throw StoreClientError.Redirection(statusCode: status.rawValue)
         }
     }
@@ -122,4 +126,14 @@ enum StoreClientError: Error
     case Redirection(statusCode: Int)
     case ClientError(statusCode: Int)
     case ServerError(statusCode: Int)
+}
+
+struct StoreClientErrorResponse: Decodable, CustomStringConvertible
+{
+    var description: String{
+        "error code: \(code)\nerror message:\(message)"
+    }
+    
+    let code: String
+    let message: String
 }

@@ -14,4 +14,6 @@ struct ShippingLine: Codable, Equatable
     let methodId: String
     let total: String
     let totalTax: String?
+    
+    
 }

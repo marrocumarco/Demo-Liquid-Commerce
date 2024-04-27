@@ -19,11 +19,9 @@ struct OAuthClient: StoreClient
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let status = (response as? HTTPURLResponse)?.status else { throw StoreClientError.UndefinedHTTPStatusCode }
         
-        try checkHTTPStatus(status)
         
-#if DEBUG
-        print(response)
-#endif
+        try checkHTTPStatus(status, data: data)
+        
         return data
     }
     

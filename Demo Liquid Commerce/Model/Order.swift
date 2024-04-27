@@ -11,7 +11,7 @@ public struct Order: Codable, Equatable
 {
     
     let id: Int?
-    let number: Int?
+    let number: String?
     let customerId: Int?
     let status: String?
     let paymentMethod: String
