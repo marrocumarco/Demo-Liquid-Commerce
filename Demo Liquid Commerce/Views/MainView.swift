@@ -27,5 +27,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(viewModel: MainViewViewModel(client: try! OAuthClient(), parser: StoreParser()))
+    MainView(viewModel: MainViewViewModel(client: OAuthClient(), parser: StoreParser()))
 }

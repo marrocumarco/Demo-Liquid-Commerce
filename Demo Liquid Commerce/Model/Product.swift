@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product: Codable, Identifiable, Equatable {
+public struct Product: Codable, Identifiable, Equatable {
     internal init(id: Int,
                   name: String,
                   description: String,
@@ -28,7 +28,7 @@ struct Product: Codable, Identifiable, Equatable {
         self.stockStatus = stockStatus
     }
 
-    let id: Int
+    public let id: Int
     let name: String
     let description: String
     let shortDescription: String
@@ -50,7 +50,7 @@ struct Product: Codable, Identifiable, Equatable {
         case stockStatus
     }
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container: KeyedDecodingContainer<Product.CodingKeys> =
         try decoder.container(keyedBy: Product.CodingKeys.self)
 
@@ -65,7 +65,7 @@ struct Product: Codable, Identifiable, Equatable {
         self.stockStatus =  try container.decode(StockStatus.self, forKey: Product.CodingKeys.stockStatus)
     }
 
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container: KeyedEncodingContainer<Product.CodingKeys> = encoder.container(keyedBy: Product.CodingKeys.self)
 
         try container.encode(self.id, forKey: Product.CodingKeys.id)
@@ -78,7 +78,7 @@ struct Product: Codable, Identifiable, Equatable {
         try container.encode(self.images, forKey: Product.CodingKeys.images)
     }
 
-    static func == (lhs: Product, rhs: Product) -> Bool {
+    public static func == (lhs: Product, rhs: Product) -> Bool {
         lhs.id == rhs.id
     }
 }
