@@ -7,8 +7,7 @@
 
 import Foundation
 
-public struct ShippingMethod: Decodable
-{
+public struct ShippingMethod: Decodable {
     let id: String
     let title: String
     let description: String

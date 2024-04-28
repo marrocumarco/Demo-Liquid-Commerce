@@ -23,11 +23,11 @@ struct OAuthClient: StoreClient {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = httpBody
         let (data, response) = try await URLSession.shared.data(for: request)
-        guard let status = (response as? HTTPURLResponse)?.status else { throw StoreClientError.undefinedHTTPStatusCode }
-        
-        
+        guard let status = (response as? HTTPURLResponse)?.status else { throw
+            StoreClientError.undefinedHTTPStatusCode }
+
         try checkHTTPStatus(status, data: data)
-        
+
         return data
     }
 

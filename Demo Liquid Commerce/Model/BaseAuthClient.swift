@@ -25,7 +25,8 @@ struct BaseAuthClient: StoreClient {
         request.setValue("Basic \(encodedCredentials)", forHTTPHeaderField: "Authorization")
         request.httpBody = httpBody
         let (data, response) = try await URLSession.shared.data(for: request)
-        guard let status = (response as? HTTPURLResponse)?.status else { throw StoreClientError.undefinedHTTPStatusCode }
+        guard let status = (response as? HTTPURLResponse)?.status else { throw
+            StoreClientError.undefinedHTTPStatusCode }
         try checkHTTPStatus(status, data: data)
         //            let _ = Int((response as? HTTPURLResponse)?.allHeaderFields["x-wp-totalpages"] as? String ?? "") ?? 1
 #if DEBUG

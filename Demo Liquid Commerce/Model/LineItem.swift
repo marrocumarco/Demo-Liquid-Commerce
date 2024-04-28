@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct LineItem: Codable, Equatable
-{
+struct LineItem: Codable, Equatable {
     let productId: Int
     let quantity: Int
 }

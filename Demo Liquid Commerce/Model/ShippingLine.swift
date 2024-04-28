@@ -7,13 +7,10 @@
 
 import Foundation
 
-struct ShippingLine: Codable, Equatable
-{
+struct ShippingLine: Codable, Equatable {
     let id: Int?
     let methodTitle: String
     let methodId: String
     let total: String
     let totalTax: String?
-    
-    
 }

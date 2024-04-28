@@ -7,9 +7,7 @@
 
 import Foundation
 
-public struct Order: Codable, Equatable
-{
-    
+public struct Order: Codable, Equatable {
     let id: Int?
     let number: String?
     let customerId: Int?
@@ -22,4 +20,3 @@ public struct Order: Codable, Equatable
     let lineItems: [LineItem]
     let shippingLines: [ShippingLine]
 }
-

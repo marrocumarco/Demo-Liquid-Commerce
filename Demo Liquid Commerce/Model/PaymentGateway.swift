@@ -7,8 +7,7 @@
 
 import Foundation
 
-public struct PaymentGateway: Decodable
-{
+public struct PaymentGateway: Decodable {
     let id: String
     let title: String
     let description: String
