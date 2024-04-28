@@ -10,7 +10,6 @@ import SwiftData
 
 @main
 struct AppLauncher {
-
     static func main() throws {
         if NSClassFromString("XCTestCase") == nil {
             DemoLiquidCommerceApp.main()
@@ -20,8 +19,7 @@ struct AppLauncher {
     }
 }
 
-struct DemoLiquidCommerceApp: App
-{
+struct DemoLiquidCommerceApp: App {
     var body: some Scene {
         WindowGroup {
             MainView(viewModel: MainViewViewModel(client: OAuthClient(), parser: StoreParser()))
@@ -29,8 +27,7 @@ struct DemoLiquidCommerceApp: App
     }
 }
 
-struct TestApp: App
-{
+struct TestApp: App {
     var body: some Scene {
         WindowGroup {
             Text("Testing...")

@@ -14,10 +14,10 @@
             filePath = "Demo Liquid Commerce/Utilities/CachedAsyncImage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "CachedAsyncImage"
-            landmarkType = "3">
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "imagePath"
+            landmarkType = "24">
             <Locations>
                <Location
                   uuid = "51AD7E3E-21DE-4EBA-8F39-C90B4B6E56B9 - afc7da9a5558c8ac"

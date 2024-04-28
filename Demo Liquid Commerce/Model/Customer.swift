@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct Customer: Codable, Equatable
-{
+struct Customer: Codable, Equatable {
     let id: Int?
     var username: String
     var firstName: String

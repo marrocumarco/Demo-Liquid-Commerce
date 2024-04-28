@@ -6,15 +6,18 @@
 //
 
 import Foundation
-struct Credentials
-{
+struct Credentials {
     let key: String
     let secret: String
 }
 
-struct BaseAuthClient: StoreClient
-{
-    func executeCall(_ endPoint: URL, httpMethod: String, queryItems: [URLQueryItem], httpBody: Data? = nil, credentials: Credentials) async throws -> Data {
+struct BaseAuthClient: StoreClient {
+
+    func executeCall(_ endPoint: URL,
+                     httpMethod: String,
+                     queryItems: [URLQueryItem],
+                     httpBody: Data? = nil,
+                     credentials: Credentials) async throws -> Data {
         let url = endPoint.appending(queryItems: queryItems)
         let encodedCredentials = Data("\(credentials.key):\(credentials.secret)".utf8).base64EncodedString()
             var request = URLRequest(url: url)
@@ -22,7 +25,9 @@ struct BaseAuthClient: StoreClient
             request.setValue("Basic \(encodedCredentials)", forHTTPHeaderField: "Authorization")
             request.httpBody = httpBody
             let (data, response) = try await URLSession.shared.data(for: request)
-            guard let status = (response as? HTTPURLResponse)?.status else { throw StoreClientError.UndefinedHTTPStatusCode }
+        guard let status = (response as? HTTPURLResponse)?.status else {
+            throw StoreClientError.undefinedHTTPStatusCode
+        }
             try checkHTTPStatus(status)
 //            let _ = Int((response as? HTTPURLResponse)?.allHeaderFields["x-wp-totalpages"] as? String ?? "") ?? 1
     #if DEBUG

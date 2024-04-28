@@ -7,20 +7,17 @@
 
 import Foundation
 
-enum AuthenticationType
-{
+enum AuthenticationType {
     case base
     case oAuth
 }
 
-class MainViewViewModel: ObservableObject
-{
+class MainViewViewModel: ObservableObject {
     let client: StoreClient
     let parser: Parser
     let productListViewModel: ProductsListViewModel
-    
-    internal init(client: StoreClient, parser: Parser)
-    {
+
+    internal init(client: StoreClient, parser: Parser) {
         self.client = client
         self.parser = parser
         productListViewModel = ProductsListViewModel(client: client, parser: parser)

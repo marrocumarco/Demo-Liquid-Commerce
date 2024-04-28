@@ -16,7 +16,7 @@
 		EB37ACAA2B238C7500F1875A /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB37ACA92B238C7500F1875A /* CachedAsyncImage.swift */; };
 		EB389BB72B2313910002BB4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB389BB62B2313910002BB4B /* Constants.swift */; };
 		EB389BB92B231F240002BB4B /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB389BB82B231F240002BB4B /* HTTPStatusCode.swift */; };
-		EB58A9C32ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9C22ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift */; };
+		EB58A9C32ADF333E00E33BF4 /* DemoLiquidCommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9C22ADF333E00E33BF4 /* DemoLiquidCommerceApp.swift */; };
 		EB58A9C52ADF333E00E33BF4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58A9C42ADF333E00E33BF4 /* MainView.swift */; };
 		EB58A9C92ADF333F00E33BF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB58A9C82ADF333F00E33BF4 /* Assets.xcassets */; };
 		EB58A9CD2ADF333F00E33BF4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB58A9CC2ADF333F00E33BF4 /* Preview Assets.xcassets */; };
@@ -65,7 +65,7 @@
 		EB389BB62B2313910002BB4B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EB389BB82B231F240002BB4B /* HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
 		EB58A9BF2ADF333E00E33BF4 /* Demo Liquid Commerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo Liquid Commerce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB58A9C22ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo_Liquid_CommerceApp.swift; sourceTree = "<group>"; };
+		EB58A9C22ADF333E00E33BF4 /* DemoLiquidCommerceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoLiquidCommerceApp.swift; sourceTree = "<group>"; };
 		EB58A9C42ADF333E00E33BF4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EB58A9C82ADF333F00E33BF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB58A9CA2ADF333F00E33BF4 /* Demo_Liquid_Commerce.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Demo_Liquid_Commerce.entitlements; sourceTree = "<group>"; };
@@ -116,6 +116,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB0B93BF2BDDCA09001881FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EB167BAC2AE9910A003DDB57 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +157,7 @@
 				EB58A9D52ADF333F00E33BF4 /* Demo Liquid CommerceTests */,
 				EB58A9DF2ADF333F00E33BF4 /* Demo Liquid CommerceUITests */,
 				EB58A9C02ADF333E00E33BF4 /* Products */,
+				EB0B93BF2BDDCA09001881FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,7 +176,7 @@
 			children = (
 				EB58A9CA2ADF333F00E33BF4 /* Demo_Liquid_Commerce.entitlements */,
 				EB58A9F32ADF3D8400E33BF4 /* Demo-Liquid-Commerce-Info.plist */,
-				EB58A9C22ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift */,
+				EB58A9C22ADF333E00E33BF4 /* DemoLiquidCommerceApp.swift */,
 				EB58A9C82ADF333F00E33BF4 /* Assets.xcassets */,
 				EB58A9F22ADF3C3900E33BF4 /* Configuration.xcconfig */,
 				EB58A9EF2ADF338300E33BF4 /* Model */,
@@ -258,8 +266,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				EB0B93C72BDE44DA001881FD /* PBXTargetDependency */,
 			);
 			name = "Demo Liquid Commerce";
+			packageProductDependencies = (
+			);
 			productName = "Demo Liquid Commerce";
 			productReference = EB58A9BF2ADF333E00E33BF4 /* Demo Liquid Commerce.app */;
 			productType = "com.apple.product-type.application";
@@ -334,6 +345,9 @@
 				sc,
 			);
 			mainGroup = EB58A9B62ADF333E00E33BF4;
+			packageReferences = (
+				EB0B93BD2BDDC825001881FD /* XCRemoteSwiftPackageReference "SwiftLint" */,
+			);
 			productRefGroup = EB58A9C02ADF333E00E33BF4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -397,7 +411,7 @@
 				EB9993312B55E36900ED0BF9 /* LoggedUser.swift in Sources */,
 				EB167BB02AE9921A003DDB57 /* OAuthClient.swift in Sources */,
 				EB167BAE2AE99127003DDB57 /* StoreClient.swift in Sources */,
-				EB58A9C32ADF333E00E33BF4 /* Demo_Liquid_CommerceApp.swift in Sources */,
+				EB58A9C32ADF333E00E33BF4 /* DemoLiquidCommerceApp.swift in Sources */,
 				EBF6C0D72B93D10900ED1555 /* Parser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +436,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EB0B93C72BDE44DA001881FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = EB0B93C62BDE44DA001881FD /* SwiftLintPlugin */;
+		};
 		EB58A9D42ADF333F00E33BF4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EB58A9BE2ADF333E00E33BF4 /* Demo Liquid Commerce */;
@@ -563,6 +581,7 @@
 				DEVELOPMENT_TEAM = 2RQMUPJ86Z;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Demo-Liquid-Commerce-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
@@ -603,6 +622,7 @@
 				DEVELOPMENT_TEAM = 2RQMUPJ86Z;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Demo-Liquid-Commerce-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
@@ -761,6 +781,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EB0B93BD2BDDC825001881FD /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.54.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EB0B93C62BDE44DA001881FD /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB0B93BD2BDDC825001881FD /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EB58A9B72ADF333E00E33BF4 /* Project object */;
 }

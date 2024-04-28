@@ -12,20 +12,22 @@ struct MainView: View {
     let viewModel: MainViewViewModel
 
     var body: some View {
-            TabView {
-                ProductsListView(productsListViewModel: ProductsListViewModel(client: viewModel.client, parser: viewModel.parser))
-                    .tabItem {
-                        Label(LocalizedStringKey("Menu"), systemImage: "wineglass")
-                    }
-                
-                Button("prova2", action: {})
-                    .tabItem {
-                        Label("Basket", systemImage: "square.and.pencil")
-                    }
+        TabView {
+            ProductsListView(productsListViewModel:
+                                ProductsListViewModel(client: viewModel.client,
+                                                      parser: viewModel.parser))
+            .tabItem {
+                Label(LocalizedStringKey("Menu"), systemImage: "wineglass")
             }
+
+            Button("prova2", action: {})
+                .tabItem {
+                    Label("Basket", systemImage: "square.and.pencil")
+                }
+        }
     }
 }
 
 #Preview {
-    MainView(viewModel: MainViewViewModel(client: try! OAuthClient(), parser: StoreParser()))
+        return MainView(viewModel: MainViewViewModel(client: OAuthClient(), parser: StoreParser()))
 }

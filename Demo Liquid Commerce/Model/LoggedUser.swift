@@ -7,10 +7,7 @@
 
 import Foundation
 
-struct LoggedUser: Decodable
-{
+struct LoggedUser: Decodable {
     let id: Int
     let name: String
 }
-
-
