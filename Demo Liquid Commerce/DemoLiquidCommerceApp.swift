@@ -1,5 +1,5 @@
 //
-//  Demo_Liquid_CommerceApp.swift
+//  DemoLiquidCommerceApp.swift
 //  Demo Liquid Commerce
 //
 //  Created by Marco Marrocu on 17/10/2023.
@@ -13,14 +13,14 @@ struct AppLauncher {
 
     static func main() throws {
         if NSClassFromString("XCTestCase") == nil {
-            Demo_Liquid_CommerceApp.main()
+            DemoLiquidCommerceApp.main()
         } else {
             TestApp.main()
         }
     }
 }
 
-struct Demo_Liquid_CommerceApp: App
+struct DemoLiquidCommerceApp: App
 {
     var body: some Scene {
         WindowGroup {
