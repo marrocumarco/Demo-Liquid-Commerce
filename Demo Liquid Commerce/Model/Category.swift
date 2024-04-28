@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct ProductCategory: Decodable
-{
+struct ProductCategory: Decodable {
     let id: Int
     let name: String
     let description: String

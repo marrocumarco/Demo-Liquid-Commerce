@@ -188,7 +188,11 @@
 				EB58A9D52ADF333F00E33BF4 /* Demo Liquid CommerceTests */,
 				EB58A9DF2ADF333F00E33BF4 /* Demo Liquid CommerceUITests */,
 				EB58A9C02ADF333E00E33BF4 /* Products */,
+<<<<<<< HEAD
+				EB67076B2BDBFE5B00B34BDB /* Frameworks */,
+=======
 				EB0B93BF2BDDCA09001881FD /* Frameworks */,
+>>>>>>> main
 			);
 			sourceTree = "<group>";
 		};
@@ -316,6 +320,12 @@
 			);
 			name = "Demo Liquid Commerce";
 			packageProductDependencies = (
+<<<<<<< HEAD
+				EB6707672BDBFA6200B34BDB /* Stripe */,
+				EB6707692BDBFA6200B34BDB /* StripeApplePay */,
+				EB67076C2BDBFE5B00B34BDB /* StripePaymentSheet */,
+=======
+>>>>>>> main
 			);
 			productName = "Demo Liquid Commerce";
 			productReference = EB58A9BF2ADF333E00E33BF4 /* Demo Liquid Commerce.app */;
@@ -392,8 +402,11 @@
 			);
 			mainGroup = EB58A9B62ADF333E00E33BF4;
 			packageReferences = (
+<<<<<<< HEAD
 				EB6707662BDBFA6200B34BDB /* XCRemoteSwiftPackageReference "stripe-ios-spm" */,
+=======
 				EB0B93BD2BDDC825001881FD /* XCRemoteSwiftPackageReference "SwiftLint" */,
+>>>>>>> main
 			);
 			productRefGroup = EB58A9C02ADF333E00E33BF4 /* Products */;
 			projectDirPath = "";
@@ -843,25 +856,27 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+<<<<<<< HEAD
 		EB6707662BDBFA6200B34BDB /* XCRemoteSwiftPackageReference "stripe-ios-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stripe/stripe-ios-spm";
 			requirement = {
 				kind = upToNextMinorVersion;
 				minimumVersion = 23.27.1;
-			};
-		};
-        EB0B93BD2BDDC825001881FD /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+=======
+		EB0B93BD2BDDC825001881FD /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/SwiftLint.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.54.0;
+>>>>>>> main
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+<<<<<<< HEAD
 		EB6707672BDBFA6200B34BDB /* Stripe */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EB6707662BDBFA6200B34BDB /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
@@ -876,11 +891,12 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EB6707662BDBFA6200B34BDB /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
 			productName = StripePaymentSheet;
-		};
-        EB0B93C62BDE44DA001881FD /* SwiftLintPlugin */ = {
+=======
+		EB0B93C62BDE44DA001881FD /* SwiftLintPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EB0B93BD2BDDC825001881FD /* XCRemoteSwiftPackageReference "SwiftLint" */;
 			productName = "plugin:SwiftLintPlugin";
+>>>>>>> main
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

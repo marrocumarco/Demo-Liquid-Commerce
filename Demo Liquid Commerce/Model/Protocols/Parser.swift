@@ -7,7 +7,6 @@
 
 import Foundation
 
-protocol Parser
-{
+protocol Parser {
     func parse<T>(_ data: Data) throws -> T where T: Decodable
 }

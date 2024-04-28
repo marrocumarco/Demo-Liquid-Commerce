@@ -7,9 +7,16 @@
 
 import Foundation
 
-public struct Product: Codable, Identifiable, Equatable
-{
-    internal init(id: Int, name: String, description: String, shortDescription: String, price: Double, salePrice: Double, onSale: Bool, images: [ProductImage], stockStatus: StockStatus) {
+struct Product: Codable, Identifiable, Equatable {
+    internal init(id: Int,
+                  name: String,
+                  description: String,
+                  shortDescription: String,
+                  price: Double,
+                  salePrice: Double,
+                  onSale: Bool,
+                  images: [ProductImage],
+                  stockStatus: StockStatus) {
         self.id = id
         self.name = name
         self.description = description
@@ -20,8 +27,8 @@ public struct Product: Codable, Identifiable, Equatable
         self.images = images
         self.stockStatus = stockStatus
     }
-    
-    public let id: Int
+
+    let id: Int
     let name: String
     let description: String
     let shortDescription: String
@@ -30,7 +37,7 @@ public struct Product: Codable, Identifiable, Equatable
     let onSale: Bool
     let images: [ProductImage]
     let stockStatus: StockStatus
-    
+
     enum CodingKeys: CodingKey {
         case id
         case name
@@ -42,10 +49,11 @@ public struct Product: Codable, Identifiable, Equatable
         case images
         case stockStatus
     }
-    
-    public init(from decoder: Decoder) throws {
-        let container: KeyedDecodingContainer<Product.CodingKeys> = try decoder.container(keyedBy: Product.CodingKeys.self)
-        
+
+    init(from decoder: Decoder) throws {
+        let container: KeyedDecodingContainer<Product.CodingKeys> =
+        try decoder.container(keyedBy: Product.CodingKeys.self)
+
         self.id = try container.decode(Int.self, forKey: Product.CodingKeys.id)
         self.name = try container.decode(String.self, forKey: Product.CodingKeys.name)
         self.description = try container.decode(String.self, forKey: Product.CodingKeys.description)
@@ -56,10 +64,10 @@ public struct Product: Codable, Identifiable, Equatable
         self.images = try container.decode([ProductImage].self, forKey: Product.CodingKeys.images)
         self.stockStatus =  try container.decode(StockStatus.self, forKey: Product.CodingKeys.stockStatus)
     }
-    
-    public func encode(to encoder: Encoder) throws {
+
+    func encode(to encoder: Encoder) throws {
         var container: KeyedEncodingContainer<Product.CodingKeys> = encoder.container(keyedBy: Product.CodingKeys.self)
-        
+
         try container.encode(self.id, forKey: Product.CodingKeys.id)
         try container.encode(self.name, forKey: Product.CodingKeys.name)
         try container.encode(self.description, forKey: Product.CodingKeys.description)
@@ -69,14 +77,13 @@ public struct Product: Codable, Identifiable, Equatable
         try container.encode(self.onSale, forKey: Product.CodingKeys.onSale)
         try container.encode(self.images, forKey: Product.CodingKeys.images)
     }
-    
-    public static func == (lhs: Product, rhs: Product) -> Bool {
+
+    static func == (lhs: Product, rhs: Product) -> Bool {
         lhs.id == rhs.id
     }
 }
 
-enum StockStatus: String, Decodable
-{
+enum StockStatus: String, Decodable {
     case inStock = "instock"
     case outOfStock = "outofstock"
     case oonbackOrder = "onbackorder"

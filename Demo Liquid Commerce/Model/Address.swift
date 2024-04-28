@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct Address: Codable, Equatable
-{
+struct Address: Codable, Equatable {
     var firstName: String
     var lastName: String
     var company: String?
@@ -20,17 +19,26 @@ struct Address: Codable, Equatable
     var country: String
     var phone: String?
     var email: String?
-    
-    enum CodingKeys: String, CodingKey
-    {
+
+    enum CodingKeys: String, CodingKey {
         case address1Encoding = "address_1"
         case address1Decoding = "address1"
         case address2Encoding = "address_2"
         case address2Decoding = "address2"
         case firstName, lastName, company, city, state, postcode, country, phone, email
     }
-    
-    internal init(firstName: String, lastName: String, company: String? = nil, address1: String, address2: String, city: String, state: String, postcode: String, country: String, phone: String? = nil, email: String? = nil) {
+
+    internal init(firstName: String,
+                  lastName: String,
+                  company: String? = nil,
+                  address1: String,
+                  address2: String,
+                  city: String,
+                  state: String,
+                  postcode: String,
+                  country: String,
+                  phone: String? = nil,
+                  email: String? = nil) {
         self.firstName = firstName
         self.lastName = lastName
         self.company = company
@@ -43,9 +51,10 @@ struct Address: Codable, Equatable
         self.phone = phone
         self.email = email
     }
-    
+
     init(from decoder: Decoder) throws {
-        let container: KeyedDecodingContainer<Address.CodingKeys> = try decoder.container(keyedBy: Address.CodingKeys.self)
+        let container: KeyedDecodingContainer<Address.CodingKeys> = try decoder.container(keyedBy:
+                                                                                            Address.CodingKeys.self)
         self.firstName = try container.decode(String.self, forKey: Address.CodingKeys.firstName)
         self.lastName = try container.decode(String.self, forKey: Address.CodingKeys.lastName)
         self.company = try container.decodeIfPresent(String.self, forKey: Address.CodingKeys.company)
@@ -57,9 +66,8 @@ struct Address: Codable, Equatable
         self.country = try container.decode(String.self, forKey: Address.CodingKeys.country)
         self.phone = try container.decodeIfPresent(String.self, forKey: Address.CodingKeys.phone)
         self.email = try container.decodeIfPresent(String.self, forKey: Address.CodingKeys.email)
-        
     }
-    
+
     func encode(to encoder: Encoder) throws {
         var container: KeyedEncodingContainer<Address.CodingKeys> = encoder.container(keyedBy: Address.CodingKeys.self)
         try container.encode(self.firstName, forKey: Address.CodingKeys.firstName)
@@ -75,5 +83,3 @@ struct Address: Codable, Equatable
         try container.encodeIfPresent(self.email, forKey: Address.CodingKeys.email)
     }
 }
-
-

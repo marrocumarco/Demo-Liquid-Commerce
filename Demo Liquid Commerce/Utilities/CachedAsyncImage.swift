@@ -7,29 +7,26 @@
 
 import Foundation
 
-public class CachedAsyncImage
-{
+public class CachedAsyncImage {
     private let url: URL
     internal let fileURL: URL
     private let directoryURL: URL
-    public var imagePath: String
-    {
+    public var imagePath: String {
         get async throws {
-            if !FileManager.default.fileExists(atPath: fileURL.path)
-            {
+            if !FileManager.default.fileExists(atPath: fileURL.path) {
                 let (data, _)  = try await URLSession.shared.data(from: url)
                 try data.write(to: fileURL)
             }
             return fileURL.path
         }
     }
-    
+
     internal init(url: URL) throws {
         self.url = url
-        self.directoryURL = FileManager.default.temporaryDirectory.appendingPathComponent("images", conformingTo: .directory)
+        self.directoryURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("images", conformingTo: .directory)
         self.fileURL = self.directoryURL.appendingPathComponent(url.lastPathComponent, conformingTo: .fileURL)
-        if !FileManager.default.fileExists(atPath: self.directoryURL.path)
-        {
+        if !FileManager.default.fileExists(atPath: self.directoryURL.path) {
             try FileManager.default.createDirectory(atPath: self.directoryURL.path, withIntermediateDirectories: true)
         }
     }

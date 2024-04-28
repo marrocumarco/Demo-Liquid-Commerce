@@ -47,5 +47,22 @@ struct ProductDetailView: View {
 }
 
 #Preview {
+<<<<<<< HEAD
     ProductDetailView(product: Product(id: 1, name: "Bellu binu spuntu", description: "Su binu est bellu!\n Ma chi est totu acua...\n Tastaddu!", shortDescription: "", price: 1548.26, salePrice: 0, onSale: false, images: [ProductImage(id: 1, url: "https:/demoliquid.it/wp-content/uploads/2023/11/laguna-cannonau-demoliquid-commerce-tenuta-monte-edoardo.png", name: "binuBellu")], stockStatus: .inStock), cartViewModel: CartViewModel(), imagePath: "", description: "")
+=======
+    ProductDetailView(product:
+                        Product(id: 1,
+                                name: "Bellu binu spuntu",
+                                description: "Su binu est bellu!\n Ma chi est totu acua...\n Tastaddu!",
+                                shortDescription: "",
+                                price: 1548.26,
+                                salePrice: 0,
+                                onSale: false,
+                                images: [ProductImage(id: 1,
+                                                      url: "https:/demoliquid.it/wp-content/uploads/2023/11/laguna-cannonau-demoliquid-commerce-tenuta-monte-edoardo.png",
+                                                      name: "binuBellu")],
+                                stockStatus: .inStock),
+                      imagePath: "",
+                      description: "")
+>>>>>>> main
 }

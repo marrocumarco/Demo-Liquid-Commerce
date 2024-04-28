@@ -7,8 +7,7 @@
 
 import Foundation
 
-enum StringConstants: String
-{
+enum StringConstants: String {
     #if DEBUG
     case basePathStore = "http://localhost/wordpress/wp-json/wc/v3/"
     case basePathSite = "http://localhost/wordpress/wp-json/wp/v2/"
@@ -16,5 +15,4 @@ enum StringConstants: String
     case basePathStore = "https://www.demoliquid.it/wp-json/wc/v3/"
     case basePathSite = "https://www.demoliquid.it/wp-json/wp/v2/"
     #endif
-    
 }
