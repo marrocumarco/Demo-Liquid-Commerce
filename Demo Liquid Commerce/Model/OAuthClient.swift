@@ -26,7 +26,7 @@ struct OAuthClient: StoreClient {
         guard let status = (response as? HTTPURLResponse)?.status else { throw
             StoreClientError.undefinedHTTPStatusCode }
 
-        try checkHTTPStatus(status, data: data)
+        try HTTPUtilities.checkHTTPStatus(status, data: data)
 
         return data
     }

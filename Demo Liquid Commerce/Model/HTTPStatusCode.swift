@@ -5,7 +5,7 @@
 /// an HTTP client must recognise these five classes at a minimum.
 
 import Foundation
-enum HTTPStatusCode: Int, Error {
+public enum HTTPStatusCode: Int, Error {
 
     /// The response class representation of status codes, these get grouped by their first digit.
     enum ResponseType {
@@ -51,7 +51,7 @@ enum HTTPStatusCode: Int, Error {
     //
 
     /// - ok: Standard response for successful HTTP requests.
-    case ok = 200
+    case success = 200
 
     /// - created: The request has been fulfilled, resulting in the creation of a new resource.
     case created = 201

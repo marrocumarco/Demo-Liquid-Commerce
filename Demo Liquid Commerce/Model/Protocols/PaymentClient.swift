@@ -24,12 +24,8 @@ public struct StripeClient: PaymentClient {
         guard let status = (response as? HTTPURLResponse)?.status else {
             throw StoreClientError.undefinedHTTPStatusCode }
 
-        switch status.responseType {
-        case .success:
-            return try JSONDecoder().decode(StripeCheckoutResponse.self, from: data)
-        default:
-            throw StoreClientError.undefinedHTTPStatusCode
-        }
-        // try checkHTTPStatus(status) //TODO
+        try HTTPUtilities.checkHTTPStatus(status, data: data)
+
+        return try JSONDecoder().decode(StripeCheckoutResponse.self, from: data)
     }
 }

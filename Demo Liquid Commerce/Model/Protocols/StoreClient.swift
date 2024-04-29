@@ -146,32 +146,6 @@ extension StoreClient {
                                         Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "",
                                                     secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
     }
-
-    func checkHTTPStatus(_ status: HTTPStatusCode, data: Data) throws {
-        switch status.responseType {
-        case .informational, .success:
-            break
-        case .redirection:
-            print(try JSONDecoder().decode(StoreClientErrorResponse.self, from: data))
-            throw StoreClientError.redirection(statusCode: status.rawValue)
-        case .clientError:
-            print(try JSONDecoder().decode(StoreClientErrorResponse.self, from: data))
-            throw StoreClientError.clientError(statusCode: status.rawValue)
-        case .serverError:
-            print(try JSONDecoder().decode(StoreClientErrorResponse.self, from: data))
-            throw StoreClientError.serverError(statusCode: status.rawValue)
-        case .undefined:
-            print(try JSONDecoder().decode(StoreClientErrorResponse.self, from: data))
-            throw StoreClientError.redirection(statusCode: status.rawValue)
-        }
-    }
-}
-
-enum HTTPMethod: String {
-    case GET
-    case POST
-    case DELETE
-    case PUT
 }
 
 enum StoreClientError: Error {
