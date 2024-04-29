@@ -7,25 +7,21 @@
 
 import Foundation
 
-public class CartViewModel: ObservableObject
-{
+public class CartViewModel: ObservableObject {
     @Published var products = [Product]()
     @Published var totalProductsAmount: Double = 0
     @Published var totalTaxesAmount: Double = 0
     @Published var totalAmount: Double = 0
-    
-    var productsNumber: Int
-    {
+
+    var productsNumber: Int {
         products.count
     }
-    
-    func addProductToCart(_ product: Product)
-    {
+
+    func addProductToCart(_ product: Product) {
         products.append(product)
     }
-    
-    func removeProductFromCart(_ product: Product)
-    {
+
+    func removeProductFromCart(_ product: Product) {
         products.remove(product)
     }
 }

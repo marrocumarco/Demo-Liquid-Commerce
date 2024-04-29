@@ -8,24 +8,21 @@ import StripePaymentSheet
 import SwiftUI
 
 @MainActor
-public class PaymentViewModel: ObservableObject
-{
+public class PaymentViewModel: ObservableObject {
     @Published var paymentSheet: PaymentSheet?
     @Published var paymentResult: PaymentSheetResult?
     let products: [Product]
     let paymentClient: PaymentClient
-    
-    init(products: [Product], paymentClient: PaymentClient)
-    {
+
+    init(products: [Product], paymentClient: PaymentClient) {
         self.products = products
         self.paymentClient = paymentClient
     }
-    
-    func preparePaymentSheet() async throws 
-    {
+
+    func preparePaymentSheet() async throws {
         // MARK: Fetch the PaymentIntent and Customer information from the backend
         let response = try await paymentClient.startCheckout(products)
-        
+
         STPAPIClient.shared.publishableKey = response.publishableKey
         // MARK: Create a PaymentSheet instance
         var configuration = PaymentSheet.Configuration()
@@ -34,13 +31,12 @@ public class PaymentViewModel: ObservableObject
         // Set `allowsDelayedPaymentMethods` to true if your business can handle payment methods
         // that complete payment after a delay, like SEPA Debit and Sofort.
         configuration.allowsDelayedPaymentMethods = false
-        
-        self.paymentSheet = PaymentSheet(paymentIntentClientSecret: response.paymentIntent ?? "", configuration: configuration)
-        
+
+        self.paymentSheet = PaymentSheet(paymentIntentClientSecret: response.paymentIntent ?? "",
+                                         configuration: configuration)
     }
-    
-    func onPaymentCompletion(result: PaymentSheetResult) 
-    {
+
+    func onPaymentCompletion(result: PaymentSheetResult) {
         self.paymentResult = result
     }
 }

@@ -50,7 +50,10 @@ struct OAuthClient: StoreClient {
                                                   httpMethod: httpMethod,
                                                   parameters: parameters)
         // Add the signature to the request header
-        return "OAuth oauth_consumer_key=\"\(consumerKey)\", oauth_signature_method=\"HMAC-SHA1\", oauth_signature=\"\(signature)\", oauth_timestamp=\"\(timestamp)\",oauth_nonce=\"\(nonce)\""
+        return """
+OAuth oauth_consumer_key=\"\(consumerKey)\", oauth_signature_method=\"HMAC-SHA1\", oauth_signature=\"\(signature)\",\
+oauth_timestamp=\"\(timestamp)\",oauth_nonce=\"\(nonce)\"
+"""
     }
 
     func generateHMACSHA1Signature(consumerSecret: String,
@@ -66,7 +69,9 @@ struct OAuthClient: StoreClient {
         }
         parameterString = String(parameterString.dropLast()) // Remove the trailing "&"
 
-        let baseString = "\(method)&\(url.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")&\(parameterString.urlEncoded())"
+        let baseString = """
+\(method)&\(url.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")&\(parameterString.urlEncoded())
+"""
         let key = "\(consumerSecret)&" // OAuth1 uses a & symbol
 
         var digest = [UInt8](repeating: 0, count: Int(CC_SHA1_DIGEST_LENGTH))

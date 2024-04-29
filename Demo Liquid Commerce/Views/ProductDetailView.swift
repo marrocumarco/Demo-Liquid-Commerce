@@ -56,7 +56,10 @@ struct ProductDetailView: View {
                                        onSale: false,
                                        images: [
                                         ProductImage(id: 1,
-                                                     url: "https:/demoliquid.it/wp-content/uploads/2023/11/laguna-cannonau-demoliquid-commerce-tenuta-monte-edoardo.png",
+                                                     url: """
+                                                     "https:/demoliquid.it/wp-content/uploads/2023/11/\
+                                                     laguna-cannonau-demoliquid-commerce-tenuta-monte-edoardo.png
+                                                     """,
                                                      name: "binuBellu")],
                                        stockStatus: .inStock),
                       cartViewModel: CartViewModel(), imagePath: "", description: "")

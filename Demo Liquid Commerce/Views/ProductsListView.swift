@@ -10,17 +10,19 @@ import SwiftUI
 struct ProductsListView: View {
     @ObservedObject var productsListViewModel: ProductsListViewModel
     var cartViewModel: CartViewModel
-    
+
     var body: some View {
         NavigationStack {
             ScrollView(.vertical, content: {
                 let minimumWidth = UIScreen.main.bounds.width / 2 - 8
-                LazyVGrid(columns: [GridItem(.flexible(minimum: minimumWidth, maximum: .infinity), spacing: 0), GridItem(.flexible(minimum: minimumWidth, maximum: .infinity), spacing: 0)], content: {
-                    ForEach(productsListViewModel.products)
-                    {
-                        product in
-                        
-                        NavigationLink(destination: ProductDetailView(product: product, cartViewModel: cartViewModel)){
+                LazyVGrid(columns: [GridItem(.flexible(minimum: minimumWidth, maximum: .infinity),
+                                             spacing: 0), GridItem(.flexible(minimum: minimumWidth,
+                                                                             maximum: .infinity),
+                                                                   spacing: 0)],
+                          content: {
+                    ForEach(productsListViewModel.products) { product in
+                        NavigationLink(destination: ProductDetailView(product: product,
+                                                                      cartViewModel: cartViewModel)) {
                             ProductCardView(product: product)
                                 .frame(height: 300)
                                 .onAppear {
@@ -42,6 +44,7 @@ struct ProductsListView: View {
 }
 
 #Preview {
-        return ProductsListView(productsListViewModel: ProductsListViewModel(client: BaseAuthClient(),
-                                                                             parser: StoreParser()), cartViewModel: CartViewModel())
+    return ProductsListView(productsListViewModel: ProductsListViewModel(client: BaseAuthClient(),
+                                                                         parser: StoreParser()),
+                            cartViewModel: CartViewModel())
 }

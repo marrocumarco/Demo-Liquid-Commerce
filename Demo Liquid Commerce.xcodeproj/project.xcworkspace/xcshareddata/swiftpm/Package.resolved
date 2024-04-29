@@ -1,15 +1,6 @@
 {
   "pins" : [
     {
-"identity" : "stripe-ios-spm",
-"kind" : "remoteSourceControl",
-"location" : "https://github.com/stripe/stripe-ios-spm",
-"state" : {
-"revision" : "7a8d9bb37b9e85649c39ae9d06dc8d7b319239d1",
-"version" : "23.27.1"
-}
-},
-    {
       "identity" : "collectionconcurrencykit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/JohnSundell/CollectionConcurrencyKit.git",
@@ -34,6 +25,15 @@
       "state" : {
         "revision" : "b6dc09ee51dfb0c66e042d2328c017483a1a5d56",
         "version" : "0.34.1"
+      }
+    },
+    {
+      "identity" : "stripe-ios-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stripe/stripe-ios-spm",
+      "state" : {
+        "revision" : "7a8d9bb37b9e85649c39ae9d06dc8d7b319239d1",
+        "version" : "23.27.1"
       }
     },
     {

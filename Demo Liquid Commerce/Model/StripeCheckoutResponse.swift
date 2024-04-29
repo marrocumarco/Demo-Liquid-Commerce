@@ -7,8 +7,7 @@
 
 import Foundation
 
-public struct StripeCheckoutResponse: Decodable
-{
+public struct StripeCheckoutResponse: Decodable {
     let publishableKey: String
     let paymentIntent: String?
     let customer: String

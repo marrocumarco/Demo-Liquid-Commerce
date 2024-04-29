@@ -40,7 +40,7 @@ struct ProductCardView: View {
                     .multilineTextAlignment(.leading)
                     .padding(.horizontal)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    //            Text("Sale price: \(String(format: "%1$.2f", product.salePrice)) \(Locale.current.currencySymbol!)")
+        // Text("Sale price: \(String(format: "%1$.2f", product.salePrice)) \(Locale.current.currencySymbol!)")
                 })
                 .padding(.bottom)
                 .onAppear {
@@ -65,9 +65,11 @@ struct ProductCardView: View {
                                 price: 1548.26,
                                 salePrice: 0,
                                 onSale: false,
-                                images: 
+                                images:
                                     [ProductImage(id: 1,
-                                                  url: "https:/demoliquid.it/wp-content/uploads/2023/11/laguna-cannonau-demoliquid-commerce-tenuta-monte-edoardo.png",
+                                                  url: """
+https:/demoliquid.it/wp-content/uploads/2023/11/laguna-cannonau-demoliquid-commerce-tenuta-monte-edoardo.png
+""",
                                                   name: "binuBellu")],
                                 stockStatus: .inStock),
                     imagePath: nil)

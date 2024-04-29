@@ -7,18 +7,16 @@
 
 import SwiftUI
 
-public struct CartView: View
-{
+public struct CartView: View {
+
     let cartViewModel: CartViewModel
-    public var body: some View
-    {
+    public var body: some View {
         Text("This is the Cart")
-        
+
         Text("number of products: \(cartViewModel.productsNumber)")
-        
-        
+
         Button("Checkout", action: {
-            
+
         })
     }
 }

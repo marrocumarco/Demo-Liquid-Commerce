@@ -140,8 +140,8 @@
             filePath = "Demo Liquid Commerce/ViewModels/PaymentViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "preparePaymentSheet()"
             landmarkType = "7">
             <Locations>
@@ -263,8 +263,8 @@
             filePath = "Demo Liquid Commerce/Model/Protocols/PaymentClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "startCheckout(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -279,8 +279,8 @@
             filePath = "Demo Liquid Commerce/ViewModels/PaymentViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "preparePaymentSheet()"
             landmarkType = "7">
          </BreakpointContent>

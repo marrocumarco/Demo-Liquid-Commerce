@@ -12,17 +12,19 @@ struct MainView: View {
     @ObservedObject var viewModel: MainViewViewModel
     @ObservedObject var cartViewModel = CartViewModel()
     var body: some View {
-            TabView {
-                ProductsListView(productsListViewModel: ProductsListViewModel(client: viewModel.client, parser: viewModel.parser), cartViewModel: cartViewModel)
-                    .tabItem {
-                        Label(LocalizedStringKey("Menu"), systemImage: "wineglass")
-                    }
-                
-                CheckoutView(model: PaymentViewModel(products: cartViewModel.products, paymentClient: StripeClient()))
-                    .tabItem {
-                        Label("Basket", systemImage: "cart")
-                    }.badge(cartViewModel.productsNumber)
+        TabView {
+            ProductsListView(productsListViewModel: ProductsListViewModel(client: viewModel.client,
+                                                                          parser: viewModel.parser),
+                             cartViewModel: cartViewModel)
+            .tabItem {
+                Label(LocalizedStringKey("Menu"), systemImage: "wineglass")
             }
+
+            CheckoutView(model: PaymentViewModel(products: cartViewModel.products, paymentClient: StripeClient()))
+                .tabItem {
+                    Label("Basket", systemImage: "cart")
+                }.badge(cartViewModel.productsNumber)
+        }
     }
 }
 
