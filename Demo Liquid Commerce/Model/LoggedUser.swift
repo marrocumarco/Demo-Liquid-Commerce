@@ -10,4 +10,5 @@ import Foundation
 struct LoggedUser: Decodable {
     let id: Int
     let name: String
+    var password: String?
 }

@@ -111,10 +111,22 @@ final class StoreClientTests: XCTestCase {
         XCTAssert(createdOrder.shipping == newOrder.shipping)
         XCTAssert(createdOrder.lineItems == newOrder.lineItems)
 //        XCTAssert(createdOrder.shippingLines == newOrder.shippingLines)
-        
     }
     
-    
+    func testCalculateTotals_success() async throws {
+        let oAuthClient = OAuthClient()
+        var response: CartCalculatedResponse?
+        response = try await oAuthClient.calculateTotals(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
+        XCTAssertNotNil(response)
+        print(response as Any)
+    }
+
+    func testGetCartItems_success() async throws {
+        let oAuthClient = OAuthClient()
+        var result = CartDictionary()
+        result = try await oAuthClient.getCartItems(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
+        XCTAssert(!result.isEmpty)
+    }
 #else
     func testFetchProductsBaseAuth_success() async throws {
         let client = BaseAuthClient()

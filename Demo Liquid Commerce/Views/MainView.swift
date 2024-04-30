@@ -20,10 +20,11 @@ struct MainView: View {
                 Label(LocalizedStringKey("Menu"), systemImage: "wineglass")
             }
 
-            CheckoutView(model: PaymentViewModel(products: cartViewModel.products, paymentClient: StripeClient()))
+            CartView(cartViewModel: cartViewModel)
+            //CheckoutView(model: PaymentViewModel(products: cartViewModel.products, paymentClient: StripeClient()))
                 .tabItem {
                     Label("Basket", systemImage: "cart")
-                }.badge(cartViewModel.productsNumber)
+                }.badge(cartViewModel.itemsInCart)
         }
     }
 }

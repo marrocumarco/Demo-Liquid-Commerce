@@ -39,9 +39,11 @@
 		EB6DCAF72B25C4E500215639 /* ProductsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DCAF62B25C4E500215639 /* ProductsListView.swift */; };
 		EB6DCAF92B25C52700215639 /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DCAF82B25C52700215639 /* ProductCardView.swift */; };
 		EB6DCAFB2B25C56F00215639 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DCAFA2B25C56F00215639 /* ProductDetailView.swift */; };
+		EB74E4172BE16EFB0033B61C /* CartCalculatedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74E4162BE16EFB0033B61C /* CartCalculatedResponse.swift */; };
 		EB75DBF02B24D0EB0062A1B5 /* CachedAsyncThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75DBEF2B24D0EB0062A1B5 /* CachedAsyncThumbnail.swift */; };
 		EB9993312B55E36900ED0BF9 /* LoggedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9993302B55E36900ED0BF9 /* LoggedUser.swift */; };
 		EBA86DD92B100F16009B1D5C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA86DD82B100F16009B1D5C /* Category.swift */; };
+		EBB178D72BE1A4BE001AE01B /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB178D62BE1A4BE001AE01B /* CartItem.swift */; };
 		EBF6C0D72B93D10900ED1555 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF6C0D62B93D10900ED1555 /* Parser.swift */; };
 		EBF6C0D92B93D1A200ED1555 /* StoreParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF6C0D82B93D1A200ED1555 /* StoreParser.swift */; };
 		EBFB8EC92BD6D752001F0AD3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFB8EC82BD6D752001F0AD3 /* Order.swift */; };
@@ -105,9 +107,11 @@
 		EB6DCAF62B25C4E500215639 /* ProductsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListView.swift; sourceTree = "<group>"; };
 		EB6DCAF82B25C52700215639 /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
 		EB6DCAFA2B25C56F00215639 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		EB74E4162BE16EFB0033B61C /* CartCalculatedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCalculatedResponse.swift; sourceTree = "<group>"; };
 		EB75DBEF2B24D0EB0062A1B5 /* CachedAsyncThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncThumbnail.swift; sourceTree = "<group>"; };
 		EB9993302B55E36900ED0BF9 /* LoggedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedUser.swift; sourceTree = "<group>"; };
 		EBA86DD82B100F16009B1D5C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		EBB178D62BE1A4BE001AE01B /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		EBF6C0D62B93D10900ED1555 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		EBF6C0D82B93D1A200ED1555 /* StoreParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreParser.swift; sourceTree = "<group>"; };
 		EBFB8EC82BD6D752001F0AD3 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -264,6 +268,8 @@
 				EB389BB62B2313910002BB4B /* Constants.swift */,
 				EB389BB82B231F240002BB4B /* HTTPStatusCode.swift */,
 				EB1CEBF82BDBDCC700178B41 /* StripeCheckoutResponse.swift */,
+				EB74E4162BE16EFB0033B61C /* CartCalculatedResponse.swift */,
+				EBB178D62BE1A4BE001AE01B /* CartItem.swift */,
 				EB167BAF2AE9921A003DDB57 /* OAuthClient.swift */,
 				EB58A9F02ADF339A00E33BF4 /* Product.swift */,
 				EB58A9F42ADF3ECB00E33BF4 /* ProductImage.swift */,
@@ -451,10 +457,12 @@
 				EB1CEBF62BDBB66700178B41 /* PaymentClient.swift in Sources */,
 				EB1CEBF92BDBDCC700178B41 /* StripeCheckoutResponse.swift in Sources */,
 				EB75DBF02B24D0EB0062A1B5 /* CachedAsyncThumbnail.swift in Sources */,
+				EB74E4172BE16EFB0033B61C /* CartCalculatedResponse.swift in Sources */,
 				EB167BB32AE99778003DDB57 /* MainViewViewModel.swift in Sources */,
 				EBFB8ED12BD70381001F0AD3 /* PaymentGateway.swift in Sources */,
 				EBFB8ECD2BD6FD87001F0AD3 /* ShippingLine.swift in Sources */,
 				EB119E502B6857AB0079E223 /* Customer.swift in Sources */,
+				EBB178D72BE1A4BE001AE01B /* CartItem.swift in Sources */,
 				EB6707732BDC06B800B34BDB /* CartViewModel.swift in Sources */,
 				EB58A9F72ADF3F9700E33BF4 /* BaseAuthClient.swift in Sources */,
 				EB6707652BDBF9E300B34BDB /* PaymentViewModel.swift in Sources */,

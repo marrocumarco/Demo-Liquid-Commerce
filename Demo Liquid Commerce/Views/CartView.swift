@@ -13,7 +13,7 @@ public struct CartView: View {
     public var body: some View {
         Text("This is the Cart")
 
-        Text("number of products: \(cartViewModel.productsNumber)")
+        Text("number of products: \(cartViewModel.itemsInCart)")
 
         Button("Checkout", action: {
 

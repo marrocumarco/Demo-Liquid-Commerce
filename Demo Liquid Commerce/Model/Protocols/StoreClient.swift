@@ -146,6 +146,47 @@ extension StoreClient {
                                         Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "",
                                                     secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
     }
+
+    func getNumberOfItemsInCart() async throws -> Int {
+        0
+    }
+
+    func addProductToCart(_ product: Product, quantity: Int? = 1) {
+    }
+
+    func removeProductFromCart(_ product: Product) {
+    }
+
+    func updateItemInCart(_ product: Product, quantity: Int) {
+    }
+
+    func calculateTotals(_ customer: Customer) async throws -> CartCalculatedResponse {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("totals")) else {
+            throw StoreClientError.invalidBasePath }
+
+        let data = try await executeCall(url,
+                                     httpMethod: HTTPMethod.GET.rawValue,
+                                     queryItems: [],
+                                     httpBody: nil,
+                                     credentials:
+                                            Credentials(key: customer.username,
+                                                        secret: customer.password ?? ""))
+        return try StoreParser().parse(data)
+    }
+
+    func getCartItems(_ customer: Customer) async throws -> CartDictionary {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("items")) else {
+            throw StoreClientError.invalidBasePath }
+
+        let data = try await executeCall(url,
+                                     httpMethod: HTTPMethod.GET.rawValue,
+                                     queryItems: [],
+                                     httpBody: nil,
+                                     credentials:
+                                            Credentials(key: customer.username,
+                                                        secret: customer.password ?? ""))
+        return try StoreParser().parse(data)
+    }
 }
 
 enum StoreClientError: Error {
