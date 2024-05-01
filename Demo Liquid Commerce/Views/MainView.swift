@@ -21,7 +21,7 @@ struct MainView: View {
             }
 
             CartView(cartViewModel: cartViewModel)
-            //CheckoutView(model: PaymentViewModel(products: cartViewModel.products, paymentClient: StripeClient()))
+            // CheckoutView(model: PaymentViewModel(products: cartViewModel.products, paymentClient: StripeClient()))
                 .tabItem {
                     Label("Basket", systemImage: "cart")
                 }.badge(cartViewModel.itemsInCart)

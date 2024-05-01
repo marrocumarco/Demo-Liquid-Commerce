@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias CartDictionary = [String : CartItem]
+typealias CartDictionary = [String: CartItem]
 
 struct CartItem: Decodable {
     var id: Int
