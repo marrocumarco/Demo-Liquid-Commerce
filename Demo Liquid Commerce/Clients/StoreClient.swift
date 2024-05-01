@@ -160,12 +160,26 @@ extension StoreClient {
     func updateItemInCart(_ product: Product, quantity: Int) {
     }
 
-    func calculateTotals(_ customer: Customer) async throws -> CartCalculatedResponse {
+    func fetchCartTotals(_ customer: Customer) async throws -> CartTotals {
         guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("totals")) else {
             throw StoreClientError.invalidBasePath }
 
         let data = try await executeCall(url,
                                      httpMethod: HTTPMethod.GET.rawValue,
+                                     queryItems: [],
+                                     httpBody: nil,
+                                     credentials:
+                                            Credentials(key: customer.username,
+                                                        secret: customer.password ?? ""))
+        return try StoreParser().parse(data)
+    }
+
+    func calculateCartTotals(_ customer: Customer) async throws -> CalculatedCart {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("calculate")) else {
+            throw StoreClientError.invalidBasePath }
+
+        let data = try await executeCall(url,
+                                     httpMethod: HTTPMethod.POST.rawValue,
                                      queryItems: [],
                                      httpBody: nil,
                                      credentials:
@@ -186,6 +200,20 @@ extension StoreClient {
                                             Credentials(key: customer.username,
                                                         secret: customer.password ?? ""))
         return try StoreParser().parse(data)
+
+    }
+
+    func clearCart(_ customer: Customer) async throws -> Data {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("clear")) else {
+            throw StoreClientError.invalidBasePath }
+
+        return try await executeCall(url,
+                                     httpMethod: HTTPMethod.POST.rawValue,
+                                     queryItems: [],
+                                     httpBody: nil,
+                                     credentials:
+                                            Credentials(key: customer.username,
+                                                        secret: customer.password ?? ""))
     }
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CartCalculatedResponse: Decodable {
+struct CartTotals: Decodable {
 
     var subtotal: String
     var subtotalTax: Double

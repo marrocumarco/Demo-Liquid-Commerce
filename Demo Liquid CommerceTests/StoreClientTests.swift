@@ -113,10 +113,18 @@ final class StoreClientTests: XCTestCase {
 //        XCTAssert(createdOrder.shippingLines == newOrder.shippingLines)
     }
     
-    func testCalculateTotals_success() async throws {
+    func testFetchCartTotals_success() async throws {
         let oAuthClient = OAuthClient()
-        var response: CartCalculatedResponse?
-        response = try await oAuthClient.calculateTotals(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
+        var response: CartTotals?
+        response = try await oAuthClient.fetchCartTotals(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
+        XCTAssertNotNil(response)
+        print(response as Any)
+    }
+
+    func testCalculateCartTotals_success() async throws {
+        let oAuthClient = OAuthClient()
+        var response: CalculatedCart?
+        response = try await oAuthClient.calculateCartTotals(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
         XCTAssertNotNil(response)
         print(response as Any)
     }
@@ -126,6 +134,12 @@ final class StoreClientTests: XCTestCase {
         var result = CartDictionary()
         result = try await oAuthClient.getCartItems(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
         XCTAssert(!result.isEmpty)
+    }
+
+    func testClearCart_success() async throws {
+        let oAuthClient = OAuthClient()
+        let data: Data = try await oAuthClient.clearCart(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
+        print(try JSONSerialization.jsonObject(with: data))
     }
 #else
     func testFetchProductsBaseAuth_success() async throws {
