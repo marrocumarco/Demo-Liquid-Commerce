@@ -108,10 +108,57 @@
             filePath = "Demo Liquid CommerceTests/StoreClientTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "testCreateNewCustomer_success()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "18776ACE-F16B-41FB-8FF3-2D8DD7096388 - bfb4513b3688b99f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Demo_Liquid_CommerceTests.StoreClientTests.testCreateNewCustomer_success() async throws -&gt; ()"
+                  moduleName = "Demo Liquid CommerceTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20CommerceTests/StoreClientTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "452">
+               </Location>
+               <Location
+                  uuid = "18776ACE-F16B-41FB-8FF3-2D8DD7096388 - 177f91706609d77c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Demo_Liquid_CommerceTests.StoreClientTests.testCreateNewCustomer_success() async throws -&gt; ()"
+                  moduleName = "Demo Liquid CommerceTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20CommerceTests/StoreClientTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "18776ACE-F16B-41FB-8FF3-2D8DD7096388 - bfb4513b3688b921"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Demo_Liquid_CommerceTests.StoreClientTests.testCreateNewCustomer_success() async throws -&gt; ()"
+                  moduleName = "Demo Liquid CommerceTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20CommerceTests/StoreClientTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "360">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -124,10 +171,57 @@
             filePath = "Demo Liquid CommerceTests/StoreClientTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "testCreateNewCustomer_success()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E7D82A15-5CDA-4EF4-B762-787FC6B58986 - bfb4513b3688b99f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Demo_Liquid_CommerceTests.StoreClientTests.testCreateNewCustomer_success() async throws -&gt; ()"
+                  moduleName = "Demo Liquid CommerceTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20CommerceTests/StoreClientTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "452">
+               </Location>
+               <Location
+                  uuid = "E7D82A15-5CDA-4EF4-B762-787FC6B58986 - 177f91706609d77c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Demo_Liquid_CommerceTests.StoreClientTests.testCreateNewCustomer_success() async throws -&gt; ()"
+                  moduleName = "Demo Liquid CommerceTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20CommerceTests/StoreClientTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "E7D82A15-5CDA-4EF4-B762-787FC6B58986 - bfb4513b3688b921"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Demo_Liquid_CommerceTests.StoreClientTests.testCreateNewCustomer_success() async throws -&gt; ()"
+                  moduleName = "Demo Liquid CommerceTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20CommerceTests/StoreClientTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "360">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -422,6 +516,162 @@
             endingLineNumber = "16"
             landmarkName = "StoreParser"
             landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E8C10E18-9830-4F58-BD1D-76A3BE824489"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Demo Liquid Commerce/Clients/StoreClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "addProductToCart(_:product:quantity:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E8C10E18-9830-4F58-BD1D-76A3BE824489 - d861aac4f7da090d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Demo_Liquid_Commerce.StoreClient.removeProductFromCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product) async throws -&gt; Foundation.Data"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  uuid = "E8C10E18-9830-4F58-BD1D-76A3BE824489 - 351cb929e6011ffb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.StoreClient.removeProductFromCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product) async throws -&gt; Foundation.Data"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "E8C10E18-9830-4F58-BD1D-76A3BE824489 - f8e0817dce07d813"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.StoreClient.addProductToCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product, quantity: Swift.Optional&lt;Swift.Int&gt;) async throws -&gt; Demo_Liquid_Commerce.CalculatedCart"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "1512">
+               </Location>
+               <Location
+                  uuid = "E8C10E18-9830-4F58-BD1D-76A3BE824489 - 110bd269b3ed0016"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for Demo_Liquid_Commerce.StoreClient.addProductToCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product, quantity: Swift.Optional&lt;Swift.Int&gt;) async throws -&gt; Demo_Liquid_Commerce.CalculatedCart"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "E8C10E18-9830-4F58-BD1D-76A3BE824489 - 3fcf57797878141d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Demo_Liquid_Commerce.StoreClient.addProductToCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product, quantity: Swift.Optional&lt;Swift.Int&gt;) async throws -&gt; Demo_Liquid_Commerce.CalculatedCart"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "E8C10E18-9830-4F58-BD1D-76A3BE824489 - dd387c7aaf4df21e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Demo_Liquid_Commerce.StoreClient.addProductToCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product, quantity: Swift.Optional&lt;Swift.Int&gt;) async throws -&gt; Demo_Liquid_Commerce.CalculatedCart"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "136">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "67007F89-1AE3-4E62-9CC0-480CF82906F8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Demo Liquid Commerce/Clients/StoreClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
+            landmarkName = "addProductToCart(_:product:quantity:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "67007F89-1AE3-4E62-9CC0-480CF82906F8 - 351cb929e6011e82"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.StoreClient.removeProductFromCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product) async throws -&gt; Foundation.Data"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "238"
+                  endingLineNumber = "238"
+                  offsetFromSymbolStart = "448">
+               </Location>
+               <Location
+                  uuid = "67007F89-1AE3-4E62-9CC0-480CF82906F8 - 3fcf57797878153a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Demo_Liquid_Commerce.StoreClient.addProductToCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product, quantity: Swift.Optional&lt;Swift.Int&gt;) async throws -&gt; Demo_Liquid_Commerce.CalculatedCart"
+                  moduleName = "Demo Liquid Commerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "236"
+                  endingLineNumber = "236"
+                  offsetFromSymbolStart = "248">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

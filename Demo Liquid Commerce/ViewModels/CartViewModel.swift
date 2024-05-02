@@ -28,7 +28,9 @@ public class CartViewModel: ObservableObject {
     func updateItemInCart(_ product: Product, quantity: Int) {
     }
 
-    func clearCart() {}
+    func clearCart() {
+
+    }
 
     func calculateTotals() {
     }

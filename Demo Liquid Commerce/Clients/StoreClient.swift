@@ -147,17 +147,18 @@ extension StoreClient {
                                                     secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
     }
 
-    func getNumberOfItemsInCart() async throws -> Int {
-        0
-    }
+    func getNumberOfItemsInCart(_ customer: Customer) async throws -> Int {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("items/count")) else {
+            throw StoreClientError.invalidBasePath }
 
-    func addProductToCart(_ product: Product, quantity: Int? = 1) {
-    }
-
-    func removeProductFromCart(_ product: Product) {
-    }
-
-    func updateItemInCart(_ product: Product, quantity: Int) {
+        let data = try await executeCall(url,
+                                     httpMethod: HTTPMethod.GET.rawValue,
+                                     queryItems: [],
+                                     httpBody: nil,
+                                     credentials:
+                                            Credentials(key: customer.username,
+                                                        secret: customer.password ?? ""))
+        return try StoreParser().parse(data)
     }
 
     func fetchCartTotals(_ customer: Customer) async throws -> CartTotals {
@@ -204,6 +205,51 @@ extension StoreClient {
     }
 
     func clearCart(_ customer: Customer) async throws -> Data {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("clear")) else {
+            throw StoreClientError.invalidBasePath }
+
+        return try await executeCall(url,
+                                     httpMethod: HTTPMethod.POST.rawValue,
+                                     queryItems: [],
+                                     httpBody: nil,
+                                     credentials:
+                                            Credentials(key: customer.username,
+                                                        secret: customer.password ?? ""))
+    }
+
+    func addProductToCart(_ customer: Customer, product: Product, quantity: Int?) async throws -> CalculatedCart {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("add-item")) else {
+            throw StoreClientError.invalidBasePath }
+
+        var parameters = ["id": product.id.description]
+        if let quantity {
+            parameters["quantity"] = quantity.description
+        }
+        let body = try JSONEncoder().encode(parameters)
+        let data = try await executeCall(url,
+                                     httpMethod: HTTPMethod.POST.rawValue,
+                                     queryItems: [],
+                                     httpBody: body,
+                                     credentials:
+                                            Credentials(key: customer.username,
+                                                        secret: customer.password ?? ""))
+        return try StoreParser().parse(data)
+    }
+
+    func removeProductFromCart(_ customer: Customer, product: Product) async throws -> Data {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("clear")) else {
+            throw StoreClientError.invalidBasePath }
+
+        return try await executeCall(url,
+                                     httpMethod: HTTPMethod.POST.rawValue,
+                                     queryItems: [],
+                                     httpBody: nil,
+                                     credentials:
+                                            Credentials(key: customer.username,
+                                                        secret: customer.password ?? ""))
+    }
+
+    func updateProductInCart(_ customer: Customer, product: Product, quantity: Int?) async throws -> Data {
         guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("clear")) else {
             throw StoreClientError.invalidBasePath }
 

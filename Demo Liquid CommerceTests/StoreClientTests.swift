@@ -9,6 +9,9 @@ import XCTest
 @testable import Demo_Liquid_Commerce
 final class StoreClientTests: XCTestCase {
 
+    let customer = Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino")
+    let existingProduct = Product(id: 30, name: "", description: "", shortDescription: "", price: 0, salePrice: 0, onSale: true, images: [], stockStatus: .inStock)
+
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -136,11 +139,48 @@ final class StoreClientTests: XCTestCase {
         XCTAssert(!result.isEmpty)
     }
 
+    func testGetCartItemsCount_success() async throws {
+        let oAuthClient = OAuthClient()
+        var result = 0
+        result = try await oAuthClient.getNumberOfItemsInCart(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
+    }
+
     func testClearCart_success() async throws {
+        let oAuthClient = OAuthClient()
+
+        _ = try await oAuthClient.addProductToCart(customer, product: existingProduct, quantity: 1)
+
+        _ = try await oAuthClient.clearCart(customer)
+
+        let result = try await oAuthClient.getNumberOfItemsInCart(customer)
+
+        XCTAssert(result == 0)
+    }
+
+    func testAddProductToCart_success() async throws {
+        let oAuthClient = OAuthClient()
+        _ = try await oAuthClient.clearCart(customer)
+
+        _ = try await oAuthClient.addProductToCart(customer, product: existingProduct, quantity: 3)
+
+        _ = try await oAuthClient.getCartItems(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
+
+        let count = try await oAuthClient.getNumberOfItemsInCart(customer)
+        XCTAssert(count == 3)
+    }
+
+    func testRemoveProductFromCart_success() async throws { // TODO
         let oAuthClient = OAuthClient()
         let data: Data = try await oAuthClient.clearCart(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
         print(try JSONSerialization.jsonObject(with: data))
     }
+
+    func testUpdateProductInCart_success() async throws { // TODO
+        let oAuthClient = OAuthClient()
+        let data: Data = try await oAuthClient.clearCart(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
+        print(try JSONSerialization.jsonObject(with: data))
+    }
+
 #else
     func testFetchProductsBaseAuth_success() async throws {
         let client = BaseAuthClient()
