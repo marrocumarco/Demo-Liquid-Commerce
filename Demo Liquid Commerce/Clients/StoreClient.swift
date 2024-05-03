@@ -249,14 +249,20 @@ extension StoreClient {
                                                         secret: customer.password ?? ""))
     }
 
-    func updateProductInCart(_ customer: Customer, product: Product, quantity: Int?) async throws -> Data {
-        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("clear")) else {
+    func updateProductInCart(_ customer: Customer, item: CartItem, quantity: Int?) async throws -> Data {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("item/\(item.itemKey)")) else {
             throw StoreClientError.invalidBasePath }
+
+        var parameters = [String: String]()
+        if let quantity {
+            parameters["quantity"] = quantity.description
+        }
+        let body = try JSONEncoder().encode(parameters)
 
         return try await executeCall(url,
                                      httpMethod: HTTPMethod.POST.rawValue,
                                      queryItems: [],
-                                     httpBody: nil,
+                                     httpBody: body,
                                      credentials:
                                             Credentials(key: customer.username,
                                                         secret: customer.password ?? ""))

@@ -13,6 +13,7 @@
 		EB167BB02AE9921A003DDB57 /* OAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB167BAF2AE9921A003DDB57 /* OAuthClient.swift */; };
 		EB167BB32AE99778003DDB57 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB167BB22AE99778003DDB57 /* MainViewViewModel.swift */; };
 		EB167BB52AE9D162003DDB57 /* ProductsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB167BB42AE9D162003DDB57 /* ProductsListViewModel.swift */; };
+		EB1938482BE59E30008D71B3 /* MockStoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1938472BE59E30008D71B3 /* MockStoreClient.swift */; };
 		EB1CEBF62BDBB66700178B41 /* PaymentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1CEBF52BDBB66700178B41 /* PaymentClient.swift */; };
 		EB1CEBF92BDBDCC700178B41 /* StripeCheckoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1CEBF82BDBDCC700178B41 /* StripeCheckoutResponse.swift */; };
 		EB2947D72BE2435B00CBD2B5 /* CalculatedCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2947D62BE2435A00CBD2B5 /* CalculatedCart.swift */; };
@@ -79,6 +80,7 @@
 		EB167BAF2AE9921A003DDB57 /* OAuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthClient.swift; sourceTree = "<group>"; };
 		EB167BB22AE99778003DDB57 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
 		EB167BB42AE9D162003DDB57 /* ProductsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewModel.swift; sourceTree = "<group>"; };
+		EB1938472BE59E30008D71B3 /* MockStoreClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStoreClient.swift; sourceTree = "<group>"; };
 		EB1CEBF52BDBB66700178B41 /* PaymentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentClient.swift; sourceTree = "<group>"; };
 		EB1CEBF82BDBDCC700178B41 /* StripeCheckoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCheckoutResponse.swift; sourceTree = "<group>"; };
 		EB2947D62BE2435A00CBD2B5 /* CalculatedCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatedCart.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				EB167BAD2AE99127003DDB57 /* StoreClient.swift */,
+				EB1938472BE59E30008D71B3 /* MockStoreClient.swift */,
 				EB58A9F62ADF3F9700E33BF4 /* BaseAuthClient.swift */,
 				EB167BAF2AE9921A003DDB57 /* OAuthClient.swift */,
 			);
@@ -473,6 +476,7 @@
 				EB6DCAF72B25C4E500215639 /* ProductsListView.swift in Sources */,
 				EB6707712BDC061500B34BDB /* CartView.swift in Sources */,
 				EB6DCAF92B25C52700215639 /* ProductCardView.swift in Sources */,
+				EB1938482BE59E30008D71B3 /* MockStoreClient.swift in Sources */,
 				EB1CEBF62BDBB66700178B41 /* PaymentClient.swift in Sources */,
 				EB1CEBF92BDBDCC700178B41 /* StripeCheckoutResponse.swift in Sources */,
 				EB75DBF02B24D0EB0062A1B5 /* CachedAsyncThumbnail.swift in Sources */,

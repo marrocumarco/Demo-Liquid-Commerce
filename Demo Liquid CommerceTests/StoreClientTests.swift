@@ -13,7 +13,14 @@ final class StoreClientTests: XCTestCase {
     let existingProduct = Product(id: 30, name: "", description: "", shortDescription: "", price: 0, salePrice: 0, onSale: true, images: [], stockStatus: .inStock)
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        #if DEBUG
+        let client = OAuthClient()
+        #else
+        let client = BaseAuthClient()
+        #endif
+        Task {
+            _ = try await client.clearCart(customer)
+        }
     }
 
     override func tearDownWithError() throws {
@@ -178,7 +185,7 @@ final class StoreClientTests: XCTestCase {
         XCTAssert(count == 3)
     }
 
-    func testRemoveProductFromCart_success() async throws { // TODO
+    func testRemoveProductFromCart_success() async throws {
         let oAuthClient = OAuthClient()
 
         _ = try await oAuthClient.addProductToCart(customer, product: existingProduct, quantity: 3)
@@ -186,15 +193,21 @@ final class StoreClientTests: XCTestCase {
         let cartItems = try await oAuthClient.getCartItems(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
 
         _ = try await oAuthClient.removeProductFromCart(customer, item: cartItems.values.first!)
-
-        
-
     }
 
     func testUpdateProductInCart_success() async throws { // TODO
         let oAuthClient = OAuthClient()
-        let data: Data = try await oAuthClient.clearCart(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
-        print(try JSONSerialization.jsonObject(with: data))
+        _ = try await oAuthClient.clearCart(customer)
+
+        _ = try await oAuthClient.addProductToCart(customer, product: existingProduct, quantity: 3)
+
+        let cartItems = try await oAuthClient.getCartItems(customer)
+
+        _ = try await oAuthClient.updateProductInCart(customer, item: cartItems.values.first!, quantity: 2)
+
+        let count = try await oAuthClient.getNumberOfItemsInCart(customer)
+
+        XCTAssert(count == 2)
     }
 
 #else
