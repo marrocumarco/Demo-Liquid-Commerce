@@ -521,107 +521,62 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E8C10E18-9830-4F58-BD1D-76A3BE824489"
+            uuid = "5DEBC845-8877-47E6-89B2-1EAC59BA4C71"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo Liquid Commerce/Clients/StoreClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
-            landmarkName = "addProductToCart(_:product:quantity:)"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
+            landmarkName = "removeProductFromCart(_:item:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "E8C10E18-9830-4F58-BD1D-76A3BE824489 - d861aac4f7da090d"
+                  uuid = "5DEBC845-8877-47E6-89B2-1EAC59BA4C71 - 361344053a793743"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Demo_Liquid_Commerce.StoreClient.removeProductFromCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product) async throws -&gt; Foundation.Data"
+                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.StoreClient.removeProductFromCart(_: Demo_Liquid_Commerce.Customer, item: Demo_Liquid_Commerce.CartItem) async throws -&gt; Foundation.Data"
                   moduleName = "Demo Liquid Commerce"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "229"
-                  endingLineNumber = "229"
-                  offsetFromSymbolStart = "228">
+                  startingLineNumber = "240"
+                  endingLineNumber = "240"
+                  offsetFromSymbolStart = "188">
                </Location>
                <Location
-                  uuid = "E8C10E18-9830-4F58-BD1D-76A3BE824489 - 351cb929e6011ffb"
+                  uuid = "5DEBC845-8877-47E6-89B2-1EAC59BA4C71 - 361344053a793743"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.StoreClient.removeProductFromCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product) async throws -&gt; Foundation.Data"
+                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.StoreClient.removeProductFromCart(_: Demo_Liquid_Commerce.Customer, item: Demo_Liquid_Commerce.CartItem) async throws -&gt; Foundation.Data"
                   moduleName = "Demo Liquid Commerce"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "229"
-                  endingLineNumber = "229"
-                  offsetFromSymbolStart = "128">
+                  startingLineNumber = "240"
+                  endingLineNumber = "240"
+                  offsetFromSymbolStart = "192">
                </Location>
                <Location
-                  uuid = "E8C10E18-9830-4F58-BD1D-76A3BE824489 - f8e0817dce07d813"
+                  uuid = "5DEBC845-8877-47E6-89B2-1EAC59BA4C71 - 361344053a793743"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.StoreClient.addProductToCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product, quantity: Swift.Optional&lt;Swift.Int&gt;) async throws -&gt; Demo_Liquid_Commerce.CalculatedCart"
+                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.StoreClient.removeProductFromCart(_: Demo_Liquid_Commerce.Customer, item: Demo_Liquid_Commerce.CartItem) async throws -&gt; Foundation.Data"
                   moduleName = "Demo Liquid Commerce"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "229"
-                  endingLineNumber = "229"
-                  offsetFromSymbolStart = "1512">
-               </Location>
-               <Location
-                  uuid = "E8C10E18-9830-4F58-BD1D-76A3BE824489 - 110bd269b3ed0016"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for Demo_Liquid_Commerce.StoreClient.addProductToCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product, quantity: Swift.Optional&lt;Swift.Int&gt;) async throws -&gt; Demo_Liquid_Commerce.CalculatedCart"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "229"
-                  endingLineNumber = "229"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  uuid = "E8C10E18-9830-4F58-BD1D-76A3BE824489 - 3fcf57797878141d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for Demo_Liquid_Commerce.StoreClient.addProductToCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product, quantity: Swift.Optional&lt;Swift.Int&gt;) async throws -&gt; Demo_Liquid_Commerce.CalculatedCart"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "229"
-                  endingLineNumber = "229"
-                  offsetFromSymbolStart = "100">
-               </Location>
-               <Location
-                  uuid = "E8C10E18-9830-4F58-BD1D-76A3BE824489 - dd387c7aaf4df21e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for Demo_Liquid_Commerce.StoreClient.addProductToCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product, quantity: Swift.Optional&lt;Swift.Int&gt;) async throws -&gt; Demo_Liquid_Commerce.CalculatedCart"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "229"
-                  endingLineNumber = "229"
-                  offsetFromSymbolStart = "136">
+                  startingLineNumber = "240"
+                  endingLineNumber = "240"
+                  offsetFromSymbolStart = "216">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -629,49 +584,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "67007F89-1AE3-4E62-9CC0-480CF82906F8"
+            uuid = "37A459BE-1106-4444-8803-5463059C182A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Demo Liquid Commerce/Clients/OAuthClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "executeCall(_:httpMethod:queryItems:httpBody:credentials:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3DBEC9C2-11B3-47DF-B831-97FA3D543A73"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo Liquid Commerce/Clients/StoreClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
-            landmarkName = "addProductToCart(_:product:quantity:)"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "getCartItems(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "67007F89-1AE3-4E62-9CC0-480CF82906F8 - 351cb929e6011e82"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for Demo_Liquid_Commerce.StoreClient.removeProductFromCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product) async throws -&gt; Foundation.Data"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "238"
-                  endingLineNumber = "238"
-                  offsetFromSymbolStart = "448">
-               </Location>
-               <Location
-                  uuid = "67007F89-1AE3-4E62-9CC0-480CF82906F8 - 3fcf57797878153a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for Demo_Liquid_Commerce.StoreClient.addProductToCart(_: Demo_Liquid_Commerce.Customer, product: Demo_Liquid_Commerce.Product, quantity: Swift.Optional&lt;Swift.Int&gt;) async throws -&gt; Demo_Liquid_Commerce.CalculatedCart"
-                  moduleName = "Demo Liquid Commerce"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20Commerce/Clients/StoreClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "236"
-                  endingLineNumber = "236"
-                  offsetFromSymbolStart = "248">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

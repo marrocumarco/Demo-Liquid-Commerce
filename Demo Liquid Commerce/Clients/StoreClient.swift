@@ -236,12 +236,12 @@ extension StoreClient {
         return try StoreParser().parse(data)
     }
 
-    func removeProductFromCart(_ customer: Customer, product: Product) async throws -> Data {
-        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("clear")) else {
+    func removeProductFromCart(_ customer: Customer, item: CartItem) async throws -> Data {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("item/\(item.itemKey)")) else {
             throw StoreClientError.invalidBasePath }
 
         return try await executeCall(url,
-                                     httpMethod: HTTPMethod.POST.rawValue,
+                                     httpMethod: HTTPMethod.DELETE.rawValue,
                                      queryItems: [],
                                      httpBody: nil,
                                      credentials:

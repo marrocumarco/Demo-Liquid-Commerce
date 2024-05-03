@@ -64,12 +64,18 @@ final class StoreClientTests: XCTestCase {
     func testCreateNewCustomer_success() async throws {
         let client = OAuthClient()
         // Create an expectation for an asynchronous task.
-        let newCustomer = Customer(id: nil, username: "asdff", firstName: "asdfasdf", lastName: "wwerwqer", email: "werqewrq@gmail.com", password: "qwerty", billing: Address(firstName: "asdfasdf", lastName: "wwerwqer", company: "testcompany", address1: "via dotto", address2: "34", city: "nora", state: "IT", postcode: "09090", country: "OR", phone: "9498565231", email: "werqewrq@gmail.com"), shipping: Address(firstName: "asdfasdf", lastName: "wwerwqer", company: "", address1: "via dotto", address2: "34", city: "nora", state: "IT", postcode: "09090", country: "OR", phone: "9498565231", email: "werqewrq@gmail.com"))
+        let newCustomer = Customer(id: nil, username: "gafvsf", firstName: "asdfasdf", lastName: "wwerwqer", email: "tgbhnyy@gmail.com", password: "qwerty", billing: Address(firstName: "asdfasdf", lastName: "wwerwqer", company: "testcompany", address1: "via dotto", address2: "34", city: "nora", state: "IT", postcode: "09090", country: "OR", phone: "9498565231", email: "werqewrq@gmail.com"), shipping: Address(firstName: "asdfasdf", lastName: "wwerwqer", company: "", address1: "via dotto", address2: "34", city: "nora", state: "IT", postcode: "09090", country: "OR", phone: "9498565231", email: "werqewrq@gmail.com"))
         let data = try await client.createNewCustomer(newCustomer)
         let createdCustomer: Customer = try StoreParser().parse(data)
-        XCTAssert(createdCustomer == newCustomer)
+        XCTAssert(createdCustomer.username == newCustomer.username)
+        XCTAssert(createdCustomer.firstName == newCustomer.firstName)
+        XCTAssert(createdCustomer.lastName == newCustomer.lastName)
+        XCTAssert(createdCustomer.email == newCustomer.email)
+        XCTAssert(createdCustomer.billing == newCustomer.billing)
+        XCTAssert(createdCustomer.shipping == newCustomer.shipping) // TODO: fix it
+        XCTAssert(createdCustomer.billing == newCustomer.billing)
     }
-    
+
     func testUpdateCustomer_success() async throws {
         let client = OAuthClient()
 
@@ -118,8 +124,9 @@ final class StoreClientTests: XCTestCase {
     
     func testFetchCartTotals_success() async throws {
         let oAuthClient = OAuthClient()
+        _ = try await oAuthClient.addProductToCart(customer, product: existingProduct, quantity: 1)
         var response: CartTotals?
-        response = try await oAuthClient.fetchCartTotals(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
+        response = try await oAuthClient.fetchCartTotals(customer)
         XCTAssertNotNil(response)
         print(response as Any)
     }
@@ -134,15 +141,17 @@ final class StoreClientTests: XCTestCase {
 
     func testGetCartItems_success() async throws {
         let oAuthClient = OAuthClient()
+        _ = try await oAuthClient.addProductToCart(customer, product: existingProduct, quantity: 1)
         var result = CartDictionary()
-        result = try await oAuthClient.getCartItems(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
+        result = try await oAuthClient.getCartItems(customer)
         XCTAssert(!result.isEmpty)
     }
 
     func testGetCartItemsCount_success() async throws {
         let oAuthClient = OAuthClient()
-        var result = 0
+        var result = -1
         result = try await oAuthClient.getNumberOfItemsInCart(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
+        XCTAssert(result >= 0)
     }
 
     func testClearCart_success() async throws {
@@ -171,8 +180,15 @@ final class StoreClientTests: XCTestCase {
 
     func testRemoveProductFromCart_success() async throws { // TODO
         let oAuthClient = OAuthClient()
-        let data: Data = try await oAuthClient.clearCart(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
-        print(try JSONSerialization.jsonObject(with: data))
+
+        _ = try await oAuthClient.addProductToCart(customer, product: existingProduct, quantity: 3)
+
+        let cartItems = try await oAuthClient.getCartItems(Customer(id: nil, username: "pinco pallino", firstName: "", lastName: "", email: "", password: "pinco.pallino"))
+
+        _ = try await oAuthClient.removeProductFromCart(customer, item: cartItems.values.first!)
+
+        
+
     }
 
     func testUpdateProductInCart_success() async throws { // TODO
