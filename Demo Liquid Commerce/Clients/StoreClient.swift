@@ -123,10 +123,10 @@ extension StoreClient {
     }
 
     func login(_ username: String, password: String) async throws -> Data {
-        guard let url = URL(string: StringConstants.basePathSite.rawValue.appending("users/me")) else {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("login")) else {
             throw StoreClientError.invalidBasePath }
         return try await executeCall(url,
-                                     httpMethod: HTTPMethod.GET.rawValue,
+                                     httpMethod: HTTPMethod.POST.rawValue,
                                      queryItems: [],
                                      httpBody: nil,
                                      credentials: Credentials(key: username, secret: password))
@@ -148,7 +148,7 @@ extension StoreClient {
     }
 
     func getNumberOfItemsInCart(_ customer: Customer) async throws -> Int {
-        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("items/count")) else {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("cart/items/count")) else {
             throw StoreClientError.invalidBasePath }
 
         let data = try await executeCall(url,
@@ -162,7 +162,7 @@ extension StoreClient {
     }
 
     func fetchCartTotals(_ customer: Customer) async throws -> CartTotals {
-        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("totals")) else {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("cart/totals")) else {
             throw StoreClientError.invalidBasePath }
 
         let data = try await executeCall(url,
@@ -176,7 +176,7 @@ extension StoreClient {
     }
 
     func calculateCartTotals(_ customer: Customer) async throws -> CalculatedCart {
-        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("calculate")) else {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("cart/calculate")) else {
             throw StoreClientError.invalidBasePath }
 
         let data = try await executeCall(url,
@@ -190,7 +190,7 @@ extension StoreClient {
     }
 
     func getCartItems(_ customer: Customer) async throws -> CartDictionary {
-        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("items")) else {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("cart/items")) else {
             throw StoreClientError.invalidBasePath }
 
         let data = try await executeCall(url,
@@ -205,7 +205,7 @@ extension StoreClient {
     }
 
     func clearCart(_ customer: Customer) async throws -> Data {
-        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("clear")) else {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("cart/clear")) else {
             throw StoreClientError.invalidBasePath }
 
         return try await executeCall(url,
@@ -218,7 +218,7 @@ extension StoreClient {
     }
 
     func addProductToCart(_ customer: Customer, product: Product, quantity: Int?) async throws -> CalculatedCart {
-        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("add-item")) else {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("cart/add-item")) else {
             throw StoreClientError.invalidBasePath }
 
         var parameters = ["id": product.id.description]
@@ -237,7 +237,7 @@ extension StoreClient {
     }
 
     func removeProductFromCart(_ customer: Customer, item: CartItem) async throws -> Data {
-        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("item/\(item.itemKey)")) else {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("cart/item/\(item.itemKey)")) else {
             throw StoreClientError.invalidBasePath }
 
         return try await executeCall(url,
@@ -250,7 +250,7 @@ extension StoreClient {
     }
 
     func updateProductInCart(_ customer: Customer, item: CartItem, quantity: Int?) async throws -> Data {
-        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("item/\(item.itemKey)")) else {
+        guard let url = URL(string: StringConstants.basePathCart.rawValue.appending("cart/item/\(item.itemKey)")) else {
             throw StoreClientError.invalidBasePath }
 
         var parameters = [String: String]()

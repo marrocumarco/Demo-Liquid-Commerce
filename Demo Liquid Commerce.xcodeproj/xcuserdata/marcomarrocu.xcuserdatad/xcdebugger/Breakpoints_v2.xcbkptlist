@@ -101,132 +101,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "18776ACE-F16B-41FB-8FF3-2D8DD7096388"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo Liquid CommerceTests/StoreClientTests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "testCreateNewCustomer_success()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "18776ACE-F16B-41FB-8FF3-2D8DD7096388 - bfb4513b3688b99f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for Demo_Liquid_CommerceTests.StoreClientTests.testCreateNewCustomer_success() async throws -&gt; ()"
-                  moduleName = "Demo Liquid CommerceTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20CommerceTests/StoreClientTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "452">
-               </Location>
-               <Location
-                  uuid = "18776ACE-F16B-41FB-8FF3-2D8DD7096388 - 177f91706609d77c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for Demo_Liquid_CommerceTests.StoreClientTests.testCreateNewCustomer_success() async throws -&gt; ()"
-                  moduleName = "Demo Liquid CommerceTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20CommerceTests/StoreClientTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "80">
-               </Location>
-               <Location
-                  uuid = "18776ACE-F16B-41FB-8FF3-2D8DD7096388 - bfb4513b3688b921"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for Demo_Liquid_CommerceTests.StoreClientTests.testCreateNewCustomer_success() async throws -&gt; ()"
-                  moduleName = "Demo Liquid CommerceTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20CommerceTests/StoreClientTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
-                  offsetFromSymbolStart = "360">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E7D82A15-5CDA-4EF4-B762-787FC6B58986"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo Liquid CommerceTests/StoreClientTests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "testCreateNewCustomer_success()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E7D82A15-5CDA-4EF4-B762-787FC6B58986 - bfb4513b3688b99f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for Demo_Liquid_CommerceTests.StoreClientTests.testCreateNewCustomer_success() async throws -&gt; ()"
-                  moduleName = "Demo Liquid CommerceTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20CommerceTests/StoreClientTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "452">
-               </Location>
-               <Location
-                  uuid = "E7D82A15-5CDA-4EF4-B762-787FC6B58986 - 177f91706609d77c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for Demo_Liquid_CommerceTests.StoreClientTests.testCreateNewCustomer_success() async throws -&gt; ()"
-                  moduleName = "Demo Liquid CommerceTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20CommerceTests/StoreClientTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "80">
-               </Location>
-               <Location
-                  uuid = "E7D82A15-5CDA-4EF4-B762-787FC6B58986 - bfb4513b3688b921"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for Demo_Liquid_CommerceTests.StoreClientTests.testCreateNewCustomer_success() async throws -&gt; ()"
-                  moduleName = "Demo Liquid CommerceTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marcomarrocu/Demo-Liquid-Commerce/Demo%20Liquid%20CommerceTests/StoreClientTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
-                  offsetFromSymbolStart = "360">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "9D8E8F3A-BECC-473E-9545-27BFD67D4C2B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -584,32 +458,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "37A459BE-1106-4444-8803-5463059C182A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo Liquid Commerce/Clients/OAuthClient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "executeCall(_:httpMethod:queryItems:httpBody:credentials:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3DBEC9C2-11B3-47DF-B831-97FA3D543A73"
+            uuid = "91E0D481-43B4-4949-896D-D339AEA2D2A2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo Liquid Commerce/Clients/StoreClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
-            landmarkName = "getCartItems(_:)"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "login(_:password:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

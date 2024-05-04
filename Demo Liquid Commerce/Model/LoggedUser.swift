@@ -8,7 +8,7 @@
 import Foundation
 
 struct LoggedUser: Decodable {
-    let id: Int
-    let name: String
+    let userId: String
+    let displayName: String
     var password: String?
 }
