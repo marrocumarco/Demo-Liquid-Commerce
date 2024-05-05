@@ -22,7 +22,13 @@ struct AppLauncher {
 struct DemoLiquidCommerceApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView(viewModel: MainViewViewModel(client: OAuthClient(), parser: StoreParser()))
+            MainView(
+                viewModel: MainViewViewModel(
+                    client: OAuthClient(),
+                    parser: StoreParser(),
+                    authenticationManager: KeyChainManager.instance
+                )
+            )
         }
     }
 }

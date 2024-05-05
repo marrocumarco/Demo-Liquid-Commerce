@@ -8,6 +8,7 @@
 import Foundation
 
 enum StringConstants: String {
+    case keyChainServerString = "www.demoliquid.it"
     #if DEBUG
     case basePathStore = "http://localhost/wordpress/wp-json/wc/v3/"
     case basePathSite = "http://localhost/wordpress/wp-json/wp/v2/"

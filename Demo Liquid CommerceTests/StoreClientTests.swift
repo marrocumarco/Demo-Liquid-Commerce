@@ -39,6 +39,7 @@ final class StoreClientTests: XCTestCase {
             _ = try await client.clearCart(
                 customer
             )
+            try? await KeyChainManager.instance.deleteCredentials()
         }
     }
     
@@ -210,7 +211,7 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testUpdateCustomer_success() async throws {
-        var customerData = try await client.getCustomer(
+        let customerData = try await client.getCustomer(
             25
         )
         var existentCustomer: Customer = try StoreParser().parse(
@@ -445,16 +446,7 @@ final class StoreClientTests: XCTestCase {
             quantity: 3
         )
         
-        let cartItems = try await client.getCartItems(
-            Customer(
-                id: nil,
-                username: "pinco pallino",
-                firstName: "",
-                lastName: "",
-                email: "",
-                password: "pinco.pallino"
-            )
-        )
+        let cartItems = try await client.getCartItems(customer)
         
         _ = try await client.removeProductFromCart(
             customer,
@@ -520,5 +512,29 @@ final class StoreClientTests: XCTestCase {
                 atPath: imagePath
             )
         )
+    }
+    
+    func test_saveCredentialsToKeyChain_success() async throws {
+        try await KeyChainManager.instance.saveCredentials(Credentials(key: "zaggi", secret: "pippo123"))
+    }
+
+    func test_retrieveCredentialsFromKeyChain_success() async throws {
+        let newCredentials = Credentials(key: "zaggi", secret: "pippo123")
+        try await KeyChainManager.instance.saveCredentials(newCredentials)
+        var credentials: Credentials?
+        credentials = try await KeyChainManager.instance.retrieveCredentials()
+
+        XCTAssertNotNil(credentials)
+        XCTAssertEqual(newCredentials, credentials)
+    }
+
+    func test_updateCredentialsFromKeyChain_success() async throws {
+        try await KeyChainManager.instance.updateCredentials(Credentials(key: "zaggiUpdated", secret: "pippo321"))
+    }
+
+    func test_deleteCredentialsFromKeyChain_success() async throws {
+        let newCredentials = Credentials(key: "zaggi", secret: "pippo123")
+        try await KeyChainManager.instance.saveCredentials(newCredentials)
+        try await KeyChainManager.instance.deleteCredentials()
     }
 }

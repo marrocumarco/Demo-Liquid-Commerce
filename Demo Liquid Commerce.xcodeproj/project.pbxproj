@@ -41,6 +41,7 @@
 		EB6DCAF72B25C4E500215639 /* ProductsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DCAF62B25C4E500215639 /* ProductsListView.swift */; };
 		EB6DCAF92B25C52700215639 /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DCAF82B25C52700215639 /* ProductCardView.swift */; };
 		EB6DCAFB2B25C56F00215639 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DCAFA2B25C56F00215639 /* ProductDetailView.swift */; };
+		EB7367222BE63E66007C8F51 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7367212BE63E66007C8F51 /* KeyChainManager.swift */; };
 		EB74E4172BE16EFB0033B61C /* CartTotals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74E4162BE16EFB0033B61C /* CartTotals.swift */; };
 		EB75DBF02B24D0EB0062A1B5 /* CachedAsyncThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75DBEF2B24D0EB0062A1B5 /* CachedAsyncThumbnail.swift */; };
 		EB9993312B55E36900ED0BF9 /* LoggedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9993302B55E36900ED0BF9 /* LoggedUser.swift */; };
@@ -111,6 +112,7 @@
 		EB6DCAF62B25C4E500215639 /* ProductsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListView.swift; sourceTree = "<group>"; };
 		EB6DCAF82B25C52700215639 /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
 		EB6DCAFA2B25C56F00215639 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		EB7367212BE63E66007C8F51 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		EB74E4162BE16EFB0033B61C /* CartTotals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTotals.swift; sourceTree = "<group>"; };
 		EB75DBEF2B24D0EB0062A1B5 /* CachedAsyncThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncThumbnail.swift; sourceTree = "<group>"; };
 		EB9993302B55E36900ED0BF9 /* LoggedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedUser.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				EB37ACA92B238C7500F1875A /* CachedAsyncImage.swift */,
+				EB7367212BE63E66007C8F51 /* KeyChainManager.swift */,
 				EB5165B42BE0119900F3F916 /* HTTPUtilities.swift */,
 				EB75DBEF2B24D0EB0062A1B5 /* CachedAsyncThumbnail.swift */,
 			);
@@ -466,6 +469,7 @@
 				EB58A9C52ADF333E00E33BF4 /* MainView.swift in Sources */,
 				EB37ACAA2B238C7500F1875A /* CachedAsyncImage.swift in Sources */,
 				EBF6C0D92B93D1A200ED1555 /* StoreParser.swift in Sources */,
+				EB7367222BE63E66007C8F51 /* KeyChainManager.swift in Sources */,
 				EB389BB72B2313910002BB4B /* Constants.swift in Sources */,
 				EB6DCAFB2B25C56F00215639 /* ProductDetailView.swift in Sources */,
 				EBA86DD92B100F16009B1D5C /* Category.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os
 
 enum AuthenticationType {
     case base
@@ -13,13 +14,33 @@ enum AuthenticationType {
 }
 
 class MainViewViewModel: ObservableObject {
-    let client: StoreClient
-    let parser: Parser
-    let productListViewModel: ProductsListViewModel
 
-    internal init(client: StoreClient, parser: Parser) {
+    internal init(client: StoreClient, parser: Parser, authenticationManager: AuthenticationManager) {
         self.client = client
         self.parser = parser
+        self.authenticationManager = authenticationManager
         productListViewModel = ProductsListViewModel(client: client, parser: parser)
+    }
+
+    let client: StoreClient
+    let parser: Parser
+    let authenticationManager: AuthenticationManager
+    let productListViewModel: ProductsListViewModel
+
+    var loggedUser: LoggedUser?
+
+    func tryLogin() async {
+
+        var credentials: Credentials?
+        do {
+            credentials = try await authenticationManager.retrieveCredentials()
+        } catch {
+            Logger().info("Missing credentials, cannot try login")
+        }
+        do {
+            loggedUser = try parser.parse(try await client.login(credentials!.key, password: credentials!.secret))
+        } catch {
+            Logger().info("Login failed")
+        }
     }
 }

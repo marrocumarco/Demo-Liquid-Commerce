@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct Credentials {
+struct Credentials: Equatable {
     let key: String
     let secret: String
 }
