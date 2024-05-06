@@ -25,6 +25,11 @@ struct MainView: View {
                 .tabItem {
                     Label("Basket", systemImage: "cart")
                 }.badge(cartViewModel.itemsInCart)
+
+            AccountView(accountViewModel: AccountViewModel(mainViewViewModel: viewModel))
+                .tabItem {
+                    Label("Account", systemImage: "person")
+                }
         }
     }
 }

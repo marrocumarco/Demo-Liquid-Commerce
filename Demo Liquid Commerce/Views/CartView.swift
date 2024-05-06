@@ -11,12 +11,14 @@ public struct CartView: View {
 
     let cartViewModel: CartViewModel
     public var body: some View {
-        Text("This is the Cart")
+        VStack {
+            Text("This is the Cart")
 
-        Text("number of products: \(cartViewModel.itemsInCart)")
+            Text("number of products: \(cartViewModel.itemsInCart)")
 
-        Button("Checkout", action: {
+            Button("Checkout", action: {
 
-        })
+            })
+        }
     }
 }

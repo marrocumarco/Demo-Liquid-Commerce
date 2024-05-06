@@ -17,8 +17,18 @@
         }
       }
     },
-    "Add to cart" : {
+    "Account" : {
 
+    },
+    "Add to cart" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungi al carrello"
+          }
+        }
+      }
     },
     "app_name" : {
       "extractionState" : "manual",
@@ -51,7 +61,14 @@
 
     },
     "Checkout" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Checkout"
+          }
+        }
+      }
     },
     "Demo Liquid" : {
       "localizations" : {
@@ -73,10 +90,19 @@
         }
       }
     },
+    "Hello %@, you are logged in" : {
+
+    },
     "Loading..." : {
 
     },
     "Loading…" : {
+
+    },
+    "Login" : {
+
+    },
+    "Logout" : {
 
     },
     "Menu" : {
@@ -109,14 +135,31 @@
         }
       }
     },
+    "Password" : {
+
+    },
     "Payment canceled." : {
 
     },
     "Payment complete" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pagamento effettuato"
+          }
+        }
+      }
     },
     "Payment failed: %@" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pagamento non riuscito %@"
+          }
+        }
+      }
     },
     "Price:" : {
       "localizations" : {
@@ -132,6 +175,9 @@
 
     },
     "This is the Cart" : {
+
+    },
+    "Username" : {
 
     }
   },
