@@ -18,7 +18,8 @@ struct OAuthClient: StoreClient {
         request.httpMethod = httpMethod
         request.setValue(getAuthorizationHeader(endPoint.absoluteString,
                                                 httpMethod: httpMethod,
-                                                parameters: queryItems),
+                                                parameters: queryItems,
+                                               credentials: credentials),
                          forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = httpBody
@@ -31,9 +32,14 @@ struct OAuthClient: StoreClient {
         return data
     }
 
-    func getAuthorizationHeader(_ path: String, httpMethod: String, parameters: [URLQueryItem]) -> String {
-        let consumerKey = Bundle.main.infoDictionary?["TEST_API_KEY"] as? String ?? ""
-        let consumerSecret = Bundle.main.infoDictionary?["TEST_API_SECRET"] as? String ?? ""
+    func getAuthorizationHeader(
+        _ path: String,
+        httpMethod: String,
+        parameters: [URLQueryItem],
+        credentials: Credentials
+    ) -> String {
+        let consumerKey = credentials.key
+        let consumerSecret = credentials.secret
         var parameters = parameters
         var nonce = ""
         for _ in 0..<32 {

@@ -19,15 +19,19 @@ extension StoreClient {
     func fetchProducts(_ pageNumber: Int) async throws -> Data {
         guard let url = URL(string: StringConstants.basePathStore.rawValue.appending("products")) else {
             throw StoreClientError.invalidBasePath }
-        return try await executeCall(url,
-                                     httpMethod: HTTPMethod.GET.rawValue,
-                                     queryItems: [
-                                        URLQueryItem(name: "page", value: pageNumber.description),
-                                        URLQueryItem(name: "orderby", value: "popularity")],
-                                     httpBody: nil,
-                                     credentials:
-                                        Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "",
-                                                    secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
+        return try await executeCall(
+            url,
+            httpMethod: HTTPMethod.GET.rawValue,
+            queryItems: [
+                URLQueryItem(name: "page", value: pageNumber.description),
+                URLQueryItem(name: "orderby", value: "popularity")],
+            httpBody: nil,
+            credentials:
+                Credentials(
+                    key: CredentialsManager.storeAPIKey,
+                    secret: CredentialsManager.storeAPISecret
+                )
+        )
     }
 
     func fetchCategories() async throws -> Data {
@@ -38,8 +42,10 @@ extension StoreClient {
                                      queryItems: [URLQueryItem(name: "display", value: "subcategories")],
                                      httpBody: nil,
                                      credentials:
-                                        Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "",
-                                                    secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
+                                        Credentials(
+                                            key: CredentialsManager.storeAPIKey,
+                                            secret: CredentialsManager.storeAPISecret
+                                        ))
     }
 
     func fetchPaymentGateways() async throws -> Data {
@@ -47,8 +53,10 @@ extension StoreClient {
             throw StoreClientError.invalidBasePath }
         return try await executeCall(url, httpMethod: HTTPMethod.GET.rawValue, queryItems: [
             URLQueryItem(name: "enabled", value: "true")
-        ], httpBody: nil, credentials: Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "",
-                                                   secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
+        ], httpBody: nil, credentials: Credentials(
+            key: CredentialsManager.storeAPIKey,
+            secret: CredentialsManager.storeAPISecret
+        ))
     }
 
     func fetchShippingMethods() async throws -> Data {
@@ -59,8 +67,10 @@ extension StoreClient {
                                      queryItems: [],
                                      httpBody: nil,
                                      credentials:
-                                        Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "",
-                                                    secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
+                                        Credentials(
+                                            key: CredentialsManager.storeAPIKey,
+                                            secret: CredentialsManager.storeAPISecret
+                                        ))
     }
 
     func createNewCustomer(_ customer: Customer) async throws -> Data {
@@ -74,8 +84,10 @@ extension StoreClient {
                                      queryItems: [],
                                      httpBody: body,
                                      credentials:
-                                        Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "",
-                                                    secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
+                                        Credentials(
+                                            key: CredentialsManager.storeAPIKey,
+                                            secret: CredentialsManager.storeAPISecret
+                                        ))
     }
 
     func updateCustomer(_ customer: Customer) async throws -> Data {
@@ -91,8 +103,10 @@ extension StoreClient {
                                      queryItems: [],
                                      httpBody: body,
                                      credentials:
-                                        Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "",
-                                                    secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
+                                        Credentials(
+                                            key: CredentialsManager.storeAPIKey,
+                                            secret: CredentialsManager.storeAPISecret
+                                        ))
     }
 
     func getCustomers() async throws -> Data {
@@ -104,8 +118,10 @@ extension StoreClient {
                                      queryItems: [],
                                      httpBody: nil,
                                      credentials:
-                                        Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "",
-                                                    secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
+                                        Credentials(
+                                            key: CredentialsManager.storeAPIKey,
+                                            secret: CredentialsManager.storeAPISecret
+                                        ))
     }
 
     func getCustomer(_ id: Int) async throws -> Data {
@@ -118,8 +134,10 @@ extension StoreClient {
                                      queryItems: [],
                                      httpBody: nil,
                                      credentials:
-                                        Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "",
-                                                    secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
+                                        Credentials(
+                                            key: CredentialsManager.storeAPIKey,
+                                            secret: CredentialsManager.storeAPISecret
+                                        ))
     }
 
     func login(_ username: String, password: String) async throws -> Data {
@@ -143,8 +161,10 @@ extension StoreClient {
                                      queryItems: [],
                                      httpBody: body,
                                      credentials:
-                                        Credentials(key: Bundle.main.infoDictionary?["API_KEY"] as? String ?? "",
-                                                    secret: Bundle.main.infoDictionary?["API_SECRET"] as? String ?? ""))
+                                        Credentials(
+                                            key: CredentialsManager.storeAPIKey,
+                                            secret: CredentialsManager.storeAPISecret
+                                        ))
     }
 
     func getNumberOfItemsInCart(_ customer: Customer) async throws -> Int {

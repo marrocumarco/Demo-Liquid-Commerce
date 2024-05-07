@@ -316,8 +316,9 @@ final class StoreClientTests: XCTestCase {
         )
         //        XCTAssert(createdOrder.shippingLines == newOrder.shippingLines)
     }
-    
+
     func testFetchCartTotals_success() async throws {
+        let client = BaseAuthClient()
         _ = try await client.addProductToCart(
             customer,
             product: existingProduct,
@@ -336,6 +337,7 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testCalculateCartTotals_success() async throws {
+        let client = BaseAuthClient()
         var response: CalculatedCart?
         response = try await client.calculateCartTotals(
             Customer(
@@ -356,6 +358,7 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testGetCartItems_success() async throws {
+        let client = BaseAuthClient()
         _ = try await client.addProductToCart(
             customer,
             product: existingProduct,
@@ -371,6 +374,7 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testGetCartItemsCount_success() async throws {
+        let client = BaseAuthClient()
         var result = -1
         result = try await client.getNumberOfItemsInCart(
             Customer(
@@ -388,7 +392,7 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testClearCart_success() async throws {
-        
+        let client = BaseAuthClient()
         _ = try await client.addProductToCart(
             customer,
             product: existingProduct,
@@ -409,10 +413,11 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testAddProductToCart_success() async throws {
+        let client = BaseAuthClient()
         _ = try await client.clearCart(
             customer
         )
-        
+
         _ = try await client.addProductToCart(
             customer,
             product: existingProduct,
@@ -439,7 +444,7 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testRemoveProductFromCart_success() async throws {
-        
+        let client = BaseAuthClient()
         _ = try await client.addProductToCart(
             customer,
             product: existingProduct,
@@ -454,7 +459,8 @@ final class StoreClientTests: XCTestCase {
         )
     }
     
-    func testUpdateProductInCart_success() async throws { // TODO
+    func testUpdateProductInCart_success() async throws {
+        let client = BaseAuthClient()
         _ = try await client.clearCart(
             customer
         )

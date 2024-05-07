@@ -26,7 +26,7 @@ struct MainView: View {
                     Label("Basket", systemImage: "cart")
                 }.badge(cartViewModel.itemsInCart)
 
-            AccountView(accountViewModel: AccountViewModel(mainViewViewModel: viewModel))
+            AccountView(accountViewModel: AccountViewModel(mainViewViewModel: viewModel, client: BaseAuthClient()))
                 .tabItem {
                     Label("Account", systemImage: "person")
                 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EB119E502B6857AB0079E223 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB119E4F2B6857AB0079E223 /* Customer.swift */; };
 		EB1471BB2B62DC1B007EB6BA /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1471BA2B62DC1B007EB6BA /* Address.swift */; };
+		EB14F1C62BEACCBE00A20D0F /* CredentialsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB14F1C52BEACCBE00A20D0F /* CredentialsManager.swift */; };
 		EB167BAE2AE99127003DDB57 /* StoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB167BAD2AE99127003DDB57 /* StoreClient.swift */; };
 		EB167BB02AE9921A003DDB57 /* OAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB167BAF2AE9921A003DDB57 /* OAuthClient.swift */; };
 		EB167BB32AE99778003DDB57 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB167BB22AE99778003DDB57 /* MainViewViewModel.swift */; };
@@ -79,6 +80,7 @@
 /* Begin PBXFileReference section */
 		EB119E4F2B6857AB0079E223 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		EB1471BA2B62DC1B007EB6BA /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		EB14F1C52BEACCBE00A20D0F /* CredentialsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsManager.swift; sourceTree = "<group>"; };
 		EB167BAD2AE99127003DDB57 /* StoreClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreClient.swift; sourceTree = "<group>"; };
 		EB167BAF2AE9921A003DDB57 /* OAuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthClient.swift; sourceTree = "<group>"; };
 		EB167BB22AE99778003DDB57 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				EB37ACA92B238C7500F1875A /* CachedAsyncImage.swift */,
+				EB14F1C52BEACCBE00A20D0F /* CredentialsManager.swift */,
 				EB7367212BE63E66007C8F51 /* KeyChainManager.swift */,
 				EB5165B42BE0119900F3F916 /* HTTPUtilities.swift */,
 				EB75DBEF2B24D0EB0062A1B5 /* CachedAsyncThumbnail.swift */,
@@ -491,6 +494,7 @@
 				EB1938482BE59E30008D71B3 /* MockStoreClient.swift in Sources */,
 				EB1CEBF62BDBB66700178B41 /* PaymentClient.swift in Sources */,
 				EB1CEBF92BDBDCC700178B41 /* StripeCheckoutResponse.swift in Sources */,
+				EB14F1C62BEACCBE00A20D0F /* CredentialsManager.swift in Sources */,
 				EB75DBF02B24D0EB0062A1B5 /* CachedAsyncThumbnail.swift in Sources */,
 				EB74E4172BE16EFB0033B61C /* CartTotals.swift in Sources */,
 				EB167BB32AE99778003DDB57 /* MainViewViewModel.swift in Sources */,
