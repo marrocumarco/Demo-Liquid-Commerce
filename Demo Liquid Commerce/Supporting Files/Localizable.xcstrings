@@ -30,6 +30,9 @@
         }
       }
     },
+    "Apartment" : {
+
+    },
     "app_name" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -57,6 +60,9 @@
         }
       }
     },
+    "Billing address" : {
+
+    },
     "Buy" : {
 
     },
@@ -69,6 +75,15 @@
           }
         }
       }
+    },
+    "City" : {
+
+    },
+    "Company" : {
+
+    },
+    "Country" : {
+
     },
     "Demo Liquid" : {
       "localizations" : {
@@ -89,6 +104,12 @@
           }
         }
       }
+    },
+    "email" : {
+
+    },
+    "Email" : {
+
     },
     "Hello %@, you are logged in" : {
 
@@ -114,6 +135,9 @@
           }
         }
       }
+    },
+    "Name" : {
+
     },
     "number of products: %lld" : {
 
@@ -161,6 +185,12 @@
         }
       }
     },
+    "Phone" : {
+
+    },
+    "Postcode" : {
+
+    },
     "Price:" : {
       "localizations" : {
         "it" : {
@@ -171,7 +201,31 @@
         }
       }
     },
+    "Register" : {
+
+    },
+    "Registration" : {
+
+    },
+    "Repeat password" : {
+
+    },
+    "Shipping address" : {
+
+    },
+    "State" : {
+
+    },
+    "Street, number" : {
+
+    },
+    "Surname" : {
+
+    },
     "Testing..." : {
+
+    },
+    "The billing address is different than the shipping address" : {
 
     },
     "This is the Cart" : {

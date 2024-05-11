@@ -212,6 +212,7 @@
 		EB37ACA82B238C5100F1875A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				EB389BB62B2313910002BB4B /* Constants.swift */,
 				EB37ACA92B238C7500F1875A /* CachedAsyncImage.swift */,
 				EB14F1C52BEACCBE00A20D0F /* CredentialsManager.swift */,
 				EB7367212BE63E66007C8F51 /* KeyChainManager.swift */,
@@ -295,7 +296,6 @@
 				EB2947D62BE2435A00CBD2B5 /* CalculatedCart.swift */,
 				EBB178D62BE1A4BE001AE01B /* CartItem.swift */,
 				EBA86DD82B100F16009B1D5C /* Category.swift */,
-				EB389BB62B2313910002BB4B /* Constants.swift */,
 				EB119E4F2B6857AB0079E223 /* Customer.swift */,
 				EB389BB82B231F240002BB4B /* HTTPStatusCode.swift */,
 				EBFB8ECA2BD6FD74001F0AD3 /* LineItem.swift */,

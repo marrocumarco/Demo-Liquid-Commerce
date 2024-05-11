@@ -35,7 +35,7 @@ struct KeyChainManager: AuthenticationManager {
     func saveCredentials(_ credentials: Credentials) async throws {
         let account = credentials.key
         let password = credentials.secret.data(using: String.Encoding.utf8)!
-        var query: [String: Any] = [kSecClass as String: kSecClassInternetPassword,
+        let query: [String: Any] = [kSecClass as String: kSecClassInternetPassword,
                                     kSecAttrAccount as String: account,
                                     kSecAttrServer as String: StringConstants.keyChainServerString.rawValue,
                                     kSecValueData as String: password]
@@ -79,9 +79,9 @@ struct KeyChainManager: AuthenticationManager {
     func updateCredentials(_ credentials: Credentials) async throws {
         let account = credentials.key
         let password = credentials.secret.data(using: String.Encoding.utf8)!
-        var query: [String: Any] = [kSecClass as String: kSecClassInternetPassword,
+        let query: [String: Any] = [kSecClass as String: kSecClassInternetPassword,
                                     kSecAttrServer as String: StringConstants.keyChainServerString.rawValue]
-        var attributes: [String: Any] = [kSecAttrAccount as String: account,
+        let attributes: [String: Any] = [kSecAttrAccount as String: account,
                                     kSecValueData as String: password]
         let status = SecItemUpdate(query as CFDictionary, attributes as CFDictionary)
         guard status == errSecSuccess else {

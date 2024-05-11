@@ -11,8 +11,8 @@ import Foundation
 class AccountViewModel: ObservableObject {
 
     @Published var username = ""
-    @Published var isLoggedIn = false
     @Published var errorCaption = ""
+    @Published var viewStatus: Status
 
     let client: StoreClient
     unowned let mainViewViewModel: MainViewViewModel
@@ -20,6 +20,7 @@ class AccountViewModel: ObservableObject {
     internal init(mainViewViewModel: MainViewViewModel, client: StoreClient) {
         self.mainViewViewModel = mainViewViewModel
         self.client = client
+        self.viewStatus = mainViewViewModel.loggedUser != nil ? .userInfo : .choiceMenu
     }
 
     func login(_ username: String, password: String) async {
@@ -27,14 +28,31 @@ class AccountViewModel: ObservableObject {
             let data = try await client.login(username, password: password)
             mainViewViewModel.loggedUser = try mainViewViewModel.parser.parse(data)
             self.username = mainViewViewModel.loggedUser?.displayName ?? ""
-            isLoggedIn = true
+            viewStatus = .userInfo
         } catch {
             errorCaption = "Cannot login, try again."
+            viewStatus = .loginError
         }
+    }
+
+    func showLoginForm() {
+        viewStatus = .loginForm
+    }
+
+    func showRegistrationForm() {
+        viewStatus = .registration
     }
 
     func logout() {
         mainViewViewModel.loggedUser = nil
-        isLoggedIn = false
+        viewStatus = .choiceMenu
+    }
+
+    enum Status {
+        case choiceMenu
+        case loginForm
+        case userInfo
+        case registration
+        case loginError
     }
 }
