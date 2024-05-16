@@ -73,6 +73,7 @@ extension StoreClient {
                                         ))
     }
 
+    @discardableResult
     func createNewCustomer(_ customer: Customer) async throws -> Data {
         guard let url = URL(string: StringConstants.basePathStore.rawValue.appending("customers")) else {
             throw StoreClientError.invalidBasePath }

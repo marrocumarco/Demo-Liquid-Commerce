@@ -7,57 +7,15 @@
 
 import SwiftUI
 
-struct ValidationPreferenceKey: PreferenceKey {
-    static var defaultValue: [Bool] = []
-
-    static func reduce(value: inout [Bool], nextValue: () -> [Bool]) {
-        value += nextValue()
+struct ErrorField<Content: View>: View {
+    @Binding var isErrorEnabled: Bool
+    let errorMessage: String
+    @ViewBuilder var content: () -> Content
+    var body: some View {
+        content()
+            .border(isErrorEnabled ? .red : .clear)
     }
 }
-
-struct ValidationModifier: ViewModifier {
-    let validation: () -> Bool
-    func body(content: Content) -> some View {
-        content
-            .preference(
-                key: ValidationPreferenceKey.self,
-                value: [validation()]
-            )
-    }
-}
-
-extension TextField {
-   func validate(_ flag: @escaping () -> Bool) -> some View {
-      self
-         .modifier(ValidationModifier(validation: flag))
-   }
-}
-
-extension SecureField {
-   func validate(_ flag: @escaping () -> Bool) -> some View {
-      self
-         .modifier(ValidationModifier(validation: flag))
-   }
-}
-
-struct TextFormView<Content: View>: View {
-   @State var validationSeeds: [Bool] = []
-   @ViewBuilder var content: (( @escaping () -> Bool)) -> Content
-   var body: some View {
-         content(validate)
-         .onPreferenceChange(ValidationPreferenceKey.self) { value in
-            validationSeeds = value
-         }
-   }
-
-   private func validate() -> Bool {
-      for seed in validationSeeds where !seed {
-         return false
-      }
-      return true
-   }
-}
-
 struct AccountView: View {
     @ObservedObject var accountViewModel: AccountViewModel
     @State var username = ""
@@ -80,29 +38,29 @@ struct AccountView: View {
                     }.buttonStyle(.borderedProminent)
 
                 case .loginForm:
-                    TextFormView { validate in
                         Group {
-                            TextField("Username", text: $username).validate {
-                                username.count >= 5
-                            }.focused($focusedField, equals: .username)
-                                .onSubmit {
-                                    focusedField = .password
-                                }
-                            SecureField("Password", text: $password).validate {
-                                password.count >= 8
+                            ErrorField(isErrorEnabled: $accountViewModel.usernameError, errorMessage: "Prova errore") {
+                                TextField("Username", text: $accountViewModel.username)
+                                    .focused($focusedField, equals: .username)
+                                    .onSubmit {
+                                        focusedField = .password
+                                    }
                             }
-                            .focused($focusedField, equals: .password)
-                                .onSubmit {
-                                    focusedField = nil
-                                }
+                            ErrorField(isErrorEnabled: $accountViewModel.passwordError, errorMessage: "Prova errore") {
+                                SecureField("Password", text: $accountViewModel.password)
+                                    .focused($focusedField, equals: .password)
+                                    .onSubmit {
+                                        focusedField = nil
+                                    }
+                            }
                         }
                         Button("Login", action: {
                             Task {
                                 await accountViewModel.login(username, password: password)
                             }
-                        }).disabled(username.isEmpty || password.isEmpty || !validate())
+                        }).disabled(username.isEmpty || password.isEmpty)
                             .buttonStyle(.borderedProminent)
-                    }.textFieldStyle(.roundedBorder)
+                    .textFieldStyle(.roundedBorder)
                         .padding(.horizontal)
                 case .userInfo:
                     Text("Hello \(accountViewModel.username), you are logged in")
@@ -110,7 +68,7 @@ struct AccountView: View {
                         accountViewModel.logout()
                     })
                 case .registration:
-                    RegistrationView().navigationTitle("Registration")
+                    RegistrationView(accountViewModel: accountViewModel).navigationTitle("Registration")
                 case .loginError:
                     Text(accountViewModel.errorCaption)
                 }
@@ -125,230 +83,192 @@ struct AccountView: View {
 }
 
 struct RegistrationView: View {
-    @State var newUsername = ""
-    @State var name = ""
-    @State var surname = ""
-    @State var email = ""
-    @State var newPassword = ""
-    @State var repeatedpassword = ""
-    @State var billingAddressToggle = false
-    @State var billingName = ""
-    @State var billingSurname = ""
-    @State var billingCompany = ""
-    @State var billingAddress = ""
-    @State var billingAddress2 = ""
-    @State var billingCity = ""
-    @State var billingState = ""
-    @State var billingPostcode = ""
-    @State var billingCountry = ""
-    @State var billingPhone = ""
-    @State var billingEmail = ""
-    @State var shippingName = ""
-    @State var shippingSurname = ""
-    @State var shippingCompany = ""
-    @State var shippingAddress = ""
-    @State var shippingAddress2 = ""
-    @State var shippingCity = ""
-    @State var shippingState = ""
-    @State var shippingPostcode = ""
-    @State var shippingCountry = ""
-    @State var shippingPhone = ""
-    @State var shippingEmail = ""
 
-    @FocusState var focusedField: FocusedField?
-
+    @FocusState var focusedField: Customer.Field?
+    @State var focusedFirstAddressField = false
+    @ObservedObject var accountViewModel: AccountViewModel
     var body: some View {
         ScrollView(.vertical) {
             VStack(alignment: .leading) {
-                TextFormView { validate in
                     Group {
-                        TextField("Username", text: $newUsername)
-                            .validate {
-                            !newUsername.isEmpty
-                        }.focused($focusedField, equals: .username)
-                            .onSubmit {
-                                focusedField = .name
-                            }
-                        TextField("Name", text: $name).validate {
-                            !name.isEmpty
+                        ErrorField(isErrorEnabled: $accountViewModel.newUsernameError, errorMessage: "Prova errore") {
+                            TextField("Username", text: $accountViewModel.newUsername)
+                                .focused($focusedField, equals: Customer.Field.username)
+                                .onSubmit {
+                                    focusedField = Customer.Field.name
+                                }
                         }
-                        .focused($focusedField, equals: .name)
-                            .onSubmit {
-                                focusedField = .surname
-                            }
-                        TextField("Surname", text: $surname).validate {
-                            !surname.isEmpty
-                        }.focused($focusedField, equals: .surname)
-                            .onSubmit {
-                                focusedField = .email
-                            }
-                        TextField("Email", text: $email).validate {
-                            !email.isEmpty
-                        }.focused($focusedField, equals: .email)
-                            .onSubmit {
-                                focusedField = .password
-                            }
-                        SecureField("Password", text: $newPassword).validate {
-                            !newPassword.isEmpty
-                        }.focused($focusedField, equals: .password)
-                            .onSubmit {
-                                focusedField = .repeatPassword
-                            }
-                        SecureField("Repeat password", text: $repeatedpassword).validate {
-                            !repeatedpassword.isEmpty
-                        }.focused($focusedField, equals: .repeatPassword)
-                            .onSubmit {
-                                focusedField = .shippingName
-                            }
-                        Spacer()
-                        Text("Shipping address")
-                        TextField("Name", text: $shippingName)
-                            .focused($focusedField, equals: .shippingName)
-                            .onSubmit {
-                                focusedField = .shippingSurname
-                            }
-                        TextField("Surname", text: $shippingSurname)
-                            .focused($focusedField, equals: .shippingSurname)
-                            .onSubmit {
-                                focusedField = .shippingCompany
-                            }
-                        TextField("Company", text: $shippingCompany)
-                            .focused($focusedField, equals: .shippingCompany)
-                            .onSubmit {
-                                focusedField = .shippingCountry
-                            }
-                        TextField("Country", text: $shippingCountry)
-                            .focused($focusedField, equals: .shippingCountry)
-                            .onSubmit {
-                                focusedField = .shippingStreet
-                            }
-                        TextField("Street, number", text: $shippingAddress)
-                            .focused($focusedField, equals: .shippingStreet)
-                            .onSubmit {
-                                focusedField = .shippingApartment
-                            }
-                        TextField("Apartment", text: $shippingAddress2)
-                            .focused($focusedField, equals: .shippingApartment)
-                            .onSubmit {
-                                focusedField = .shippingPostcode
-                            }
-                        TextField("Postcode", text: $shippingPostcode)
-                            .focused($focusedField, equals: .shippingPostcode)
-                            .onSubmit {
-                                focusedField = .shippingCity
-                            }
-                        TextField("City", text: $shippingCity)
-                            .focused($focusedField, equals: .shippingCity)
-                            .onSubmit {
-                                focusedField = .shippingState
-                            }
-                        TextField("State", text: $shippingState)
-                            .focused($focusedField, equals: .shippingState)
-                            .onSubmit {
-                                focusedField = billingAddressToggle ? .billingName : nil
-                            }
-                        Toggle(
-                            "The billing address is different than the shipping address",
-                            isOn: $billingAddressToggle
-                        ).font(.footnote)
-                        Spacer()
-                        if billingAddressToggle {
-                            Text("Billing address")
-                            TextField("Name", text: $billingName)
-                                .focused($focusedField, equals: .billingName)
+                        ErrorField(isErrorEnabled: $accountViewModel.nameError, errorMessage: "Prova errore") {
+                            TextField("Name", text: $accountViewModel.name)
+                                .focused($focusedField, equals: Customer.Field.name)
                                 .onSubmit {
-                                    focusedField = .billingSurname
+                                    focusedField = Customer.Field.surname
                                 }
-                            TextField("Surname", text: $billingSurname)
-                                .focused($focusedField, equals: .billingSurname)
-                                .onSubmit {
-                                    focusedField = .billingCompany
-                                }
-                            TextField("Company", text: $billingCompany)
-                                .focused($focusedField, equals: .billingCompany)
-                                .onSubmit {
-                                    focusedField = .billingCountry
-                                }
-                            TextField("Country", text: $billingCountry)
-                                .focused($focusedField, equals: .billingCountry)
-                                .onSubmit {
-                                    focusedField = .billingStreet
-                                }
-                            TextField("Street, number", text: $billingAddress)
-                                .focused($focusedField, equals: .billingStreet)
-                                .onSubmit {
-                                    focusedField = .billingApartment
-                                }
-                            TextField("Apartment", text: $billingAddress2)
-                                .focused($focusedField, equals: .billingApartment)
-                                .onSubmit {
-                                    focusedField = .billingPostcode
-                                }
-                            TextField("Postcode", text: $billingPostcode)
-                                .focused($focusedField, equals: .billingPostcode)
-                                .onSubmit {
-                                    focusedField = .billingCity
-                                }
-                            TextField("City", text: $billingCity)
-                                .focused($focusedField, equals: .billingCity)
-                                .onSubmit {
-                                    focusedField = .billingState
-                                }
-                            TextField("State", text: $billingState)
-                                .focused($focusedField, equals: .billingState)
-                                .onSubmit {
-                                    focusedField = .billingPhone
-                                }
-                                TextField("Phone", text: $billingPhone)
-                                    .focused($focusedField, equals: .billingPhone)
-                                    .onSubmit {
-                                        focusedField = .billingEmail
-                                    }
-                                TextField("email", text: $billingEmail)
-                                    .focused($focusedField, equals: .billingEmail)
-                                    .onSubmit {
-                                        focusedField = nil
-                                    }
                         }
+                        ErrorField(isErrorEnabled: $accountViewModel.surnameError, errorMessage: "Prova errore") {
+                            TextField("Surname", text: $accountViewModel.surname)
+                                .focused($focusedField, equals: Customer.Field.surname)
+                                .onSubmit {
+                                    focusedField = Customer.Field.email
+                                }
+                        }
+                        ErrorField(isErrorEnabled: $accountViewModel.emailError, errorMessage: "Prova errore") {
+                            TextField("Email", text: $accountViewModel.email)
+                                .focused($focusedField, equals: Customer.Field.email)
+                                .onSubmit {
+                                    focusedField = Customer.Field.password
+                                }
+                        }
+                        ErrorField(isErrorEnabled: $accountViewModel.newPasswordError, errorMessage: "Prova errore") {
+                            SecureField("Password", text: $accountViewModel.newPassword)
+                                .focused($focusedField, equals: Customer.Field.password)
+                                .onSubmit {
+                                    focusedField = Customer.Field.repeatPassword
+                                }
+                        }
+                        ErrorField(
+                            isErrorEnabled: $accountViewModel.repeatedpasswordError,
+                            errorMessage: "Prova errore"
+                        ) {
+                            SecureField("Repeat password", text: $accountViewModel.repeatedpassword)
+                                .focused($focusedField, equals: Customer.Field.repeatPassword)
+                                .onSubmit {
+                                    focusedField = nil
+                                    focusedFirstAddressField = true
+                                }
+                        }
+                        AddressView(focusFirstField: focusedFirstAddressField, accountViewModel: accountViewModel)
                     }.textFieldStyle(.roundedBorder)
                         .submitLabel(.next)
                         .textInputAutocapitalization(.never)
                         .disableAutocorrection(true)
                     Button("Register") {
-                        if !validate() { return }
+                        Task {
+                            await accountViewModel.registerNewCustomer()
+                        }
                     }.buttonStyle(.borderedProminent)
-                }
             }.padding(.horizontal)
         }
     }
+}
 
-    enum FocusedField {
-        case username
-        case name
-        case surname
-        case password
-        case repeatPassword
-        case email
-        case shippingName
-        case shippingSurname
-        case shippingCompany
-        case shippingCountry
-        case shippingStreet
-        case shippingApartment
-        case shippingPostcode
-        case shippingCity
-        case shippingState
-        case billingName
-        case billingSurname
-        case billingCompany
-        case billingCountry
-        case billingStreet
-        case billingApartment
-        case billingPostcode
-        case billingCity
-        case billingState
-        case billingPhone
-        case billingEmail
+struct AddressView: View {
+
+    @State var focusFirstField: Bool
+    @FocusState var focusedField: Address.Field?
+    @ObservedObject var accountViewModel: AccountViewModel
+
+    var body: some View {
+        Spacer()
+        Text("Shipping address")
+        TextField("Name", text: $accountViewModel.shippingName)
+            .focused($focusedField, equals: Address.Field.name(addressType: .shipping))
+            .onSubmit {
+                focusedField = Address.Field.surname(addressType: .shipping)
+            }
+        TextField("Surname", text: $accountViewModel.shippingSurname)
+            .focused($focusedField, equals: Address.Field.surname(addressType: .shipping))
+            .onSubmit {
+                focusedField = Address.Field.company(addressType: .shipping)
+            }
+        TextField("Company", text: $accountViewModel.shippingCompany)
+            .focused($focusedField, equals: Address.Field.company(addressType: .shipping))
+            .onSubmit {
+                focusedField = Address.Field.country(addressType: .shipping)
+            }
+        TextField("Country", text: $accountViewModel.shippingCountry)
+            .focused($focusedField, equals: Address.Field.country(addressType: .shipping))
+            .onSubmit {
+                focusedField = Address.Field.street(addressType: .shipping)
+            }
+        TextField("Street, number", text: $accountViewModel.shippingAddress)
+            .focused($focusedField, equals: Address.Field.street(addressType: .shipping))
+            .onSubmit {
+                focusedField = Address.Field.apartment(addressType: .shipping)
+            }
+        TextField("Apartment", text: $accountViewModel.shippingAddress2)
+            .focused($focusedField, equals: Address.Field.apartment(addressType: .shipping))
+            .onSubmit {
+                focusedField = Address.Field.postcode(addressType: .shipping)
+            }
+        TextField("Postcode", text: $accountViewModel.shippingPostcode)
+            .focused($focusedField, equals: Address.Field.postcode(addressType: .shipping))
+            .onSubmit {
+                focusedField = Address.Field.city(addressType: .shipping)
+            }
+        TextField("City", text: $accountViewModel.shippingCity)
+            .focused($focusedField, equals: Address.Field.city(addressType: .shipping))
+            .onSubmit {
+                focusedField = Address.Field.state(addressType: .shipping)
+            }
+        TextField("State", text: $accountViewModel.shippingState)
+            .focused($focusedField, equals: Address.Field.state(addressType: .shipping))
+            .onSubmit {
+                focusedField = accountViewModel.billingAddressToggle ? Address.Field.name(addressType: .billing) : nil
+            }
+        Toggle(
+            "The billing address is different than the shipping address",
+            isOn: $accountViewModel.billingAddressToggle
+        ).font(.footnote)
+        Spacer()
+        if accountViewModel.billingAddressToggle {
+            Text("Billing address")
+            TextField("Name", text: $accountViewModel.billingName)
+                .focused($focusedField, equals: Address.Field.name(addressType: .billing))
+                .onSubmit {
+                    focusedField = Address.Field.surname(addressType: .billing)
+                }
+            TextField("Surname", text: $accountViewModel.billingSurname)
+                .focused($focusedField, equals: Address.Field.surname(addressType: .billing))
+                .onSubmit {
+                    focusedField = Address.Field.company(addressType: .billing)
+                }
+            TextField("Company", text: $accountViewModel.billingCompany)
+                .focused($focusedField, equals: Address.Field.company(addressType: .billing))
+                .onSubmit {
+                    focusedField = Address.Field.country(addressType: .billing)
+                }
+            TextField("Country", text: $accountViewModel.billingCountry)
+                .focused($focusedField, equals: Address.Field.country(addressType: .billing))
+                .onSubmit {
+                    focusedField = Address.Field.street(addressType: .billing)
+                }
+            TextField("Street, number", text: $accountViewModel.billingAddress)
+                .focused($focusedField, equals: Address.Field.street(addressType: .billing))
+                .onSubmit {
+                    focusedField = Address.Field.apartment(addressType: .billing)
+                }
+            TextField("Apartment", text: $accountViewModel.billingAddress2)
+                .focused($focusedField, equals: Address.Field.apartment(addressType: .billing))
+                .onSubmit {
+                    focusedField = Address.Field.postcode(addressType: .billing)
+                }
+            TextField("Postcode", text: $accountViewModel.billingPostcode)
+                .focused($focusedField, equals: Address.Field.postcode(addressType: .billing))
+                .onSubmit {
+                    focusedField = Address.Field.city(addressType: .billing)
+                }
+            TextField("City", text: $accountViewModel.billingCity)
+                .focused($focusedField, equals: Address.Field.city(addressType: .billing))
+                .onSubmit {
+                    focusedField = Address.Field.state(addressType: .billing)
+                }
+            TextField("State", text: $accountViewModel.billingState)
+                .focused($focusedField, equals: Address.Field.state(addressType: .billing))
+                .onSubmit {
+                    focusedField = Address.Field.phone(addressType: .billing)
+                }
+            TextField("Phone", text: $accountViewModel.billingPhone)
+                .focused($focusedField, equals: Address.Field.phone(addressType: .billing))
+                .onSubmit {
+                    focusedField = Address.Field.email(addressType: .billing)
+                }
+            TextField("email", text: $accountViewModel.billingEmail)
+                .focused($focusedField, equals: Address.Field.email(addressType: .billing))
+                .onSubmit {
+                    focusedField = nil
+                }
+        }
     }
 }
 

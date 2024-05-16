@@ -165,7 +165,8 @@ final class StoreClientTests: XCTestCase {
                 postcode: "09090",
                 country: "OR",
                 phone: "9498565231",
-                email: "werqewrq@gmail.com"
+                email: "werqewrq@gmail.com",
+                addressType: .billing
             ),
             shipping: Address(
                 firstName: "asdfasdf",
@@ -178,7 +179,8 @@ final class StoreClientTests: XCTestCase {
                 postcode: "09090",
                 country: "OR",
                 phone: "9498565231",
-                email: nil
+                email: nil,
+                addressType: .shipping
             )
         )
         let data = try await client.createNewCustomer(
