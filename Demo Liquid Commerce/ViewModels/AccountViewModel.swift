@@ -79,6 +79,7 @@ class AccountViewModel: ObservableObject {
     @Published var shippingPhoneError = false
     @Published var shippingEmailError = false
 
+    @Published var errorFields: [any ValidationField] = []
     let client: StoreClient
     unowned let mainViewViewModel: MainViewViewModel
 
@@ -113,7 +114,7 @@ class AccountViewModel: ObservableObject {
         viewStatus = .choiceMenu
     }
 
-    fileprivate func handleCustomerField(_ errorField: Customer.Field) { 
+    fileprivate func handleCustomerField(_ errorField: Customer.Field) {
         switch errorField {
         case .username:
             newUsernameError = true
@@ -135,7 +136,7 @@ class AccountViewModel: ObservableObject {
         case Address.Field.name(addressType: .billing):
             billingNameError = true
         case Address.Field.name(addressType: .shipping):
-            billingNameError = true
+            shippingNameError = true
         case Address.Field.surname(addressType: .billing):
             billingSurnameError = true
         case Address.Field.surname(addressType: .shipping):
@@ -191,7 +192,7 @@ class AccountViewModel: ObservableObject {
 
     func registerNewCustomer() async {
 
-        let newCustomer = Customer(
+        var newCustomer = Customer(
             id: nil,
             username: username,
             firstName: name,
@@ -226,8 +227,11 @@ class AccountViewModel: ObservableObject {
                 email: shippingEmail,
                 addressType: .shipping
             ))
+        if !billingAddressToggle {
+            newCustomer.shipping = newCustomer.billing
+        }
         do {
-            try newCustomer.validate()
+            try newCustomer.validate(billingAddressToggle)
             try await client.createNewCustomer(newCustomer)
         } catch  ValidationError.invalidFields(let errorFields) {
             handleErrorFields(errorFields)

@@ -17,7 +17,7 @@ struct Customer: Codable, Equatable, FieldsValidator {
     var billing: Address?
     var shipping: Address?
 
-    public func validate() throws {
+    public func validate(_ shippingAddressIsDifferentThanBilling: Bool) throws {
         var errorFields = [any ValidationField]()
         if username.isEmpty { errorFields.append(Field.username) }
         if firstName.isEmpty { errorFields.append(Field.name) }
@@ -26,14 +26,20 @@ struct Customer: Codable, Equatable, FieldsValidator {
         if password?.isEmpty ?? true { errorFields.append(Field.password) }
         do {
             try billing?.validate()
-            try shipping?.validate()
         } catch ValidationError.invalidFields(let addressErrorFields) {
             errorFields.append(contentsOf: addressErrorFields)
+        }
+        if shippingAddressIsDifferentThanBilling {
+            do {
+                try shipping?.validate()
+            } catch ValidationError.invalidFields(let addressErrorFields) {
+                errorFields.append(contentsOf: addressErrorFields)
+            }
         }
         if !errorFields.isEmpty { throw ValidationError.invalidFields(errorFields: errorFields) }
     }
 
-    enum Field: ValidationField {
+    enum Field: ValidationField, Equatable {
         case username
         case name
         case surname
