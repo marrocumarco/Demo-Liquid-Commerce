@@ -10,7 +10,7 @@ import Foundation
 protocol ValidationField: Hashable {}
 
 protocol FieldsValidator {
-    func validate(_ flag: Bool) throws
+    func validate() throws
 }
 
 enum ValidationError: Error {

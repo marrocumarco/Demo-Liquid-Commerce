@@ -98,7 +98,7 @@ struct Address: Codable, Equatable, FieldsValidator {
         case shipping
     }
 
-    func validate(_ flag: Bool = false) throws {
+    func validate() throws {
         var errorFields = [Field]()
         if firstName.isEmpty { errorFields.append(.name(addressType: addressType)) }
         if lastName.isEmpty { errorFields.append(.surname(addressType: addressType)) }

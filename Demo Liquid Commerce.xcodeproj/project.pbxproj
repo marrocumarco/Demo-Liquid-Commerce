@@ -48,6 +48,8 @@
 		EB9993312B55E36900ED0BF9 /* LoggedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9993302B55E36900ED0BF9 /* LoggedUser.swift */; };
 		EBA86DD92B100F16009B1D5C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA86DD82B100F16009B1D5C /* Category.swift */; };
 		EBB178D72BE1A4BE001AE01B /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB178D62BE1A4BE001AE01B /* CartItem.swift */; };
+		EBB5DC332C00FDFD00FDE1C8 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5DC322C00FDFD00FDE1C8 /* AddressView.swift */; };
+		EBB5DC352C01024300FDE1C8 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5DC342C01024300FDE1C8 /* AddressViewModel.swift */; };
 		EBC88DE02BE9718700671E03 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC88DDF2BE9718700671E03 /* AccountView.swift */; };
 		EBC88DE22BE9747600671E03 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC88DE12BE9747600671E03 /* AccountViewModel.swift */; };
 		EBF150D02BF3FE9200570636 /* FieldsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF150CF2BF3FE9200570636 /* FieldsValidator.swift */; };
@@ -123,6 +125,8 @@
 		EB9993302B55E36900ED0BF9 /* LoggedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedUser.swift; sourceTree = "<group>"; };
 		EBA86DD82B100F16009B1D5C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		EBB178D62BE1A4BE001AE01B /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		EBB5DC322C00FDFD00FDE1C8 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		EBB5DC342C01024300FDE1C8 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
 		EBC88DDF2BE9718700671E03 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		EBC88DE12BE9747600671E03 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		EBF150CF2BF3FE9200570636 /* FieldsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsValidator.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 				EB167BB22AE99778003DDB57 /* MainViewViewModel.swift */,
 				EB6707642BDBF9E300B34BDB /* PaymentViewModel.swift */,
 				EBC88DE12BE9747600671E03 /* AccountViewModel.swift */,
+				EBB5DC342C01024300FDE1C8 /* AddressViewModel.swift */,
 				EB6707722BDC06B800B34BDB /* CartViewModel.swift */,
 				EB167BB42AE9D162003DDB57 /* ProductsListViewModel.swift */,
 			);
@@ -320,6 +325,7 @@
 			children = (
 				EB58A9C42ADF333E00E33BF4 /* MainView.swift */,
 				EBC88DDF2BE9718700671E03 /* AccountView.swift */,
+				EBB5DC322C00FDFD00FDE1C8 /* AddressView.swift */,
 				EB67076E2BDC005700B34BDB /* CheckoutView.swift */,
 				EB6DCAF82B25C52700215639 /* ProductCardView.swift */,
 				EB6707702BDC061500B34BDB /* CartView.swift */,
@@ -494,6 +500,7 @@
 				EBC88DE22BE9747600671E03 /* AccountViewModel.swift in Sources */,
 				EB6707712BDC061500B34BDB /* CartView.swift in Sources */,
 				EB6DCAF92B25C52700215639 /* ProductCardView.swift in Sources */,
+				EBB5DC332C00FDFD00FDE1C8 /* AddressView.swift in Sources */,
 				EB1938482BE59E30008D71B3 /* MockStoreClient.swift in Sources */,
 				EB1CEBF62BDBB66700178B41 /* PaymentClient.swift in Sources */,
 				EB1CEBF92BDBDCC700178B41 /* StripeCheckoutResponse.swift in Sources */,
@@ -514,6 +521,7 @@
 				EB67076F2BDC005700B34BDB /* CheckoutView.swift in Sources */,
 				EB2947D72BE2435B00CBD2B5 /* CalculatedCart.swift in Sources */,
 				EB9993312B55E36900ED0BF9 /* LoggedUser.swift in Sources */,
+				EBB5DC352C01024300FDE1C8 /* AddressViewModel.swift in Sources */,
 				EB167BB02AE9921A003DDB57 /* OAuthClient.swift in Sources */,
 				EBF150D02BF3FE9200570636 /* FieldsValidator.swift in Sources */,
 				EB167BAE2AE99127003DDB57 /* StoreClient.swift in Sources */,
