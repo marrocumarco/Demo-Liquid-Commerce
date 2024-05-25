@@ -102,35 +102,47 @@ struct RegistrationView: View {
         ScrollView(.vertical) {
             VStack(alignment: .leading) {
                     Group {
-                        ErrorField(isErrorEnabled: $accountViewModel.newUsernameError, errorMessage: "Insert a valid") {
+                        ErrorField(
+                            isErrorEnabled: $accountViewModel.newUsernameError,
+                            errorMessage: "Insert a valid username"
+                        ) {
                             TextField("Username", text: $accountViewModel.newUsername)
                                 .focused($focusedField, equals: Customer.Field.username)
                                 .onSubmit {
                                     focusedField = Customer.Field.firstName
                                 }
                         }
-                        ErrorField(isErrorEnabled: $accountViewModel.nameError, errorMessage: "Insert a valid") {
+                        ErrorField(
+                            isErrorEnabled: $accountViewModel.nameError,
+                            errorMessage: "Insert a valid first name"
+                        ) {
                             TextField("Name", text: $accountViewModel.name)
                                 .focused($focusedField, equals: Customer.Field.firstName)
                                 .onSubmit {
                                     focusedField = Customer.Field.lastName
                                 }
                         }
-                        ErrorField(isErrorEnabled: $accountViewModel.surnameError, errorMessage: "Insert a valid") {
+                        ErrorField(
+                            isErrorEnabled: $accountViewModel.surnameError,
+                            errorMessage: "Insert a valid last name"
+                        ) {
                             TextField("Surname", text: $accountViewModel.surname)
                                 .focused($focusedField, equals: Customer.Field.lastName)
                                 .onSubmit {
                                     focusedField = Customer.Field.email
                                 }
                         }
-                        ErrorField(isErrorEnabled: $accountViewModel.emailError, errorMessage: "Insert a valid") {
+                        ErrorField(isErrorEnabled: $accountViewModel.emailError, errorMessage: "Insert a valid email") {
                             TextField("Email", text: $accountViewModel.email)
                                 .focused($focusedField, equals: Customer.Field.email)
                                 .onSubmit {
                                     focusedField = Customer.Field.password
                                 }
                         }
-                        ErrorField(isErrorEnabled: $accountViewModel.newPasswordError, errorMessage: "Insert a valid") {
+                        ErrorField(
+                            isErrorEnabled: $accountViewModel.newPasswordError,
+                            errorMessage: "Insert a valid password"
+                        ) {
                             SecureField("Password", text: $accountViewModel.newPassword)
                                 .focused($focusedField, equals: Customer.Field.password)
                                 .onSubmit {
@@ -139,7 +151,7 @@ struct RegistrationView: View {
                         }
                         ErrorField(
                             isErrorEnabled: $accountViewModel.repeatedpasswordError,
-                            errorMessage: "Insert a valid"
+                            errorMessage: "Insert a valid password"
                         ) {
                             SecureField("Repeat password", text: $accountViewModel.repeatedpassword)
                                 .focused($focusedField, equals: Customer.Field.repeatPassword)

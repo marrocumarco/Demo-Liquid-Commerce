@@ -110,6 +110,26 @@ extension StoreClient {
                                         ))
     }
 
+    func updateCustomerBillingAddress(_ customerId: Int, address: Address) async throws -> Data {
+        guard let url = URL(string: StringConstants.basePathStore.rawValue.appending("customers"))?
+            .appending(component: customerId.description) else {
+            throw StoreClientError.invalidBasePath }
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        var parameters = [String: Address]()
+        parameters[address.addressType == .billing ? "billing" : "shipping"] = address
+        let body = try encoder.encode(parameters)
+        return try await executeCall(url,
+                                     httpMethod: HTTPMethod.PUT.rawValue,
+                                     queryItems: [],
+                                     httpBody: body,
+                                     credentials:
+                                        Credentials(
+                                            key: CredentialsManager.storeAPIKey,
+                                            secret: CredentialsManager.storeAPISecret
+                                        ))
+    }
+
     func getCustomers() async throws -> Data {
         guard let url = URL(string: StringConstants.basePathStore.rawValue.appending("customers")) else {
             throw StoreClientError.invalidBasePath }

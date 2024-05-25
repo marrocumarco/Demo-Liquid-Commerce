@@ -223,14 +223,28 @@ final class StoreClientTests: XCTestCase {
         let data = try await client.updateCustomer(
             existentCustomer
         )
-        let modifiedCustomer: Customer = try StoreParser().parse(
-            data
-        )
-        XCTAssert(
-            modifiedCustomer == existentCustomer
-        )
+        let modifiedCustomer: Customer = try StoreParser().parse(data)
+        XCTAssert(modifiedCustomer == existentCustomer)
     }
-    
+
+    func testUpdateCustomerBillingAddress_success() async throws {
+        let address = Address(firstName: "indirizzo", lastName: "modificato", address1: "", address2: "", city: "", state: "", postcode: "", country: "", addressType: .billing)
+        let data = try await client.updateCustomerBillingAddress(25, address: address)
+
+        let modifiedCustomer: Customer = try StoreParser().parse(data)
+        XCTAssert(modifiedCustomer.billing?.firstName == "indirizzo")
+        XCTAssert(modifiedCustomer.billing?.lastName == "modificato")
+    }
+
+    func testUpdateCustomerShippingAddress_success() async throws {
+        let address = Address(firstName: "indirizzo", lastName: "modificato", address1: "", address2: "", city: "", state: "", postcode: "", country: "", addressType: .shipping)
+        let data = try await client.updateCustomerBillingAddress(25, address: address)
+
+        let modifiedCustomer: Customer = try StoreParser().parse(data)
+        XCTAssert(modifiedCustomer.billing?.firstName == "indirizzo")
+        XCTAssert(modifiedCustomer.billing?.lastName == "modificato")
+    }
+
     func testCreateNewOrder_success() async throws {
         let customersData = try await client.getCustomers()
         let fetchedCustomers: [Customer] = try StoreParser().parse(
