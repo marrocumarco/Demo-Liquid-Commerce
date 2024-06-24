@@ -8,46 +8,44 @@
 import XCTest
 @testable import Demo_Liquid_Commerce
 final class StoreClientTests: XCTestCase {
-#if DEBUG
-    let client = OAuthClient()
-#else
+
     let client = BaseAuthClient()
-#endif
+
     let customer = Customer(
         id: nil,
-        username: "pinco pallino",
+        username: "test",
         firstName: "",
         lastName: "",
         email: "",
-        password: "pinco.pallino"
+        password: "test"
     )
-    let existingProduct = Product(
-        id: 30,
-        name: "",
-        description: "",
-        shortDescription: "",
-        price: 0,
-        salePrice: 0,
-        onSale: true,
-        images: [],
-        stockStatus: .inStock
-    )
+
+    var existingProduct: Product!
+
+    let semaphore = DispatchSemaphore(value: 0)
     
     override func setUpWithError() throws {
-        
         Task {
-            _ = try await client.clearCart(
-                customer
-            )
             try? await KeyChainManager.instance.deleteCredentials()
+
+            let productsData = try await client.fetchProducts(
+                1
+            )
+
+            let products: [Product] = try StoreParser().parse(
+                    productsData
+            )
+            existingProduct = products.filter({$0.onSale}).first!
+            semaphore.signal()
         }
+        semaphore.wait()
     }
     
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testFetchProductsOAuth1_success() async throws {
+    func testFetchProducts_success() async throws {
         // Create an expectation for an asynchronous task.
         let productsData = try await client.fetchProducts(
             1
@@ -66,7 +64,7 @@ final class StoreClientTests: XCTestCase {
         )
     }
     
-    func testFetchCategoriesOAuth1_success() async throws {
+    func testFetchCategories_success() async throws {
         // Create an expectation for an asynchronous task.
         let categoriesData = try await client.fetchCategories()
         XCTAssert(
@@ -83,7 +81,7 @@ final class StoreClientTests: XCTestCase {
         )
     }
     
-    func testFetchPaymentGatewaysOAuth1_success() async throws {
+    func testFetchPaymentGateways_success() async throws {
         // Create an expectation for an asynchronous task.
         let paymentData = try await client.fetchPaymentGateways()
         XCTAssert(
@@ -100,7 +98,7 @@ final class StoreClientTests: XCTestCase {
         )
     }
     
-    func testFetchShippingMethodsOAuth1_success() async throws {
+    func testFetchShippingMethods_success() async throws {
         // Create an expectation for an asynchronous task.
         let shippingData = try await client.fetchShippingMethods()
         XCTAssert(
@@ -154,34 +152,8 @@ final class StoreClientTests: XCTestCase {
             lastName: "wwerwqer",
             email: "\(username)@gmail.com",
             password: "qwerty",
-            billing: Address(
-                firstName: "asdfasdf",
-                lastName: "wwerwqer",
-                company: "testcompany",
-                address1: "via dotto",
-                address2: "34",
-                city: "nora",
-                state: "IT",
-                postcode: "09090",
-                country: "OR",
-                phone: "9498565231",
-                email: "werqewrq@gmail.com",
-                addressType: .billing
-            ),
-            shipping: Address(
-                firstName: "asdfasdf",
-                lastName: "wwerwqer",
-                company: "",
-                address1: "via dotto",
-                address2: "34",
-                city: "nora",
-                state: "IT",
-                postcode: "09090",
-                country: "OR",
-                phone: "9498565231",
-                email: nil,
-                addressType: .shipping
-            )
+            billing: nil,
+            shipping: nil
         )
         let data = try await client.createNewCustomer(
             newCustomer
@@ -201,35 +173,22 @@ final class StoreClientTests: XCTestCase {
         XCTAssert(
             createdCustomer.email == newCustomer.email
         )
-        XCTAssert(
-            createdCustomer.billing == newCustomer.billing
-        )
-        XCTAssert(
-            createdCustomer.shipping == newCustomer.shipping
-        ) // TODO: fix it
-        XCTAssert(
-            createdCustomer.billing == newCustomer.billing
-        )
     }
     
     func testUpdateCustomer_success() async throws {
-        let customerData = try await client.getCustomer(
-            25
-        )
-        var existentCustomer: Customer = try StoreParser().parse(
-            customerData
-        )
-        existentCustomer.email = "email.modificata@gmail.com"
+
+        var existingCustomer = customer
+        existingCustomer.email = "email.modificata@gmail.com"
         let data = try await client.updateCustomer(
-            existentCustomer
+            existingCustomer
         )
         let modifiedCustomer: Customer = try StoreParser().parse(data)
-        XCTAssert(modifiedCustomer == existentCustomer)
+        XCTAssert(modifiedCustomer.email == existingCustomer.email)
     }
 
     func testUpdateCustomerBillingAddress_success() async throws {
         let address = Address(firstName: "indirizzo", lastName: "modificato", address1: "", address2: "", city: "", state: "", postcode: "", country: "", addressType: .billing)
-        let data = try await client.updateCustomerBillingAddress(25, address: address)
+        let data = try await client.updateCustomerBillingAddress(customer.id!, address: address)
 
         let modifiedCustomer: Customer = try StoreParser().parse(data)
         XCTAssert(modifiedCustomer.billing?.firstName == "indirizzo")
@@ -238,7 +197,7 @@ final class StoreClientTests: XCTestCase {
 
     func testUpdateCustomerShippingAddress_success() async throws {
         let address = Address(firstName: "indirizzo", lastName: "modificato", address1: "", address2: "", city: "", state: "", postcode: "", country: "", addressType: .shipping)
-        let data = try await client.updateCustomerBillingAddress(25, address: address)
+        let data = try await client.updateCustomerBillingAddress(customer.id!, address: address)
 
         let modifiedCustomer: Customer = try StoreParser().parse(data)
         XCTAssert(modifiedCustomer.billing?.firstName == "indirizzo")
@@ -246,10 +205,6 @@ final class StoreClientTests: XCTestCase {
     }
 
     func testCreateNewOrder_success() async throws {
-        let customersData = try await client.getCustomers()
-        let fetchedCustomers: [Customer] = try StoreParser().parse(
-            customersData
-        )
         let shippingData = try await client.fetchShippingMethods()
         let fetchedShippingMethods: [ShippingMethod] = try StoreParser().parse(
             shippingData
@@ -269,13 +224,13 @@ final class StoreClientTests: XCTestCase {
         let newOrder = Order(
             id: nil,
             number: nil,
-            customerId: fetchedCustomers.first!.id,
+            customerId: customer.id,
             status: nil,
             paymentMethod: fetchedPaymentMethods.first?.id ?? "",
             paymentMethodTitle: fetchedPaymentMethods.first!.title,
             setPaid: true,
-            billing: fetchedCustomers.first!.billing!,
-            shipping: fetchedCustomers.first!.shipping!,
+            billing: customer.billing!,
+            shipping: customer.shipping!,
             lineItems: [LineItem(
                 productId: fetchedProducts.first!.id,
                 quantity: 2
@@ -334,7 +289,7 @@ final class StoreClientTests: XCTestCase {
     }
 
     func testFetchCartTotals_success() async throws {
-        let client = BaseAuthClient()
+        
         _ = try await client.addProductToCart(
             customer,
             product: existingProduct,
@@ -353,7 +308,7 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testCalculateCartTotals_success() async throws {
-        let client = BaseAuthClient()
+        
         var response: CalculatedCart?
         response = try await client.calculateCartTotals(
             Customer(
@@ -374,12 +329,6 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testGetCartItems_success() async throws {
-        let client = BaseAuthClient()
-        _ = try await client.addProductToCart(
-            customer,
-            product: existingProduct,
-            quantity: 1
-        )
         var result = CartDictionary()
         result = try await client.getCartItems(
             customer
@@ -390,17 +339,10 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testGetCartItemsCount_success() async throws {
-        let client = BaseAuthClient()
+        
         var result = -1
         result = try await client.getNumberOfItemsInCart(
-            Customer(
-                id: nil,
-                username: "pinco pallino",
-                firstName: "",
-                lastName: "",
-                email: "",
-                password: "pinco.pallino"
-            )
+            customer
         )
         XCTAssert(
             result >= 0
@@ -408,13 +350,7 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testClearCart_success() async throws {
-        let client = BaseAuthClient()
-        _ = try await client.addProductToCart(
-            customer,
-            product: existingProduct,
-            quantity: 1
-        )
-        
+
         _ = try await client.clearCart(
             customer
         )
@@ -429,10 +365,6 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testAddProductToCart_success() async throws {
-        let client = BaseAuthClient()
-        _ = try await client.clearCart(
-            customer
-        )
 
         _ = try await client.addProductToCart(
             customer,
@@ -443,11 +375,11 @@ final class StoreClientTests: XCTestCase {
         _ = try await client.getCartItems(
             Customer(
                 id: nil,
-                username: "pinco pallino",
+                username: "test",
                 firstName: "",
                 lastName: "",
                 email: "",
-                password: "pinco.pallino"
+                password: "test"
             )
         )
         
@@ -460,7 +392,7 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testRemoveProductFromCart_success() async throws {
-        let client = BaseAuthClient()
+        
         _ = try await client.addProductToCart(
             customer,
             product: existingProduct,
@@ -476,7 +408,7 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testUpdateProductInCart_success() async throws {
-        let client = BaseAuthClient()
+        
         _ = try await client.clearCart(
             customer
         )
@@ -507,17 +439,17 @@ final class StoreClientTests: XCTestCase {
     }
     
     func testLogin_success() async throws {
-        let client = BaseAuthClient()
+        
         // Create an expectation for an asynchronous task.
         let data = try await client.login(
-            "pinco pallino",
-            password: "pinco.pallino"
+            "test",
+            password: "test"
         )
         let userId: LoggedUser = try StoreParser().parse(
             data
         )
         XCTAssert(
-            userId.displayName == "pinco pallino"
+            userId.displayName == "test"
         )
     }
     

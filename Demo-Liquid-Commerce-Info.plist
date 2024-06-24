@@ -14,10 +14,5 @@
 	<string>$(TEST_STRIPE_API_KEY)</string>
 	<key>TEST_STRIPE_API_SECRET</key>
 	<string>$(TEST_STRIPE_API_SECRET)</string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 </dict>
 </plist>

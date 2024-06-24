@@ -37,7 +37,7 @@ struct MainView: View {
 #Preview {
     MainView(
         viewModel: MainViewViewModel(
-            client: OAuthClient(),
+            client: BaseAuthClient(),
             parser: StoreParser(),
             authenticationManager: MockAuthenticationManager()
         )

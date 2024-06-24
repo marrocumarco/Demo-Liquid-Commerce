@@ -8,6 +8,7 @@
 import Foundation
 import CommonCrypto
 
+@available(*, unavailable)
 struct OAuthClient: StoreClient {
     func executeCall(_ endPoint: URL,
                      httpMethod: String,

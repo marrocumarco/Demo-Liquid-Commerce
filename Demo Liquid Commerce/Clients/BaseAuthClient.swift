@@ -13,6 +13,10 @@ struct Credentials: Equatable {
 
 struct BaseAuthClient: StoreClient {
 
+    #if DEBUG
+    let truster = SSLTruster()
+    #endif
+
     func executeCall(_ endPoint: URL,
                      httpMethod: String,
                      queryItems: [URLQueryItem],
@@ -28,7 +32,12 @@ struct BaseAuthClient: StoreClient {
             request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
             request.httpBody = httpBody
         }
+        #if DEBUG
+        let session = URLSession(configuration: .default, delegate: truster, delegateQueue: nil)
+        let (data, response) = try await session.data(for: request)
+        #else
         let (data, response) = try await URLSession.shared.data(for: request)
+        #endif
         guard let status = (response as? HTTPURLResponse)?.status else { throw
             StoreClientError.undefinedHTTPStatusCode }
         try HTTPUtilities.checkHTTPStatus(status, data: data)
@@ -36,3 +45,17 @@ struct BaseAuthClient: StoreClient {
         return data
     }
 }
+
+#if DEBUG
+class SSLTruster: NSObject, URLSessionDelegate {
+    func urlSession(
+        _ session: URLSession,
+        didReceive challenge: URLAuthenticationChallenge
+    ) async -> (URLSession.AuthChallengeDisposition, URLCredential?) {
+        // Trust the certificate even if not valid
+        let urlCredential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+
+        return (.useCredential, urlCredential)
+    }
+}
+#endif

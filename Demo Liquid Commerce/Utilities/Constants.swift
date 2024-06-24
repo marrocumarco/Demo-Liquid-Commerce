@@ -11,13 +11,13 @@ enum StringConstants: String {
     case keyChainServerString = "www.demoliquid.it"
     #if DEBUG
     #if targetEnvironment(simulator)
-    case basePathStore = "http://localhost/wordpress/wp-json/wc/v3/"
-    case basePathSite = "http://localhost/wordpress/wp-json/wp/v2/"
-    case basePathCart = "http://localhost/wordpress/wp-json/cocart/v2/"
+    case basePathStore = "https://localhost/testsite/wp-json/wc/v3/"
+    case basePathSite = "https://localhost/testsite/wp-json/wp/v2/"
+    case basePathCart = "https://localhost/testsite/wp-json/cocart/v2/"
     #else
-    case basePathStore = "http://192.168.0.153/wordpress/wp-json/wc/v3/"
-    case basePathSite = "http://192.168.0.153/wordpress/wp-json/wp/v2/"
-    case basePathCart = "http://192.168.0.153/wordpress/wp-json/cocart/v2/"
+    case basePathStore = "https://192.168.0.153/testsite/wp-json/wc/v3/"
+    case basePathSite = "https://192.168.0.153/testsite/wp-json/wp/v2/"
+    case basePathCart = "https://192.168.0.153/testsite/wp-json/cocart/v2/"
     #endif
     #else
     case basePathStore = "https://www.demoliquid.it/wp-json/wc/v3/"

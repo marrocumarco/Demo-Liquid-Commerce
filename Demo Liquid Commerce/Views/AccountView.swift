@@ -47,7 +47,7 @@ struct AccountView: View {
                         Group {
                             ErrorField(
                                 isErrorEnabled: $accountViewModel.usernameError,
-                                errorMessage: "Insert a valid"
+                                errorMessage: "Insert a valid username"
                             ) {
                                 TextField("Username", text: $accountViewModel.username)
                                     .focused($focusedField, equals: .username)
@@ -57,7 +57,7 @@ struct AccountView: View {
                             }
                             ErrorField(
                                 isErrorEnabled: $accountViewModel.passwordError,
-                                errorMessage: "Insert a valid"
+                                errorMessage: "Insert a valid password"
                             ) {
                                 SecureField("Password", text: $accountViewModel.password)
                                     .focused($focusedField, equals: .password)

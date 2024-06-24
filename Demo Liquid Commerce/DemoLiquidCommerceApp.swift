@@ -24,7 +24,7 @@ struct DemoLiquidCommerceApp: App {
         WindowGroup {
             MainView(
                 viewModel: MainViewViewModel(
-                    client: OAuthClient(),
+                    client: BaseAuthClient(),
                     parser: StoreParser(),
                     authenticationManager: KeyChainManager.instance
                 )

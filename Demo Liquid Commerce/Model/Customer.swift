@@ -24,7 +24,6 @@ struct Customer: Codable, Equatable, FieldsValidator {
         if lastName.isEmpty { errorFields.append(Field.lastName) }
         if email.isEmpty { errorFields.append(Field.email) }
         if password?.isEmpty ?? true { errorFields.append(Field.password) }
-
         if !errorFields.isEmpty { throw ValidationError.invalidFields(errorFields: errorFields) }
     }
 

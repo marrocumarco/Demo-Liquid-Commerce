@@ -130,8 +130,9 @@ extension StoreClient {
                                         ))
     }
 
-    func getCustomers() async throws -> Data {
-        guard let url = URL(string: StringConstants.basePathStore.rawValue.appending("customers")) else {
+    func getCustomer(_ id: Int) async throws -> Data {
+        guard let url = URL(string: StringConstants.basePathStore.rawValue.appending("customers"))?
+            .appending(component: id.description) else {
             throw StoreClientError.invalidBasePath }
 
         return try await executeCall(url,
@@ -145,9 +146,8 @@ extension StoreClient {
                                         ))
     }
 
-    func getCustomer(_ id: Int) async throws -> Data {
-        guard let url = URL(string: StringConstants.basePathStore.rawValue.appending("customers"))?
-            .appending(component: id.description) else {
+    func getCustomers() async throws -> Data {
+        guard let url = URL(string: StringConstants.basePathStore.rawValue.appending("customers")) else {
             throw StoreClientError.invalidBasePath }
 
         return try await executeCall(url,

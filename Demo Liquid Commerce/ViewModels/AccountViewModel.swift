@@ -34,7 +34,8 @@ class AccountViewModel: ObservableObject {
     @Published var newPasswordError = false
     @Published var repeatedpasswordError = false
 
-    @Published var errorFields: [any ValidationField] = []
+//    @Published var errorFields: [any ValidationField] = []
+
     let client: StoreClient
     unowned let mainViewViewModel: MainViewViewModel
 
@@ -69,6 +70,18 @@ class AccountViewModel: ObservableObject {
         viewStatus = .choiceMenu
     }
 
+    private func invalidateFields() {
+        usernameError = false
+        passwordError = false
+        errorCaptionError = false
+        newUsernameError = false
+        nameError = false
+        surnameError = false
+        emailError = false
+        newPasswordError = false
+        repeatedpasswordError = false
+    }
+
     fileprivate func handleErrorFields(_ errorFields: [Customer.Field]) {
         errorFields.forEach { errorField in
             switch errorField {
@@ -90,17 +103,22 @@ class AccountViewModel: ObservableObject {
 
     func registerNewCustomer() async {
 
-        var newCustomer = Customer(
+        let newCustomer = Customer(
             id: nil,
-            username: username,
+            username: newUsername,
             firstName: name,
             lastName: surname,
             email: email,
-            password: password,
+            password: newPassword,
             billing: nil,
             shipping: nil)
         do {
+            invalidateFields()
             try newCustomer.validate()
+            if newPassword != repeatedpassword {
+                repeatedpasswordError = true
+                return
+            }
             try await client.createNewCustomer(newCustomer)
         } catch  ValidationError.invalidFields(let errorFields) {
             guard let errorFields = errorFields as? [Customer.Field] else { return }
